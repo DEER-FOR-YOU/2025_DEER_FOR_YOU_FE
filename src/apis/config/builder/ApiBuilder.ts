@@ -1,8 +1,10 @@
 import apiClient from '../apiClient';
-import { useQuery, useMutation } from '@tanstack/react-query';
-import type {
-  UseQueryOptions,
-  UseMutationOptions,
+import {
+  useQuery,
+  useMutation,
+  type UseQueryOptions,
+  type UseMutationOptions,
+  type QueryKey,
 } from '@tanstack/react-query';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 
@@ -56,7 +58,6 @@ class ApiBuilder<T = any, R = any> {
     return apiClient(requestConfig);
   }
 
-  // Hook 대신 쿼리 함수를 반환하는 메서드
   getQueryFn() {
     return async () => {
       const response = await this.execute();
@@ -64,7 +65,6 @@ class ApiBuilder<T = any, R = any> {
     };
   }
 
-  // Hook 대신 뮤테이션 함수를 반환하는 메서드
   getMutationFn() {
     return async (data: T) => {
       this.setData(data);
@@ -74,23 +74,29 @@ class ApiBuilder<T = any, R = any> {
   }
 }
 
-export function useApiQuery<T, R>(
+/**
+ * useApiQuery — React Query 모든 옵션 지원
+ */
+export function useApiQuery<T, R, TError = Error>(
   apiBuilder: ApiBuilder<T, R>,
-  queryKey: any,
-  options?: UseQueryOptions<R>,
+  queryKey: QueryKey,
+  options?: UseQueryOptions<R, TError, R>,
 ) {
-  return useQuery<R>({
+  return useQuery<R, TError>({
     queryKey: Array.isArray(queryKey) ? queryKey : [queryKey],
     queryFn: apiBuilder.getQueryFn(),
     ...options,
   });
 }
 
-export function useApiMutation<T, R>(
+/**
+ * useApiMutation — React Query 모든 옵션 지원
+ */
+export function useApiMutation<T, R, TError = Error>(
   apiBuilder: ApiBuilder<T, R>,
-  options?: UseMutationOptions<R, unknown, T>,
+  options?: UseMutationOptions<R, TError, T>,
 ) {
-  return useMutation<R, unknown, T>({
+  return useMutation<R, TError, T>({
     mutationFn: apiBuilder.getMutationFn(),
     ...options,
   });
