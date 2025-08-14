@@ -8,7 +8,6 @@ import theme from './styles/theme';
 import { Global, ThemeProvider } from '@emotion/react';
 import globalStyles from './styles/globalStyle';
 import './App.css';
-import { AuthProvider } from './contexts/Auth/AuthContext';
 
 const App = () => {
   return (
@@ -16,9 +15,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <Suspense fallback={<div>Loading...</div>}>
           <Global styles={globalStyles} />
-          <AuthProvider>
-            <RouterProvider router={router} />
-          </AuthProvider>
+          <RouterProvider router={router} />
         </Suspense>
       </ThemeProvider>
     </QueryClientProvider>
