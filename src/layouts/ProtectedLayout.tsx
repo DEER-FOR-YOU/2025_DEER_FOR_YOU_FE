@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-const GuestLayout = () => {
+const ProtectedLayout = () => {
   return (
     <>
       <Outlet />
@@ -8,4 +8,4 @@ const GuestLayout = () => {
   );
 };
 
-export default GuestLayout;
+export default ProtectedLayout;
