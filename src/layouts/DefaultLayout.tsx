@@ -1,9 +1,13 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import Navbar from '../components/navbar';
 
 const DefaultLayout = () => {
+  const location = useLocation();
+  const showNavbar = ['/artist'].includes(location.pathname);
   return (
     <>
       <Outlet />
+      {showNavbar && <Navbar />}
     </>
   );
 };
