@@ -67,13 +67,18 @@ export const ContentText = styled.div`
   letter-spacing: -0.4px;
 `;
 
-export const DetailTextContainer = styled.div``;
+export const DetailTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
 
 export const DetailText = styled.div`
   font-size: 1.3rem;
   letter-spacing: -0.325px;
   font-family: Pretender;
   color: #a6afb7;
+  line-height: 1.5;
 `;
 
 export const SpanBlue = styled.span`
