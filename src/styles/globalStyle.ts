@@ -45,9 +45,12 @@ const globalStyles = css`
     vertical-align: baseline;
     box-sizing: border-box;
   }
-  html,
+  /* html,
   body {
     height: 100%;
+  } */
+  #root {
+    min-height: 100vh;
   }
   body {
     line-height: 1;
@@ -73,6 +76,22 @@ const globalStyles = css`
       'NeoDunggeunmoPro',
       'Pretendard',
       -apple-system;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  @media (max-width: 450px) {
+    html {
+      font-size: 56.25%; /* 9px */
+    }
+  }
+
+  @media (max-width: 350px) {
+    html {
+      font-size: 50%; /* 8px */
+    }
   }
 `;
 
