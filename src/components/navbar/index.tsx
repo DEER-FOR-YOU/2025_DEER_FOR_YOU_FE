@@ -13,7 +13,7 @@ export default function Navbar() {
       </S.NavbarItem>
       <S.NavbarItem>
         <img src={schedule} alt="schedule" />
-        <S.ItemText>일정</S.ItemText>
+        <S.ItemText>지도</S.ItemText>
       </S.NavbarItem>
       <S.NavbarItem>
         <img src={music} alt="music" />

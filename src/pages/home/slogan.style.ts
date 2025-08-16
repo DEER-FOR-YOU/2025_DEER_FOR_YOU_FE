@@ -5,6 +5,7 @@ export const SloganContainer = styled.div`
   background-color: #7f8992;
   overflow: hidden;
   white-space: nowrap;
+  cursor: pointer;
 `;
 
 export const SloganWrapper = styled.div`
