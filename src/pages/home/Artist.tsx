@@ -138,6 +138,7 @@ export default function Artist() {
 
       <S.SlideContainer
         ref={slideRef}
+        isDragging={isDragging}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -150,8 +151,8 @@ export default function Artist() {
           transition: isDragging ? 'none' : 'transform 0.3s ease',
         }}
       >
-        <S.ArtistCardWrapper>
-          <S.PrevArtistCard>
+        <S.ArtistCardWrapper isDragging={isDragging}>
+          <S.PrevArtistCard isDragging={isDragging}>
             <S.ArtistImage src={prevArtist.image} alt={prevArtist.name} />
             <S.ArtistCardOverlay2 />
           </S.PrevArtistCard>
@@ -163,7 +164,7 @@ export default function Artist() {
             <S.ArtistName>{currentArtist.name}</S.ArtistName>
           </S.CurrentArtistCard>
 
-          <S.NextArtistCard>
+          <S.NextArtistCard isDragging={isDragging}>
             <S.ArtistImage src={nextArtist.image} alt={nextArtist.name} />
             <S.ArtistCardOverlay2 />
           </S.NextArtistCard>

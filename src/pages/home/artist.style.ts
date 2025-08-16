@@ -76,7 +76,7 @@ export const MainRightText = styled.div`
   text-decoration: underline;
 `;
 
-export const SlideContainer = styled.div`
+export const SlideContainer = styled.div<{ isDragging?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,26 +84,26 @@ export const SlideContainer = styled.div`
   cursor: grab;
   user-select: none;
   touch-action: pan-y;
-  overflow: hidden;
+  overflow: ${({ isDragging }) => (isDragging ? 'visible' : 'hidden')};
 
   &:active {
     cursor: grabbing;
   }
 `;
 
-export const ArtistCardWrapper = styled.div`
+export const ArtistCardWrapper = styled.div<{ isDragging?: boolean }>`
   display: flex;
   align-items: center;
   gap: 0;
   position: relative;
 `;
 
-export const PrevArtistCard = styled.div`
+export const PrevArtistCard = styled.div<{ isDragging?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0.7) translateX(-20px);
-  /* opacity: 0.6; */
+  transform: scale(0.8) translateX(-15px);
+  /* opacity: 0.8; */
   pointer-events: none;
   transition: all 0.3s ease;
   position: relative;
@@ -120,12 +120,12 @@ export const CurrentArtistCard = styled.div`
   position: relative;
 `;
 
-export const NextArtistCard = styled.div`
+export const NextArtistCard = styled.div<{ isDragging?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0.7) translateX(20px);
-  /* opacity: 0.6; */
+  transform: scale(0.8) translateX(15px);
+  /* opacity: 0.8; */
   pointer-events: none;
   transition: all 0.3s ease;
   position: relative;
