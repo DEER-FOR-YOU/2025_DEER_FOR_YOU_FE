@@ -3,6 +3,7 @@ import * as S from './index.style';
 import Slogan from './Slogan';
 import Artist from './Artist';
 import Board from './Board';
+import Goods from './Goods';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Slogan />
       <Artist />
       <Board />
+      <Goods />
     </S.Container>
   );
 }
