@@ -71,7 +71,7 @@ export const ThumbnailItem = styled.div<{ src: string }>`
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid #d2d9df;
   position: relative;
-  z-index: 1; /* 부모를 위로 */
+  z-index: 0; /* 부모를 위로 */
 
   &::before {
     content: '';
@@ -80,7 +80,7 @@ export const ThumbnailItem = styled.div<{ src: string }>`
     background: url(${({ src }) => src}) no-repeat center center;
     background-size: cover;
     filter: blur(20px); /* 너무 크면 잘려서 보이지 않음 */
-    z-index: 0; /* 부모 바로 밑 */
+    z-index: -1; /* 부모 바로 밑 */
     opacity: 0.5;
   }
 
