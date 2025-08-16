@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import * as S from './itemList.style';
-import goods1 from '../../assets/goods/goods1.png';
-import goods2 from '../../assets/goods/goods2.png';
-import goods3 from '../../assets/goods/goods3.png';
-import goods4 from '../../assets/goods/goods4.png';
-import goods5 from '../../assets/goods/goods5.png';
+import goods1 from '../../assets/goods/goods1.svg';
+import goods2 from '../../assets/goods/goods2.svg';
+import goods3 from '../../assets/goods/goods3.svg';
+import goods4 from '../../assets/goods/goods4.svg';
+import goods5 from '../../assets/goods/goods5.svg';
 import Button from '../../components/button';
 import back from '../../assets/back.svg';
 import front from '../../assets/front.svg';

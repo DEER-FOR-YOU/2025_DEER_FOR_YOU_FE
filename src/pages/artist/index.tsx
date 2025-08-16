@@ -2,10 +2,10 @@ import React from 'react';
 import Header from '../../components/header';
 import Card from './Card';
 import * as S from './index.style';
-import crush from '../../assets/crush.png';
-import carder from '../../assets/carder.png';
-import sili from '../../assets/sili.png';
-import kiki from '../../assets/kiki.png';
+import crush from '../../assets/artists/crush.png';
+import carder from '../../assets/artists/carder.png';
+import sili from '../../assets/artists/sili.png';
+import kiki from '../../assets/artists/kiki.png';
 
 const data = [
   {
