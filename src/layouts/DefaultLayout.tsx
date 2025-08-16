@@ -3,7 +3,7 @@ import Navbar from '../components/navbar';
 
 const DefaultLayout = () => {
   const location = useLocation();
-  const showNavbar = ['/artist', '/goods'].includes(location.pathname);
+  const showNavbar = ['/artist', '/goods', '/'].includes(location.pathname);
   return (
     <>
       <Outlet />

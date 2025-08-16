@@ -6,6 +6,7 @@ import ProtectedLayout from './layouts/ProtectedLayout';
 
 const Artist = lazy(() => import('./pages/artist'));
 const Goods = lazy(() => import('./pages/goods'));
+const Home = lazy(() => import('./pages/home'));
 
 const withSuspense = (element: React.ReactNode) => (
   <Suspense fallback={<></>}>{element}</Suspense>
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         element: <GuestLayout />,
         children: [
+          {
+            path: '/',
+            element: withSuspense(<Home />),
+          },
           {
             path: '/artist',
             element: withSuspense(<Artist />),
