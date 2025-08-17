@@ -3,12 +3,13 @@ import * as S from './goods.style';
 import { useNavigate } from 'react-router-dom';
 
 import background from '../../assets/background.svg';
+import { ROUTES } from '../../constants/routes';
 
 export default function Goods() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/goods');
+    navigate(ROUTES.GOODS);
   };
 
   return (

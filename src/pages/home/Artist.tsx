@@ -5,6 +5,7 @@ import sili from '../../assets/artists/sili.png';
 import kiki from '../../assets/artists/kiki.png';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
+import { ROUTES } from '../../constants/routes';
 
 const artists = [
   {
@@ -43,7 +44,7 @@ export default function Artist() {
   const slideRef = useRef<HTMLDivElement>(null);
 
   const handleMore = () => {
-    navigate('/artist');
+    navigate(ROUTES.ARTISTS);
   };
 
   const handlePrev = () => {

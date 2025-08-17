@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout';
 import GuestLayout from './layouts/GuestLayout';
 import ProtectedLayout from './layouts/ProtectedLayout';
+import { ROUTES } from './constants/routes';
 
 const Artist = lazy(() => import('./pages/artist'));
 const Goods = lazy(() => import('./pages/goods'));
@@ -21,15 +22,15 @@ const router = createBrowserRouter([
         element: <GuestLayout />,
         children: [
           {
-            path: '/',
+            path: ROUTES.HOME,
             element: withSuspense(<Home />),
           },
           {
-            path: '/artist',
+            path: ROUTES.ARTISTS,
             element: withSuspense(<Artist />),
           },
           {
-            path: '/goods',
+            path: ROUTES.GOODS,
             element: withSuspense(<Goods />),
           },
         ],
