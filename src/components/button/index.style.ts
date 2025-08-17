@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ fullSize?: boolean }>`
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
   background: #7f8992;
+
+  /* width: 100%;
+  height: 100%; */
 `;
 
 export const Container = styled.div`
