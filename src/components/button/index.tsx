@@ -3,13 +3,15 @@ import * as S from './index.style';
 
 interface ButtonProps {
   children: React.ReactNode;
+  style?: React.CSSProperties;
+  style2?: React.CSSProperties;
 }
 
-export default function Button({ children }: ButtonProps) {
+export default function Button({ children, style, style2 }: ButtonProps) {
   return (
-    <S.Wrapper>
+    <S.Wrapper style={style}>
       <S.Container>
-        <S.Main>{children}</S.Main>
+        <S.Main style={style2}>{children}</S.Main>
       </S.Container>
     </S.Wrapper>
   );

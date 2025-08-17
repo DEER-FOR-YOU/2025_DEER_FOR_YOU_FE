@@ -4,6 +4,7 @@ import Slogan from './Slogan';
 import Artist from './Artist';
 import Board from './Board';
 import Goods from './Goods';
+import Event from './Event';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Artist />
       <Board />
       <Goods />
+      <Event />
     </S.Container>
   );
 }
