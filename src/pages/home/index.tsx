@@ -5,6 +5,7 @@ import Artist from './Artist';
 import Board from './Board';
 import Goods from './Goods';
 import Event from './Event';
+import Map from './Map';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Slogan />
       <Artist />
       <Board />
+      <Map />
       <Goods />
       <Event />
     </S.Container>
