@@ -148,7 +148,7 @@ export default function Artist() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         style={{
-          transform: `translateX(${dragOffset}px)`,
+          transform: isDragging ? `translateX(${dragOffset}px)` : 'none',
           transition: isDragging ? 'none' : 'transform 0.3s ease',
         }}
       >

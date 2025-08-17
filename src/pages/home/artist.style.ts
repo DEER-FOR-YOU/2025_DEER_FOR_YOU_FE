@@ -10,6 +10,7 @@ export const Container = styled.div<{ src: string }>`
   background-position: center;
   background-repeat: no-repeat;
   padding: 32px 0 20px 0;
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -85,6 +86,8 @@ export const SlideContainer = styled.div<{ isDragging?: boolean }>`
   user-select: none;
   touch-action: pan-y;
   overflow: ${({ isDragging }) => (isDragging ? 'visible' : 'hidden')};
+  position: relative;
+  z-index: 1;
 
   &:active {
     cursor: grabbing;
