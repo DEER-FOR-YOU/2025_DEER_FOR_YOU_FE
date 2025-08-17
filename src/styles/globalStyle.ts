@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
+import { fonts } from './fonts';
 
 const globalStyles = css`
+  ${fonts}
+
   * {
     margin: 0px;
     box-sizing: border-box;
