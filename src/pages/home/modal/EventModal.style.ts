@@ -15,133 +15,114 @@ export const Overlay = styled.div`
 
 export const ModalContent = styled.div`
   background: white;
-  border-radius: 8px;
-  width: 350px;
-  max-height: 90vh;
+  width: calc(100% - 40px);
   overflow-y: auto;
-  position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-`;
-
-export const CloseButton = styled.button`
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: #7f8992;
-  border: 1px solid #000;
-  color: white;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
+  top: 200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 36px 20px 0 20px;
+`;
+
+export const HeaderContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 20px;
+  margin-bottom: 2px;
+`;
+
+export const HeaderTitle = styled.div`
+  color: #000;
+  font-family: 'Pretendard';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 41.6px */
+  letter-spacing: -0.8px;
+`;
+export const CloseIcon = styled.img`
+  padding: 5px;
   cursor: pointer;
-  z-index: 10;
-
-  &:hover {
-    background: #6a737a;
-  }
 `;
 
-export const Header = styled.div`
-  padding: 40px 20px 20px;
-  text-align: left;
+export const Span = styled.span`
+  color: #0ea5e6;
+  font-family: 'Pretendard';
 `;
 
-export const Year = styled.div`
-  font-size: 32px;
-  font-weight: 700;
+export const FirstContent = styled.div`
   color: #000;
-  margin-bottom: 8px;
-  line-height: 42px;
-  letter-spacing: -0.8px;
-`;
-
-export const Title = styled.div`
-  font-size: 32px;
-  font-weight: 700;
-  color: #000;
-  line-height: 42px;
-  letter-spacing: -0.8px;
-`;
-
-export const Description = styled.div`
-  padding: 0 20px 20px;
-  text-align: left;
-`;
-
-export const DescriptionText = styled.p`
+  font-family: 'Pretendard';
   font-size: 14px;
-  line-height: 21px;
-  color: #000;
-  margin: 0 0 16px 0;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
   letter-spacing: -0.35px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+`;
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
 `;
 
-export const Divider = styled.div`
+export const Border = styled.div`
+  width: calc(100% + 40px);
   height: 1px;
-  background-color: #d2d9df;
-  margin: 0 20px;
+  background: #d2d9df;
+  margin: 40px -20px;
 `;
 
-export const EventImage = styled.img`
-  width: 314px;
-  height: 384px;
-  margin: 20px;
-  border-radius: 4px;
+export const Poster = styled.img`
+  width: 100%;
   object-fit: cover;
 `;
-
-export const EventDetails = styled.div`
-  padding: 20px;
-`;
-
-export const DetailRow = styled.div`
+export const DetailContainer = styled.div`
   display: flex;
-  margin-bottom: 16px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  flex-direction: column;
+  gap: 14px;
 `;
 
-export const DetailLabel = styled.div`
-  width: 72px;
+export const DetailWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+export const DetailTitle = styled.div`
+  color: #000;
+  font-family: 'Pretendard';
   font-size: 13px;
+  font-style: normal;
   font-weight: 600;
-  color: #000;
-  line-height: 20px;
+  line-height: 150%; /* 19.5px */
   letter-spacing: -0.325px;
-  flex-shrink: 0;
+  width: 70px;
 `;
 
-export const DetailValue = styled.div`
-  flex: 1;
-  font-size: 13px;
-  font-weight: 400;
+export const DetailContent = styled.div`
   color: #000;
-  line-height: 18px;
+  font-family: 'Pretendard';
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 19.5px */
   letter-spacing: -0.325px;
+`;
+
+export const SpanBlue = styled.span`
+  color: #0100a3;
+  font-family: 'Pretendard';
 `;
 
 export const ConfirmButton = styled.button`
-  width: 100%;
-  height: 60px;
-  background-color: #eceff0;
-  border: none;
   color: #000;
+  font-family: 'Pretendard';
   font-size: 18px;
+  font-style: normal;
   font-weight: 500;
-  cursor: pointer;
+  line-height: 150%; /* 27px */
   letter-spacing: -0.45px;
-
-  &:hover {
-    background-color: #dde2e4;
-  }
+  padding: 16px 0;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-top: 60px;
+  background: #eceff0;
 `;
