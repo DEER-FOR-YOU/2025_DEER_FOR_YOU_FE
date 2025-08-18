@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const MapContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -10,7 +10,7 @@ export const MapContainer = styled.div`
 
 export const MapWrapper = styled.div`
   width: 100%;
-  height: calc(100% - 72px);
+  height: 100%;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
