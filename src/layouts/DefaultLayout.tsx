@@ -4,9 +4,12 @@ import { ROUTES } from '../constants/routes';
 
 const DefaultLayout = () => {
   const location = useLocation();
-  const showNavbar = [ROUTES.ARTISTS, ROUTES.GOODS, ROUTES.HOME].includes(
-    location.pathname,
-  );
+  const showNavbar = [
+    ROUTES.ARTISTS,
+    ROUTES.GOODS,
+    ROUTES.HOME,
+    ROUTES.MAP,
+  ].includes(location.pathname);
   return (
     <>
       <Outlet />

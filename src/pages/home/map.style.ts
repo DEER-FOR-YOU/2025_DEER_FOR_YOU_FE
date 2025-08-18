@@ -55,6 +55,7 @@ export const ButtonText = styled.div`
   letter-spacing: -0.8px;
   padding: 15px 0;
   text-align: center;
+  cursor: pointer;
 `;
 export const MapWrapper = styled.div`
   padding: 16px;

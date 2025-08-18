@@ -8,6 +8,7 @@ import { ROUTES } from './constants/routes';
 const Artist = lazy(() => import('./pages/artist'));
 const Goods = lazy(() => import('./pages/goods'));
 const Home = lazy(() => import('./pages/home'));
+const Map = lazy(() => import('./pages/map'));
 
 const withSuspense = (element: React.ReactNode) => (
   <Suspense fallback={<></>}>{element}</Suspense>
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           {
             path: ROUTES.GOODS,
             element: withSuspense(<Goods />),
+          },
+          {
+            path: ROUTES.MAP,
+            element: withSuspense(<Map />),
           },
         ],
       },

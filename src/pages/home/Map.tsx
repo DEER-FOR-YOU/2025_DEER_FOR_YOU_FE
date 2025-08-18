@@ -2,8 +2,16 @@ import React from 'react';
 import * as S from './map.style';
 import Button from '../../components/button';
 import map from '../../assets/map.svg';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 
 export default function Map() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate(ROUTES.MAP);
+  };
+
   return (
     <S.Container>
       <S.Title>
@@ -20,7 +28,7 @@ export default function Map() {
         </S.MapWrapper>
         <S.ButtonContainer>
           <Button style={{ width: '120px' }}>
-            <S.ButtonText>전체지도</S.ButtonText>
+            <S.ButtonText onClick={handleButtonClick}>전체지도</S.ButtonText>
           </Button>
           <Button style={{ width: '120px' }}>
             <S.ButtonText> 부스 </S.ButtonText>
