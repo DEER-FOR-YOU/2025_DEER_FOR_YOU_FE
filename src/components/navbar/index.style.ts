@@ -9,6 +9,7 @@ export const NavbarContainer = styled.div`
   display: flex;
   background-color: #fff;
   border-top: 1px solid #d2d9df;
+  z-index: 999;
 `;
 export const NavbarItem = styled.div`
   display: flex;
