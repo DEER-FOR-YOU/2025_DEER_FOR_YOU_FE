@@ -29,7 +29,7 @@ export default function Navbar() {
     },
     {
       path: ROUTES.TIMELINE,
-      label: '타임라인',
+      label: '공연',
       icon: music,
       activeIcon: musicActive,
     },
