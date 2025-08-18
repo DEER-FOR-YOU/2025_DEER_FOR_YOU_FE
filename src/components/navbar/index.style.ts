@@ -11,6 +11,7 @@ export const NavbarContainer = styled.div`
   border-top: 1px solid #d2d9df;
   z-index: 999;
 `;
+
 export const NavbarItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,9 +19,10 @@ export const NavbarItem = styled.div`
   justify-content: center;
   gap: 4px;
   flex-grow: 1;
+  cursor: pointer;
 `;
 
-export const ItemText = styled.span`
-  color: #9fa6ac;
+export const ItemText = styled.span<{ isActive?: boolean }>`
+  color: ${({ isActive }) => (isActive ? '#000' : '#9fa6ac')};
   ${({ theme }) => theme.fonts.neo_dunggeunmo_18}
 `;

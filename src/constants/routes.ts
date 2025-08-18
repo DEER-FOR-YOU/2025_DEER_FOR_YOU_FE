@@ -3,4 +3,6 @@ export const ROUTES = {
   ARTISTS: '/artists',
   GOODS: '/goods',
   MAP: '/map',
+  TIMELINE: '/timeline',
+  MY: '/my',
 };
