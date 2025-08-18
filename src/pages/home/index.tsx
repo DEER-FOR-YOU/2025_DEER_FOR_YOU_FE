@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import banner from '../../assets/banner.svg';
 import * as S from './index.style';
 import Slogan from './Slogan';
@@ -6,17 +7,30 @@ import Board from './Board';
 import Goods from './Goods';
 import Event from './Event';
 import Map from './Map';
+import { EventModal } from './modal';
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSloganClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <S.Container>
       <S.Banner src={banner} alt="banner" />
-      <Slogan />
+      <Slogan onSloganClick={handleSloganClick} />
       <Artist />
       <Board />
       <Map />
       <Goods />
       <Event />
+
+      <EventModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </S.Container>
   );
 }

@@ -43,7 +43,7 @@ export const ButtonContainer = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 22px;
+  padding-bottom: 22px;
 `;
 export const ButtonText = styled.div`
   color: #000;
