@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 export const MapContainer = styled.div`
   width: 100%;
   height: calc(100vh - 110px);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  overflow: hidden;
 `;
 
 export const MapWrapper = styled.div`
