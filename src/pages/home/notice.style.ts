@@ -11,3 +11,7 @@ export const NoticeHeader = styled.div`
   ${({ theme }) => theme.fonts.pretender_20};
   font-weight: 600;
 `;
+
+export const NoticeContainer = styled.div`
+  padding: 20px;
+`;
