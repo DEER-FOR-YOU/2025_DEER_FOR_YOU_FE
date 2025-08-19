@@ -18,8 +18,8 @@ export const NoticeContainer = styled.div`
 `;
 
 export const NoticeList = styled.div<{ src: string; thumb: string }>`
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   height: 250px;
   overflow-y: scroll;
   scrollbar-gutter: stable;
@@ -64,7 +64,7 @@ export const NoticeList = styled.div<{ src: string; thumb: string }>`
 `;
 
 export const NoticeItem = styled.div`
-  padding: 16px 14px 28px 12px;
+  padding: 16px 14px 16px 12px;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
