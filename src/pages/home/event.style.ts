@@ -40,6 +40,7 @@ export const EventRowBox = styled.div`
   display: flex;
   flex-direction: row;
   gap: 13px;
+  position: relative;
   /* justify-content: space-between; */
 `;
 

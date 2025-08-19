@@ -84,6 +84,8 @@ export default function Event() {
               <S.EventName>{eventList[5].title}</S.EventName>
             </S.Content>
           </Button>
+          <S.Detail>총학 잡으러 가기</S.Detail>
+          <S.PolygonImage src={polygon} />
         </S.EventRowBox>
       </S.EventContainer>
     </S.Container>
