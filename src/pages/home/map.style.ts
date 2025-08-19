@@ -46,14 +46,25 @@ export const ButtonContainer = styled.div`
   padding-bottom: 22px;
 `;
 export const ButtonText = styled.div`
-  color: #000;
   font-family: 'NeoDunggeunmoPro';
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 16px */
   letter-spacing: -0.8px;
-  padding: 15px 0;
+  padding: 15px 30px;
+  text-align: center;
+  cursor: pointer;
+`;
+
+export const ButtonText2 = styled.div`
+  font-family: 'NeoDunggeunmoPro';
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.8px;
+  padding: 15px 44px;
   text-align: center;
   cursor: pointer;
 `;

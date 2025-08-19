@@ -5,7 +5,7 @@ import goods2 from '../../assets/goods/goods2.svg';
 import goods3 from '../../assets/goods/goods3.svg';
 import goods4 from '../../assets/goods/goods4.svg';
 import goods5 from '../../assets/goods/goods5.svg';
-import Button from '../../components/button';
+import Button from '../../components/button/Button';
 import back from '../../assets/back.svg';
 import front from '../../assets/front.svg';
 
