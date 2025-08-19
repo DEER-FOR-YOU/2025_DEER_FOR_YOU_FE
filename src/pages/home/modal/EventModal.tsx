@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './EventModal.style';
-import Button from '../../../components/button';
 import closeIcon from '../../../assets/close.svg';
 import poster from '../../../assets/poster.svg';
+import Button from '../../../components/button/Button';
 
 interface EventModalProps {
   isOpen: boolean;

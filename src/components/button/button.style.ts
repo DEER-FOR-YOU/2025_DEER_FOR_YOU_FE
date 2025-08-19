@@ -110,6 +110,11 @@ export const ButtonContainer = styled.div<{
   &:active {
     background-color: rgb(1, 0, 157);
     color: white;
+
+    /* active일 때만 img 태그를 하얀색으로 변환 */
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
   }
 
   ${({ isActive }) =>
