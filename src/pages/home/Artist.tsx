@@ -11,25 +11,25 @@ const artists = [
   {
     id: 1,
     name: '크러쉬',
-    subtitle: 'CRUSH',
+    subtitle: '9/9',
     image: crush,
   },
   {
     id: 2,
     name: '카더가든',
-    subtitle: 'CARDER',
+    subtitle: '9/9',
     image: carder,
   },
   {
     id: 3,
     name: '실리카겔',
-    subtitle: 'NO PAIN',
+    subtitle: '9/10',
     image: sili,
   },
   {
     id: 4,
     name: '키키',
-    subtitle: 'KIKI',
+    subtitle: '9/10',
     image: kiki,
   },
 ];
@@ -161,8 +161,10 @@ export default function Artist() {
           <S.CurrentArtistCard>
             <S.ArtistImage src={currentArtist.image} alt={currentArtist.name} />
             <S.ArtistCardOverlay />
-            {/* <S.ArtistSubtitle>{currentArtist.subtitle}</S.ArtistSubtitle> */}
-            <S.ArtistName>{currentArtist.name}</S.ArtistName>
+            <S.ArtistTextContainer>
+              <S.ArtistSubtitle>{currentArtist.subtitle}</S.ArtistSubtitle>
+              <S.ArtistName>{currentArtist.name}</S.ArtistName>
+            </S.ArtistTextContainer>
           </S.CurrentArtistCard>
 
           <S.NextArtistCard isDragging={isDragging}>

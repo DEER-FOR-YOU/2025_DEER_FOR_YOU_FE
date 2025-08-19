@@ -175,10 +175,18 @@ export const ArtistCardOverlay2 = styled.div`
   );
 `;
 
-export const ArtistName = styled.div`
+export const ArtistTextContainer = styled.div`
   position: absolute;
   bottom: 20px;
   left: 18px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ArtistName = styled.div`
+  /* position: absolute;
+  bottom: 20px;
+  left: 18px; */
   /* transform: translateX(-50%); */
   color: #fff;
   font-family: 'Pretendard';
@@ -191,15 +199,14 @@ export const ArtistName = styled.div`
 `;
 
 export const ArtistSubtitle = styled.div`
-  position: absolute;
+  /* position: absolute;
   bottom: 45px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50%; */
+  /* transform: translateX(-50%); */
   color: #fff;
   font-family: 'Pretendard';
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
-  text-align: center;
   pointer-events: none;
   z-index: 3;
 `;
