@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from './event.style';
-import Button from '../../components/button';
 import dress from '../../assets/events/dress.svg';
 import lucky from '../../assets/events/lucky.svg';
 import physical from '../../assets/events/physical.svg';
@@ -8,6 +7,7 @@ import qr from '../../assets/events/qr.svg';
 import squid from '../../assets/events/squid.svg';
 import watermelon from '../../assets/events/watermelon.svg';
 import polygon from '../../assets/polygon.svg';
+import Button from '../../components/button/Button';
 
 const eventList = [
   {
@@ -46,94 +46,43 @@ export default function Event() {
       </S.TextContainer>
       <S.EventContainer>
         <S.EventRowBox>
-          <Button
-            style={{ width: '31%', aspectRatio: '1/1' }}
-            style2={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '10px',
-              padding: 'calc(100% * 16 / 108)',
-            }}
-          >
-            <img src={eventList[0].image} alt="event" />
-            <S.EventName>{eventList[0].title}</S.EventName>
+          <Button fullSize>
+            <S.Content>
+              <S.EventImage src={eventList[0].image} />
+              <S.EventName>{eventList[0].title}</S.EventName>
+            </S.Content>
           </Button>
-          <Button
-            style={{ width: '31%', aspectRatio: '1/1' }}
-            style2={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              padding: 'calc(100% * 18 / 108)',
-            }}
-          >
-            <img src={eventList[1].image} alt="event" />
-            <S.EventName>{eventList[1].title}</S.EventName>
+          <Button fullSize>
+            <S.Content>
+              <S.EventImage src={eventList[1].image} />
+              <S.EventName>{eventList[1].title}</S.EventName>
+            </S.Content>
           </Button>
-          <Button
-            style={{ width: '31%', aspectRatio: '1/1' }}
-            style2={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              flexDirection: 'column',
-              padding: 'calc(100% * 18 / 108)',
-            }}
-          >
-            <img src={eventList[2].image} alt="event" />
-            <S.EventName>{eventList[2].title}</S.EventName>
+          <Button fullSize>
+            <S.Content>
+              <S.EventImage src={eventList[2].image} />
+              <S.EventName>{eventList[2].title}</S.EventName>
+            </S.Content>
           </Button>
         </S.EventRowBox>
         <S.EventRowBox>
-          <Button
-            style={{ width: '31%', aspectRatio: '1/1' }}
-            style2={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '10px',
-              padding: 'calc(100% * 18 / 108)',
-            }}
-          >
-            <img src={eventList[3].image} alt="event" />
-            <S.EventName>{eventList[3].title}</S.EventName>
+          <Button fullSize>
+            <S.Content>
+              <S.EventImage src={eventList[3].image} />
+              <S.EventName>{eventList[3].title}</S.EventName>
+            </S.Content>
           </Button>
-          <Button
-            style={{ width: '31%', aspectRatio: '1/1' }}
-            style2={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '10px',
-              padding: 'calc(100% * 18 / 108)',
-            }}
-          >
-            <img src={eventList[4].image} alt="event" />
-            <S.EventName>{eventList[4].title}</S.EventName>
+          <Button fullSize>
+            <S.Content>
+              <S.EventImage src={eventList[4].image} />
+              <S.EventName>{eventList[4].title}</S.EventName>
+            </S.Content>
           </Button>
-          <Button
-            style={{ width: '31%', aspectRatio: '1/1' }}
-            style2={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '10px',
-              padding: 'calc(100% * 16 / 108)',
-              position: 'relative',
-            }}
-          >
-            <img src={eventList[5].image} alt="event" />
-            <S.EventName>{eventList[5].title}</S.EventName>
-            <S.Detail>총학 잡으러 가기</S.Detail>
-            <S.PolygonImage src={polygon} alt="polygon" />
+          <Button fullSize>
+            <S.Content>
+              <S.EventImage src={eventList[5].image} />
+              <S.EventName>{eventList[5].title}</S.EventName>
+            </S.Content>
           </Button>
         </S.EventRowBox>
       </S.EventContainer>

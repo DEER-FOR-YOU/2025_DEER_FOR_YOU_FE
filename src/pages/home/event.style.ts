@@ -39,18 +39,31 @@ export const EventContainer = styled.div`
 export const EventRowBox = styled.div`
   display: flex;
   flex-direction: row;
-  /* gap: 13px; */
-  justify-content: space-between;
+  gap: 13px;
+  /* justify-content: space-between; */
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12% 10% 10% 10%;
 `;
 
 export const EventName = styled.div`
-  color: #252528;
   font-family: 'NeoDunggeunmoPro';
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 21px */
   letter-spacing: -0.35px;
+`;
+export const EventImage = styled.img`
+  /* width: 100%; */
+  /* height: 100%; */
+  /* object-fit: cover; */
 `;
 
 export const Detail = styled.div`
