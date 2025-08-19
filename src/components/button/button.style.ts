@@ -2,11 +2,19 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import type { css as cssType } from '@emotion/react';
 
-export const ButtonWrapper = styled.button<{ isActive: boolean }>`
+export const ButtonWrapper = styled.button<{
+  isActive: boolean;
+  fullSize: boolean;
+}>`
   border-bottom: 2px solid #252528;
   border-right: 2px solid #252528;
   transition: all 0.1s ease;
-
+  ${({ fullSize }) =>
+    fullSize &&
+    css`
+      width: 100%;
+      height: 100%;
+    `}
   &:active {
     border-bottom: none;
     border-right: none;

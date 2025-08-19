@@ -6,6 +6,7 @@ import type { css as cssType } from '@emotion/react';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;
   css?: ReturnType<typeof cssType>;
+  fullSize?: boolean;
 }
 
 export default function Button({
@@ -13,10 +14,16 @@ export default function Button({
   isActive = false,
   type = 'button',
   css,
+  fullSize = false,
   ...props
 }: PropsWithChildren<ButtonProps>) {
   return (
-    <S.ButtonWrapper isActive={isActive} type={type} {...props}>
+    <S.ButtonWrapper
+      isActive={isActive}
+      type={type}
+      fullSize={fullSize}
+      {...props}
+    >
       <S.ButtonWrapper2 isActive={isActive}>
         <S.ButtonWrapper3 isActive={isActive}>
           <S.ButtonWrapper4 isActive={isActive}>

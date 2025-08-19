@@ -8,6 +8,7 @@ import Goods from './Goods';
 import Event from './Event';
 import Map from './Map';
 import { EventModal } from './modal';
+import Button from '../../components/button/Button';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,6 +32,7 @@ export default function Home() {
       <Event />
 
       <EventModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <Button fullSize>버튼</Button>
     </S.Container>
   );
 }
