@@ -8,7 +8,7 @@ export const ButtonWrapper = styled.button<{
 }>`
   border-bottom: 2px solid #252528;
   border-right: 2px solid #252528;
-  transition: all 0.1s ease;
+  /* transition: all 0.1s ease; */
   ${({ fullSize }) =>
     fullSize &&
     css`
@@ -35,7 +35,7 @@ export const ButtonWrapper = styled.button<{
 export const ButtonWrapper2 = styled.div<{ isActive: boolean }>`
   border-top: 2px solid rgb(212, 217, 222);
   border-left: 2px solid rgb(212, 217, 222);
-  transition: all 0.1s ease;
+  /* transition: all 0.1s ease; */
 
   &:active {
     border-top: none;
@@ -57,7 +57,7 @@ export const ButtonWrapper2 = styled.div<{ isActive: boolean }>`
 export const ButtonWrapper3 = styled.div<{ isActive: boolean }>`
   border-bottom: 2px solid rgb(92, 96, 100);
   border-right: 2px solid rgb(92, 96, 100);
-  transition: all 0.1s ease;
+  /* transition: all 0.1s ease; */
 
   &:active {
     border-bottom: none;
@@ -79,7 +79,7 @@ export const ButtonWrapper3 = styled.div<{ isActive: boolean }>`
 export const ButtonWrapper4 = styled.div<{ isActive: boolean }>`
   border-top: 2px solid white;
   border-left: 2px solid white;
-  transition: all 0.1s ease;
+  /* transition: all 0.1s ease; */
 
   &:active {
     border-top: none;
@@ -104,7 +104,7 @@ export const ButtonContainer = styled.div<{
 }>`
   background-color: rgb(236, 239, 240);
   color: black;
-  transition: all 0.1s ease;
+  /* transition: all 0.1s ease; */
   ${({ css }) => css}
 
   &:active {
