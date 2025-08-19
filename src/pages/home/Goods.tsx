@@ -10,7 +10,6 @@ export default function Goods() {
 
   const handleClick = () => {
     navigate(ROUTES.GOODS);
-    window.scrollTo(0, 0);
   };
 
   return (

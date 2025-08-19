@@ -63,11 +63,8 @@ export default function ItemList() {
     <S.ItemListContainer>
       {/* 메인 굿즈 표시 영역 */}
       <S.MainItemSection>
-        {/* <S.NavigationButton onClick={handlePrev}>&lt;</S.NavigationButton> */}
         <Button>
-          <S.ImageContainer onClick={handlePrev}>
-            <img src={back} alt="back" />
-          </S.ImageContainer>
+          <S.ButtonImg src={back} alt="back" onClick={handlePrev} />
         </Button>
 
         <S.MainItemContainer src={currentItem.image}>
@@ -79,9 +76,7 @@ export default function ItemList() {
         </S.MainItemContainer>
 
         <Button>
-          <S.ImageContainer onClick={handleNext}>
-            <img src={front} alt="front" />
-          </S.ImageContainer>
+          <S.ButtonImg src={front} alt="front" onClick={handleNext} />
         </Button>
       </S.MainItemSection>
 

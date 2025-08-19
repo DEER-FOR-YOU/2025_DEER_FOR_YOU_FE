@@ -95,7 +95,7 @@ export const ThumbnailImage = styled.img`
   aspect-ratio: 1/1;
 `;
 
-export const ImageContainer = styled.div`
+export const ButtonImg = styled.img`
   padding: 5px 9px;
   cursor: pointer;
 `;
