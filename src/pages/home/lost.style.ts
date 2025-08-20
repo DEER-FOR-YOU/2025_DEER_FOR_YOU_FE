@@ -54,6 +54,9 @@ export const LostList = styled.div`
   align-items: center;
   gap: 18px;
   overflow-x: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 `;
 
 export const LostItemContainer = styled.div`
