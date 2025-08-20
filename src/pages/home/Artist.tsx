@@ -39,9 +39,34 @@ export default function Artist() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [currentX, setCurrentX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
-  const slideRef = useRef<HTMLDivElement>(null);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+
+  // 자동 슬라이딩 시작
+  const startAutoPlay = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+    }
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev === artists.length - 1 ? 0 : prev + 1));
+    }, 5000);
+  };
+
+  // 자동 슬라이딩 정지
+  const stopAutoPlay = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+  };
+
+  // 자동 슬라이딩 관리
+  useEffect(() => {
+    if (!isDragging) {
+      startAutoPlay();
+    }
+    return () => stopAutoPlay();
+  }, [isDragging]);
 
   const handleMore = () => {
     navigate(ROUTES.ARTISTS);
@@ -49,35 +74,40 @@ export default function Artist() {
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? artists.length - 1 : prev - 1));
+    stopAutoPlay();
+    setTimeout(() => {
+      if (!isDragging) startAutoPlay();
+    }, 1000);
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === artists.length - 1 ? 0 : prev + 1));
+    stopAutoPlay();
+    setTimeout(() => {
+      if (!isDragging) startAutoPlay();
+    }, 1000);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     setStartX(e.clientX);
-    setCurrentX(e.clientX);
+    stopAutoPlay();
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
-    setCurrentX(e.clientX);
-    const offset = currentX - startX;
+    const offset = e.clientX - startX;
     setDragOffset(offset);
   };
 
   const handleMouseUp = () => {
     if (!isDragging) return;
 
-    const threshold = 100; // 드래그 임계값
+    const threshold = 100;
     if (Math.abs(dragOffset) > threshold) {
       if (dragOffset > 0) {
-        // 오른쪽으로 드래그 - 이전 아티스트
         handlePrev();
       } else {
-        // 왼쪽으로 드래그 - 다음 아티스트
         handleNext();
       }
     }
@@ -89,26 +119,23 @@ export default function Artist() {
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
-    setCurrentX(e.touches[0].clientX);
+    stopAutoPlay();
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
-    setCurrentX(e.touches[0].clientX);
-    const offset = currentX - startX;
+    const offset = e.touches[0].clientX - startX;
     setDragOffset(offset);
   };
 
   const handleTouchEnd = () => {
     if (!isDragging) return;
 
-    const threshold = 50; // 터치 임계값
+    const threshold = 50;
     if (Math.abs(dragOffset) > threshold) {
       if (dragOffset > 0) {
-        // 오른쪽으로 스와이프 - 이전 아티스트
         handlePrev();
       } else {
-        // 왼쪽으로 스와이프 - 다음 아티스트
         handleNext();
       }
     }
@@ -138,7 +165,6 @@ export default function Artist() {
       </S.TextContainer>
 
       <S.SlideContainer
-        ref={slideRef}
         isDragging={isDragging}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
