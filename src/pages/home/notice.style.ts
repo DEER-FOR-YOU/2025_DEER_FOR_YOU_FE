@@ -68,7 +68,7 @@ export const NoticeList = styled.div<{ src: string; thumb: string }>`
   } */
 `;
 
-export const NoticeItem = styled.div`
+export const NoticeItem = styled.div<{ isSelected?: boolean }>`
   padding: 16px 14px 16px 12px;
   font-size: 1.4rem;
   font-style: normal;
@@ -79,6 +79,11 @@ export const NoticeItem = styled.div`
   white-space: nowrap; /* 줄바꿈 하지 않음 */
   overflow: hidden; /* 넘치는 부분 숨김 */
   text-overflow: ellipsis; /* ... 으로 표시 */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: ${({ isSelected }) =>
+    isSelected ? '#0100A3' : 'transparent'};
+  color: ${({ isSelected }) => (isSelected ? 'white' : 'inherit')};
 `;
 
 export const ScrollUpButtonWrapper = styled.div`
