@@ -27,7 +27,7 @@ export const NoticeContainer = styled.div`
 export const NoticeList = styled.div`
   /* display: flex; */
   /* flex-direction: column; */
-  height: 300px;
+  height: 238px;
   overflow-y: scroll;
   scrollbar-gutter: stable;
 
