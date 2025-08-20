@@ -16,6 +16,7 @@ const DefaultLayout = () => {
     ROUTES.GOODS,
     ROUTES.HOME,
     ROUTES.MAP,
+    ROUTES.TIMELINE,
   ].includes(location.pathname);
 
   return (

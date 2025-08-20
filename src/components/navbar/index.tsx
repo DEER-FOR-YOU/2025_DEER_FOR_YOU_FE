@@ -28,7 +28,7 @@ export default function Navbar() {
       activeIcon: scheduleActive,
     },
     {
-      path: ROUTES.TIMELINE + '?date=9',
+      path: ROUTES.TIMELINE,
       label: '공연',
       icon: music,
       activeIcon: musicActive,
@@ -42,13 +42,26 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (path: string) => {
-    navigate(path);
+    // 공연 탭 클릭 시 기본값으로 9일 설정
+    if (path === ROUTES.TIMELINE) {
+      navigate(`${path}?date=9`);
+    } else {
+      navigate(path);
+    }
+  };
+
+  const isNavActive = (path: string) => {
+    // 공연 탭은 /timeline으로 시작하는 모든 경로에서 active
+    if (path === ROUTES.TIMELINE) {
+      return location.pathname === ROUTES.TIMELINE;
+    }
+    return location.pathname === path;
   };
 
   return (
     <S.NavbarContainer>
       {navItems.map((item) => {
-        const isActive = location.pathname === item.path;
+        const isActive = isNavActive(item.path);
         return (
           <S.NavbarItem
             key={item.path}
