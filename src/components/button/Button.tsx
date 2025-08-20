@@ -7,6 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;
   css?: ReturnType<typeof cssType>;
   fullSize?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   type = 'button',
   css,
   fullSize = false,
+  style,
   ...props
 }: PropsWithChildren<ButtonProps>) {
   return (
@@ -22,6 +24,7 @@ export default function Button({
       isActive={isActive}
       type={type}
       fullSize={fullSize}
+      style={style}
       {...props}
     >
       <S.ButtonWrapper2 isActive={isActive}>

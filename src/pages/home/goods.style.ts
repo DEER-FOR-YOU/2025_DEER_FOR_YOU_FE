@@ -6,6 +6,7 @@ export const Wrapper = styled.div<{ background: string }>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
 `;
 
 export const Container = styled.div`
@@ -38,4 +39,10 @@ export const Button = styled.button`
   padding: 12px 16px;
   ${({ theme }) => theme.fonts.neo_dunggeunmo_14};
   color: #fff;
+`;
+
+export const GoodsImg = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
 `;
