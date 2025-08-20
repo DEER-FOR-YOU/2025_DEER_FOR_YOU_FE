@@ -28,7 +28,7 @@ export default function Navbar() {
       activeIcon: scheduleActive,
     },
     {
-      path: ROUTES.TIMELINE,
+      path: ROUTES.TIMELINE + '?date=9',
       label: '공연',
       icon: music,
       activeIcon: musicActive,
