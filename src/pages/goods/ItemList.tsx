@@ -81,7 +81,7 @@ export default function ItemList() {
       </S.MainItemSection>
 
       {/* 썸네일 목록 */}
-      <S.ThumbnailSection>
+      {/* <S.ThumbnailSection>
         {itemList
           .filter((_, index) => index !== currentIndex)
           .map((item, index) => (
@@ -93,7 +93,7 @@ export default function ItemList() {
               <S.ThumbnailImage src={item.image} alt={item.name} />
             </S.ThumbnailItem>
           ))}
-      </S.ThumbnailSection>
+      </S.ThumbnailSection> */}
     </S.ItemListContainer>
   );
 }
