@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const Container = styled.div`
   margin-top: 36px;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 `;
 export const NoticeHeader = styled.div`
   ${({ theme }) => theme.fonts.pretender_20};
@@ -15,6 +16,10 @@ export const NoticeHeader = styled.div`
 export const NoticeContainer = styled.div`
   padding: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* align-items: flex-end; */
 `;
 
 export const NoticeList = styled.div<{ src: string; thumb: string }>`
@@ -25,7 +30,7 @@ export const NoticeList = styled.div<{ src: string; thumb: string }>`
   scrollbar-gutter: stable;
 
   /* 스크롤바 항상 표시 */
-  &::-webkit-scrollbar {
+  /* &::-webkit-scrollbar {
     width: 28px;
   }
 
@@ -44,13 +49,13 @@ export const NoticeList = styled.div<{ src: string; thumb: string }>`
 
     background-size: cover;
     /* background-size: contain; */
-    background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
     background-position: center;
-  }
+  } */
 
-  &::-webkit-scrollbar-button {
+  /* &::-webkit-scrollbar-button {
     background-color: transparent;
-  }
+  } */
 
   /* 위쪽 버튼 */
   /* &::-webkit-scrollbar-button:start {
@@ -90,4 +95,8 @@ export const ScrollDownButtonWrapper = styled.div`
 
 export const ScrollButtonImg = styled.img`
   padding: 6px 4px;
+`;
+
+export const Button = css`
+  padding: 14px 20px;
 `;
