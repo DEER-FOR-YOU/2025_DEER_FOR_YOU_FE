@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import * as S from './notice.style';
 import Outer from '../../components/container/outer';
 import Inner from '../../components/container/inner';
-import track from '../../assets/track.svg';
-import thumb from '../../assets/thumb.svg';
 // import up from '../../assets/up.svg';
 // import down from '../../assets/down.svg';
 import Button from '../../components/button/Button';
 
 const NOTICE_ITEMS = [
   '총학을 이겨라 당첨자 발표 총학을 이겨라 당첨자 발표 총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
+  '총학을 이겨라 당첨자 발표',
   '총학을 이겨라 당첨자 발표',
   '총학을 이겨라 당첨자 발표',
   '총학을 이겨라 당첨자 발표',
@@ -41,7 +47,7 @@ export default function Notice() {
       <Outer>
         <S.NoticeContainer>
           <Inner>
-            <S.NoticeList src={track} thumb={thumb}>
+            <S.NoticeList>
               {NOTICE_ITEMS.map((text, index) => (
                 <S.NoticeItem
                   key={index}

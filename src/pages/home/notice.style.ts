@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import track from '../../assets/scroll/track.png';
+import thumb from '../../assets/scroll/thumb.png';
 
 export const Container = styled.div`
   margin-top: 36px;
@@ -22,50 +24,29 @@ export const NoticeContainer = styled.div`
   /* align-items: flex-end; */
 `;
 
-export const NoticeList = styled.div<{ src: string; thumb: string }>`
+export const NoticeList = styled.div`
   /* display: flex; */
   /* flex-direction: column; */
-  height: 250px;
+  height: 300px;
   overflow-y: scroll;
   scrollbar-gutter: stable;
 
   /* 스크롤바 항상 표시 */
-  /* &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 28px;
   }
 
   &::-webkit-scrollbar-track {
-    background: url(${({ src }) => src}) no-repeat center;
-    background-size: 28px 250px;
-    width: 28px;
-    height: 100%;
+    background: url(${track}) repeat top;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: url(${({ thumb }) => thumb}) no-repeat center;
-    background-size: 28px auto;
-    width: 28px;
+    background-image: url(${thumb});
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 120% 110%;
     height: auto;
-
-    background-size: cover;
-    /* background-size: contain; */
-  /* background-repeat: no-repeat;
-    background-position: center;
-  } */
-
-  /* &::-webkit-scrollbar-button {
-    background-color: transparent;
-  } */
-
-  /* 위쪽 버튼 */
-  /* &::-webkit-scrollbar-button:start {
-    background: linear-gradient(to bottom, #4a90e2, #357abd);
   }
-
-  /* 아래쪽 버튼 */
-  /* &::-webkit-scrollbar-button:end {
-    background: linear-gradient(to bottom, #e74c3c, #c0392b);
-  } */
 `;
 
 export const NoticeItem = styled.div<{ isSelected?: boolean }>`
