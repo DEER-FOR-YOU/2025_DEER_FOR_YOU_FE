@@ -52,4 +52,24 @@ export const Place = styled.div`
   letter-spacing: -0.3px;
 `;
 
-export const Bookmark = styled.img``;
+export const Bookmark = styled.img`
+  cursor: pointer;
+`;
+
+export const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+export const More = styled.div`
+  color: #bec6cd;
+  font-family: Pretendard;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 12px */
+  letter-spacing: -0.3px;
+
+  text-decoration: underline;
+  cursor: pointer;
+`;
