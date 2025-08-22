@@ -73,3 +73,88 @@ export const More = styled.div`
   text-decoration: underline;
   cursor: pointer;
 `;
+
+export const ClubItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ClubName = styled.div`
+  color: #464b50;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.35px;
+`;
+
+export const TimeContainer = styled.div`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+`;
+
+export const TimeImage = styled.img``;
+
+export const ClubTime = styled.div`
+  color: #7f8992;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.35px;
+`;
+
+export const ClubList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px 20px;
+  background-color: #f1f3f5;
+`;
+
+export const LuckyMoreContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f1f3f5;
+`;
+
+export const LuckyLeft = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
+
+export const LuckyImage = styled.img``;
+
+export const LuckyText = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const LuckyTitle = styled.div`
+  color: #464b50;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.35px;
+`;
+export const LuckySubTitle = styled.div`
+  color: #7f8992;
+  font-family: Pretendard;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 19.5px */
+  letter-spacing: -0.325px;
+`;
+
+export const LuckyRight = styled.img`
+  cursor: pointer;
+`;
