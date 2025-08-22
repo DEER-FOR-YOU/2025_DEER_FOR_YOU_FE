@@ -14,6 +14,7 @@ export default function TimeItem({ item }: TimeItemProps) {
         <S.Time>{item.timeDescription}</S.Time>
         <S.Bookmark src={bookmark} alt="bookmark" />
       </S.Header>
+
       <S.Content>
         <S.Title>{item.title}</S.Title>
         <S.Place>{item.place}</S.Place>

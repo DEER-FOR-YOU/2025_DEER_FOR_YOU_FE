@@ -4,9 +4,10 @@ import TimeItem from './TimeItem';
 
 interface TimeListProps {
   data: TimeTableList;
+  currentDate: string;
 }
 
-export default function TimeList({ data }: TimeListProps) {
+export default function TimeList({ data, currentDate }: TimeListProps) {
   return (
     <S.Container>
       <S.Title>타임 테이블</S.Title>

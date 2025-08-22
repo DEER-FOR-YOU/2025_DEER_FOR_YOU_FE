@@ -50,7 +50,7 @@ export default function Timeline() {
         </Button>
       </S.DateButtonContainer>
       <LineUp currentDate={currentDate} />
-      <TimeList data={data!} />
+      <TimeList data={data!} currentDate={currentDate} />
     </S.Container>
   );
 }
