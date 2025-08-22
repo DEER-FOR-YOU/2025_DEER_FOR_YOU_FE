@@ -27,7 +27,7 @@ export default function Board() {
       </S.HeaderContainer>
       <S.NumberTextContainer>
         <S.NumberBigText>{data.number.toLocaleString()}</S.NumberBigText>
-        <S.NumberSmallText>{percentage.toFixed(0)}%</S.NumberSmallText>
+        <S.NumberSmallText>{Math.floor(percentage)}%</S.NumberSmallText>
       </S.NumberTextContainer>
       <S.ProgressBarWrapper>
         <S.ProgressBarWrapper2>
