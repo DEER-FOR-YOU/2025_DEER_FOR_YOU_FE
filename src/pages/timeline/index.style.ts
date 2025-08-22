@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding-bottom: 164px;
+`;
 
 export const Banner = styled.img`
   width: 100%;
