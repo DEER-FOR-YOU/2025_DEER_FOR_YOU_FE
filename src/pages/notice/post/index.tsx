@@ -6,15 +6,18 @@ import send from '../../../assets/send.svg';
 import { createNotice } from '../../../apis/notice';
 import { useApiMutation } from '../../../apis/config/builder/ApiBuilder';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
+
 export default function NoticePostPage() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const navigate = useNavigate();
-
+  const queryClient = useQueryClient();
   const createNoticeMutation = useApiMutation(createNotice(), {
     onSuccess: () => {
       alert('공지사항이 등록되었습니다.');
       navigate('/notice');
+      queryClient.invalidateQueries({ queryKey: ['notice'] });
     },
     onError: () => {
       alert('공지사항 등록에 실패했습니다.');
