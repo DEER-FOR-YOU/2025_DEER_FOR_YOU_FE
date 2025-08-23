@@ -3,10 +3,26 @@ import MDEditor from '@uiw/react-md-editor';
 import * as S from './index.style';
 import Header from '../../../components/header';
 import send from '../../../assets/send.svg';
-
+import { createNotice } from '../../../apis/notice';
+import { useApiMutation } from '../../../apis/config/builder/ApiBuilder';
+import { useNavigate } from 'react-router-dom';
 export default function NoticePostPage() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const navigate = useNavigate();
+
+  const createNoticeMutation = useApiMutation(
+    createNotice({ title, content }),
+    {
+      onSuccess: () => {
+        alert('공지사항이 등록되었습니다.');
+        navigate('/notice');
+      },
+      onError: () => {
+        alert('공지사항 등록에 실패했습니다.');
+      },
+    },
+  );
 
   const handleSubmit = () => {
     if (!title.trim() || !content.trim()) {
@@ -14,10 +30,7 @@ export default function NoticePostPage() {
       return;
     }
 
-    // 여기에 공지사항 저장 로직 추가
-    console.log('제목:', title);
-    console.log('내용:', content);
-    alert('공지사항이 등록되었습니다.');
+    createNoticeMutation.mutate({ title, content });
   };
 
   return (
