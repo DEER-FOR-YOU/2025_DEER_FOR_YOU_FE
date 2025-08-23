@@ -17,4 +17,11 @@ export const Button = css`
   padding: 6px 10px;
   white-space: nowrap;
   flex-shrink: 0;
+
+  color: #000;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.8px;
 `;
