@@ -24,7 +24,7 @@ const MARKERS: MarkerData[] = [
     id: 'hospital',
     position: { lat: 36.833529, lng: 127.180116 },
     image: hospital,
-    title: '병원',
+    title: '의무실',
     // onClick: () => alert('병원입니다!'),
   },
   {
@@ -38,14 +38,14 @@ const MARKERS: MarkerData[] = [
     id: 'food',
     position: { lat: 36.833098, lng: 127.18058 },
     image: food,
-    title: '음식점',
+    title: '음식',
     // onClick: () => alert('음식점입니다!'),
   },
   {
     id: 'lost',
     position: { lat: 36.833529, lng: 127.180116 },
     image: lost,
-    title: '분실물센터',
+    title: '분실물',
     // onClick: () => alert('분실물센터입니다!'),
   },
   {
@@ -85,11 +85,13 @@ declare global {
 interface KakaoMapProps {
   center?: { lat: number; lng: number };
   zoom?: number;
+  selectedButton: string;
 }
 
 export default function KakaoMap({
   center = { lat: 37.5665, lng: 126.978 },
   zoom = 3,
+  selectedButton,
 }: KakaoMapProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
@@ -188,6 +190,24 @@ export default function KakaoMap({
     document.head.appendChild(script);
   }, [retryCount]);
 
+  // 선택된 버튼에 따라 마커 필터링
+  const filteredMarkers = MARKERS.filter((marker) => {
+    if (selectedButton === '전체') return true;
+
+    // 버튼 제목과 마커 제목 매칭
+    const buttonTitleMap: { [key: string]: string } = {
+      화장실: '화장실',
+      음식: '음식',
+      체험: '공연장', // 체험 버튼은 공연장 마커과 임시 매칭
+      분실물: '분실물',
+      공연장: '공연장',
+      의무실: '의무실',
+      흡연구역: '흡연구역',
+    };
+
+    return marker.title === buttonTitleMap[selectedButton];
+  });
+
   // SDK가 완전히 로드되고 초기화되었는지 한 번 더 확인
   if (!isLoaded || !isSDKReady()) {
     return (
@@ -212,7 +232,7 @@ export default function KakaoMap({
           level={zoom}
         >
           {/* 마커들 렌더링 */}
-          {MARKERS.map((marker) => {
+          {filteredMarkers.map((marker) => {
             // 여러 위치를 가진 마커 (화장실 등)
             if (marker.positions) {
               return marker.positions.map((position, index) => (
