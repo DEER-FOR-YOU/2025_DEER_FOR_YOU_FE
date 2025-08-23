@@ -1,6 +1,80 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import * as S from './kakaoMap.style';
+import hospital from '../../assets/markers/hospital.svg';
+import performance from '../../assets/markers/performance.svg';
+import food from '../../assets/markers/food.svg';
+import lost from '../../assets/markers/lost.svg';
+import toilet from '../../assets/markers/toilet.svg';
+import smoke from '../../assets/markers/smoke.svg';
+
+// 마커 데이터 타입 정의
+interface MarkerData {
+  id: string;
+  position?: { lat: number; lng: number }; // 단일 위치
+  positions?: { lat: number; lng: number }[]; // 여러 위치
+  image: string;
+  title: string;
+  onClick?: () => void;
+}
+
+// 마커 데이터 배열
+const MARKERS: MarkerData[] = [
+  {
+    id: 'hospital',
+    position: { lat: 36.833529, lng: 127.180116 },
+    image: hospital,
+    title: '병원',
+    // onClick: () => alert('병원입니다!'),
+  },
+  {
+    id: 'performance',
+    position: { lat: 36.833018, lng: 127.178934 },
+    image: performance,
+    title: '공연장',
+    // onClick: () => alert('공연장입니다!'),
+  },
+  {
+    id: 'food',
+    position: { lat: 36.833098, lng: 127.18058 },
+    image: food,
+    title: '음식점',
+    // onClick: () => alert('음식점입니다!'),
+  },
+  {
+    id: 'lost',
+    position: { lat: 36.833529, lng: 127.180116 },
+    image: lost,
+    title: '분실물센터',
+    // onClick: () => alert('분실물센터입니다!'),
+  },
+  {
+    id: 'toilet',
+    positions: [
+      { lat: 36.833529, lng: 127.180116 },
+      { lat: 36.832958, lng: 127.181217 },
+      { lat: 36.833071, lng: 127.178142 },
+      { lat: 36.834209, lng: 127.178855 },
+    ],
+    image: toilet,
+    title: '화장실',
+    // onClick: () => alert('화장실입니다!'),
+  },
+  {
+    id: 'smoking',
+    positions: [
+      { lat: 36.832726, lng: 127.177788 },
+      { lat: 36.833395, lng: 127.178121 },
+      { lat: 36.83452, lng: 127.178669 },
+      { lat: 36.833599, lng: 127.179596 },
+      { lat: 36.834034, lng: 127.181243 },
+      { lat: 36.833343, lng: 127.1816 },
+    ],
+    image: smoke,
+    title: '흡연구역',
+    // onClick: () => alert('흡연구역입니다!'),
+  },
+];
 
 declare global {
   interface Window {
@@ -137,13 +211,36 @@ export default function KakaoMap({
           style={{ width: '100%', height: '100%' }}
           level={zoom}
         >
-          {/* 상명대학교 위치에 마커 추가 */}
-          <MapMarker
-            position={{ lat: 37.5665, lng: 126.978 }}
-            onClick={() => {
-              alert('상명대학교입니다!');
-            }}
-          />
+          {/* 마커들 렌더링 */}
+          {MARKERS.map((marker) => {
+            // 여러 위치를 가진 마커 (화장실 등)
+            if (marker.positions) {
+              return marker.positions.map((position, index) => (
+                <MapMarker
+                  key={`${marker.id}-${index}`}
+                  position={position}
+                  image={{
+                    src: marker.image,
+                    size: { width: 32, height: 32 },
+                  }}
+                  onClick={marker.onClick}
+                />
+              ));
+            }
+
+            // 단일 위치를 가진 마커
+            return (
+              <MapMarker
+                key={marker.id}
+                position={marker.position!}
+                image={{
+                  src: marker.image,
+                  size: { width: 32, height: 32 },
+                }}
+                onClick={marker.onClick}
+              />
+            );
+          })}
         </Map>
       </S.MapWrapper>
     </S.MapContainer>
