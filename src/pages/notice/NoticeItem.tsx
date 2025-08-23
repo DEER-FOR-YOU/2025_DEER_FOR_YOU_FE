@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import * as S from './noticeItem.style';
 import arrowDown from '../../assets/arrow_down.svg';
 
@@ -26,7 +27,11 @@ export default function NoticeItem({ notice }: NoticeItemProps) {
           onClick={() => setIsOpen(!isOpen)}
         />
       </S.Container>
-      {isOpen && <S.ContentConatiner>{notice.content}</S.ContentConatiner>}
+      {isOpen && (
+        <S.ContentConatiner>
+          <ReactMarkdown>{notice.content}</ReactMarkdown>
+        </S.ContentConatiner>
+      )}
     </>
   );
 }

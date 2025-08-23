@@ -43,6 +43,34 @@ export const ContentConatiner = styled.div`
   background: #f1f3f5;
   padding: 34px 20px;
 
-  font-size: 1rem;
-  font-family: Pretendard;
+  /* font-size: 1rem; */
+
+  /* ReactMarkdown 내부의 모든 요소에 Pretendard 폰트 적용 */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  code,
+  pre,
+  blockquote,
+  li {
+    font-family: Pretendard !important;
+  }
+
+  /* 링크 스타일링 */
+  a {
+    font-family: Pretendard !important;
+    color: #0100a3; /* 파란색 링크 */
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:visited {
+    color: #845ef7; /* 방문한 링크는 보라색 */
+  }
 `;
