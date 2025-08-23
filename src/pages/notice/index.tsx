@@ -2,6 +2,9 @@ import React from 'react';
 import * as S from './index.style';
 import Header from '../../components/header';
 import NoticeItem from './NoticeItem';
+import plus from '../../assets/plus.svg';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 
 const noticeList = [
   {
@@ -19,6 +22,8 @@ const noticeList = [
 ];
 
 export default function NoticePage() {
+  const isAdmin = true; //임시
+  const navigate = useNavigate();
   return (
     <S.Container>
       <Header title="공지사항" />
@@ -27,6 +32,13 @@ export default function NoticePage() {
           <NoticeItem key={notice.id} notice={notice} />
         ))}
       </S.NoticeList>
+      {isAdmin && (
+        <S.Button
+          src={plus}
+          alt="plus"
+          onClick={() => navigate(ROUTES.NOTICE_POST)}
+        />
+      )}
     </S.Container>
   );
 }
