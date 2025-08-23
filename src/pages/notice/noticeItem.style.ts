@@ -42,4 +42,7 @@ export const ContentConatiner = styled.div`
   border-bottom: 1px solid #d2d9df;
   background: #f1f3f5;
   padding: 34px 20px;
+
+  font-size: 1rem;
+  font-family: Pretendard;
 `;

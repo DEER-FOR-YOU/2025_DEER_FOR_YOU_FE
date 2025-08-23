@@ -1,5 +1,5 @@
 import ApiBuilder from '../config/builder/ApiBuilder';
-import type { PostNoticeRequest } from './index.types';
+import type { PostNoticeRequest, NoticeList } from './index.types';
 
 const createNotice = () => {
   return ApiBuilder.create<PostNoticeRequest, string>(
@@ -7,4 +7,10 @@ const createNotice = () => {
   ).setMethod('POST');
 };
 
-export { createNotice };
+const getNotices = () => {
+  return ApiBuilder.create<void, NoticeList>('/api/v1/announcements').setMethod(
+    'GET',
+  );
+};
+
+export { createNotice, getNotices };
