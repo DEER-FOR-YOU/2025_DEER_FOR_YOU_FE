@@ -11,18 +11,15 @@ export default function NoticePostPage() {
   const [content, setContent] = useState('');
   const navigate = useNavigate();
 
-  const createNoticeMutation = useApiMutation(
-    createNotice({ title, content }),
-    {
-      onSuccess: () => {
-        alert('공지사항이 등록되었습니다.');
-        navigate('/notice');
-      },
-      onError: () => {
-        alert('공지사항 등록에 실패했습니다.');
-      },
+  const createNoticeMutation = useApiMutation(createNotice(), {
+    onSuccess: () => {
+      alert('공지사항이 등록되었습니다.');
+      navigate('/notice');
     },
-  );
+    onError: () => {
+      alert('공지사항 등록에 실패했습니다.');
+    },
+  });
 
   const handleSubmit = () => {
     if (!title.trim() || !content.trim()) {
