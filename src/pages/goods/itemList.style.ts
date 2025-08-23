@@ -14,40 +14,31 @@ export const MainItemSection = styled.div`
   gap: 42px;
 `;
 
-export const MainItemContainer = styled.div<{ src: string }>`
-  display: flex;
-  padding: 13px 23px 20px 23px;
-  flex-direction: column;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+export const MainItemContainer = styled.div`
+  padding: 14px 14px 20px 14px;
   flex-grow: 1;
-  gap: 30px;
+
   border: 1px solid #d2d9df;
+  background: #fff;
+  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.08);
+`;
+
+export const MainItemImageContainer = styled.div`
+  width: 100%;
+  aspect-ratio: 1/1;
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url(${({ src }) => src}) no-repeat center center;
-    background-size: cover;
-    filter: blur(120px);
-    z-index: -1;
-    opacity: 0.5;
-  }
-
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
 `;
 
 export const MainItemImage = styled.img`
   width: 100%;
-  aspect-ratio: 1/1;
+  height: 100%;
 `;
-export const MainTextContainer = styled.div``;
+
+export const MainItemImage2 = styled.img``;
+
+export const MainTextContainer = styled.div`
+  margin-bottom: 12px;
+`;
 
 export const GoodsName = styled.p`
   ${({ theme }) => theme.fonts.neo_dunggeunmo_18}
