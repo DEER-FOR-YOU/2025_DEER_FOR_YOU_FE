@@ -4,6 +4,9 @@ import * as S from './noticeItem.style';
 import arrowDown from '../../assets/arrow_down.svg';
 import editIcon from '../../assets/edit.svg';
 import deleteIcon from '../../assets/delete.svg';
+import { deleteNotice } from '../../apis/notice';
+import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
+import { useQueryClient } from '@tanstack/react-query';
 
 interface NoticeItemProps {
   notice: {
@@ -28,11 +31,24 @@ export default function NoticeItem({
   const [startX, setStartX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const queryClient = useQueryClient();
   const handleToggle = () => {
     const newState = !isOpen;
     setIsOpen(newState);
     onToggle?.(notice.id);
   };
+  const { mutate: deleteNoticeMutation } = useApiMutation(
+    deleteNotice(notice.id),
+    {
+      onSuccess: () => {
+        alert('삭제 성공');
+        queryClient.invalidateQueries({ queryKey: ['notice'] });
+      },
+      onError: () => {
+        alert('삭제 실패');
+      },
+    },
+  );
 
   // 터치 이벤트 핸들러
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -107,6 +123,10 @@ export default function NoticeItem({
     setIsDragging(false);
   };
 
+  const handleDelete = () => {
+    deleteNoticeMutation();
+  };
+
   return (
     <>
       <S.NoticeItemWrapper>
@@ -116,7 +136,7 @@ export default function NoticeItem({
             <S.EditButton>
               <S.EditIcon src={editIcon} alt="edit" />
             </S.EditButton>
-            <S.DeleteButton>
+            <S.DeleteButton onClick={handleDelete}>
               <S.DeleteIcon src={deleteIcon} alt="delete" />
             </S.DeleteButton>
           </S.ActionButtons>
