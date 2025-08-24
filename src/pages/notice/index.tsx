@@ -37,7 +37,7 @@ export default function NoticePage() {
           />
         ))}
       </S.NoticeList>
-      {member?.role === 'ROLE_ADMIN' && (
+      {isAdmin && (
         <S.Button
           src={plus}
           alt="plus"

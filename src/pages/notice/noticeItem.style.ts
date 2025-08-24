@@ -1,11 +1,65 @@
 import styled from '@emotion/styled';
 
+// 슬라이딩 기능을 위한 래퍼
+export const NoticeItemWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
+
+// 액션 버튼들 (편집/삭제)
+export const ActionButtons = styled.div<{ isVisible: boolean }>`
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.3s ease;
+`;
+
+// 편집 버튼
+export const EditButton = styled.div`
+  width: 100px;
+  height: 100%;
+  background-color: #0ea5e6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+`;
+
+// 편집 아이콘
+export const EditIcon = styled.img``;
+
+// 삭제 버튼
+export const DeleteButton = styled.div`
+  width: 100px;
+  height: 100%;
+  background-color: #f00;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+`;
+
+// 삭제 아이콘
+export const DeleteIcon = styled.img``;
+
+//
 export const Container = styled.div`
   padding: 22px 20px;
   border-bottom: 1px solid #d2d9df;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
 `;
 
 export const TextFlex = styled.div`
