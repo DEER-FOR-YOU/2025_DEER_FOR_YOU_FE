@@ -16,7 +16,10 @@ export default function NoticePage() {
     location.state?.expandedNoticeId || null,
   );
   const { data, isLoading } = useApiQuery(getNotices(), ['notice']);
-  const { data: member } = useApiQuery(getMember(), ['member']);
+  const { data: member } = useApiQuery(getMember(), ['member'], {
+    queryKey: ['member'],
+    enabled: !!sessionStorage.getItem('accessToken'),
+  });
   if (isLoading) {
     return <div></div>;
   }
