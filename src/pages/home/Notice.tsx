@@ -5,39 +5,26 @@ import Inner from '../../components/container/inner';
 // import up from '../../assets/up.svg';
 // import down from '../../assets/down.svg';
 import Button from '../../components/button/Button';
-
-const NOTICE_ITEMS = [
-  '총학을 이겨라 당첨자 발표 총학을 이겨라 당첨자 발표 총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-  '총학을 이겨라 당첨자 발표',
-];
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
+import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
+import { getNotices } from '../../apis/notice';
 
 export default function Notice() {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const { data, isLoading } = useApiQuery(getNotices(), ['notice']);
+  if (isLoading) {
+    return <div></div>;
+  }
 
-  const handleItemClick = (index: number) => {
-    if (selectedItem === index) {
-      // 이미 선택된 아이템을 다시 클릭하면 alert
-      alert('이미 선택된 공지사항입니다!');
+  const handleItemClick = (id: number) => {
+    if (selectedItem === id) {
+      // 이미 선택된 아이템을 다시 클릭하면 해당 공지사항으로 이동
+      navigate(ROUTES.NOTICE, { state: { expandedNoticeId: id } });
     } else {
       // 새로운 아이템 선택
-      setSelectedItem(index);
+      setSelectedItem(id);
     }
   };
 
@@ -48,13 +35,13 @@ export default function Notice() {
         <S.NoticeContainer>
           <Inner>
             <S.NoticeList>
-              {NOTICE_ITEMS.map((text, index) => (
+              {data?.map((text) => (
                 <S.NoticeItem
-                  key={index}
-                  isSelected={selectedItem === index}
-                  onClick={() => handleItemClick(index)}
+                  key={text.id}
+                  isSelected={selectedItem === text.id}
+                  onClick={() => handleItemClick(text.id)}
                 >
-                  {text}
+                  {text.title}
                 </S.NoticeItem>
               ))}
             </S.NoticeList>
@@ -69,7 +56,11 @@ export default function Notice() {
               <S.ScrollButtonImg src={down} />
             </Button>
           </S.ScrollDownButtonWrapper> */}
-          <Button style={{ alignSelf: 'flex-end' }} css={S.Button}>
+          <Button
+            style={{ alignSelf: 'flex-end' }}
+            css={S.Button}
+            onClick={() => navigate(ROUTES.NOTICE)}
+          >
             전체보기
           </Button>
         </S.NoticeContainer>

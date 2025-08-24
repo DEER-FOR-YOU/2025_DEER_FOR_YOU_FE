@@ -5,4 +5,6 @@ export const ROUTES = {
   MAP: '/map',
   TIMELINE: '/timeline',
   MY: '/my',
+  NOTICE: '/notice',
+  NOTICE_POST: '/notice/post',
 };

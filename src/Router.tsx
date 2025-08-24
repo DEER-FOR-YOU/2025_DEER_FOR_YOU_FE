@@ -10,7 +10,8 @@ const Goods = lazy(() => import('./pages/goods'));
 const Home = lazy(() => import('./pages/home'));
 const Map = lazy(() => import('./pages/map'));
 const Timeline = lazy(() => import('./pages/timeline'));
-
+const Notice = lazy(() => import('./pages/notice'));
+const NoticePost = lazy(() => import('./pages/notice/post'));
 const withSuspense = (element: React.ReactNode) => (
   <Suspense fallback={<></>}>{element}</Suspense>
 );
@@ -43,11 +44,20 @@ const router = createBrowserRouter([
             path: ROUTES.TIMELINE,
             element: withSuspense(<Timeline />),
           },
+          {
+            path: ROUTES.NOTICE,
+            element: withSuspense(<Notice />),
+          },
         ],
       },
       {
         element: <ProtectedLayout />,
-        children: [],
+        children: [
+          {
+            path: ROUTES.NOTICE_POST,
+            element: withSuspense(<NoticePost />),
+          },
+        ],
       },
     ],
   },
