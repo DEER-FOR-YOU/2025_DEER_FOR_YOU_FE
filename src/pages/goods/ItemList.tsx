@@ -16,7 +16,7 @@ const itemList = [
   {
     id: 1,
     name: '축제 유니폼',
-    price: '4,1000 원',
+    price: '41,000 원',
     image: [festival_uniform_front, festival_uniform_back],
     style: [
       {
@@ -39,7 +39,7 @@ const itemList = [
   {
     id: 2,
     name: '축구 유니폼',
-    price: '4,1000 원',
+    price: '41,000 원',
     image: [soccer_uniform_front, soccer_uniform_back],
     style: [
       {

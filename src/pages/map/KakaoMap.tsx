@@ -7,6 +7,7 @@ import food from '../../assets/markers/food.svg';
 import lost from '../../assets/markers/lost.svg';
 import toilet from '../../assets/markers/toilet.svg';
 import smoke from '../../assets/markers/smoke.svg';
+import activity from '../../assets/markers/activity.svg';
 
 // 마커 데이터 타입 정의
 interface MarkerData {
@@ -73,6 +74,12 @@ const MARKERS: MarkerData[] = [
     image: smoke,
     title: '흡연구역',
     // onClick: () => alert('흡연구역입니다!'),
+  },
+  {
+    id: 'activity',
+    position: { lat: 36.833174, lng: 127.17997 },
+    image: activity,
+    title: '체험',
   },
 ];
 
@@ -198,7 +205,7 @@ export default function KakaoMap({
     const buttonTitleMap: { [key: string]: string } = {
       화장실: '화장실',
       음식: '음식',
-      체험: '공연장', // 체험 버튼은 공연장 마커과 임시 매칭
+      체험: '체험',
       분실물: '분실물',
       공연장: '공연장',
       의무실: '의무실',
