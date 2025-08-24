@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './index.style';
 import Header from '../../components/header';
 import NoticeItem from './NoticeItem';
 import plus from '../../assets/plus.svg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 import { getNotices } from '../../apis/notice';
 import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
@@ -11,6 +11,10 @@ import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
 export default function NoticePage() {
   const isAdmin = true; //임시
   const navigate = useNavigate();
+  const location = useLocation();
+  const [expandedNoticeId, setExpandedNoticeId] = useState<number | null>(
+    location.state?.expandedNoticeId || null,
+  );
   const { data, isLoading } = useApiQuery(getNotices(), ['notice']);
 
   if (isLoading) {
@@ -22,7 +26,14 @@ export default function NoticePage() {
       <Header title="공지사항" />
       <S.NoticeList>
         {data?.map((notice) => (
-          <NoticeItem key={notice.id} notice={notice} />
+          <NoticeItem
+            key={notice.id}
+            notice={notice}
+            isExpanded={expandedNoticeId === notice.id}
+            onToggle={(id) =>
+              setExpandedNoticeId(expandedNoticeId === id ? null : id)
+            }
+          />
         ))}
       </S.NoticeList>
       {isAdmin && (

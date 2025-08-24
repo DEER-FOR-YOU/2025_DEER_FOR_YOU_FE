@@ -10,10 +10,23 @@ interface NoticeItemProps {
     content: string;
     createdAt: string;
   };
+  isExpanded?: boolean;
+  onToggle?: (id: number) => void;
 }
 
-export default function NoticeItem({ notice }: NoticeItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function NoticeItem({
+  notice,
+  isExpanded = false,
+  onToggle,
+}: NoticeItemProps) {
+  const [isOpen, setIsOpen] = useState(isExpanded);
+
+  const handleToggle = () => {
+    const newState = !isOpen;
+    setIsOpen(newState);
+    onToggle?.(notice.id);
+  };
+
   return (
     <>
       <S.Container>
@@ -21,11 +34,7 @@ export default function NoticeItem({ notice }: NoticeItemProps) {
           <S.Title>{notice.title}</S.Title>
           <S.CreatedAt>{notice.createdAt}</S.CreatedAt>
         </S.TextFlex>
-        <S.ArrowDown
-          src={arrowDown}
-          alt="arrow_down"
-          onClick={() => setIsOpen(!isOpen)}
-        />
+        <S.ArrowDown src={arrowDown} alt="arrow_down" onClick={handleToggle} />
       </S.Container>
       {isOpen && (
         <S.ContentConatiner>

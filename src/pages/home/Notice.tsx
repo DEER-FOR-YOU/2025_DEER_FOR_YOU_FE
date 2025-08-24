@@ -18,13 +18,13 @@ export default function Notice() {
     return <div></div>;
   }
 
-  const handleItemClick = (index: number) => {
-    if (selectedItem === index) {
-      // 이미 선택된 아이템을 다시 클릭하면 alert
-      navigate(ROUTES.NOTICE);
+  const handleItemClick = (id: number) => {
+    if (selectedItem === id) {
+      // 이미 선택된 아이템을 다시 클릭하면 해당 공지사항으로 이동
+      navigate(ROUTES.NOTICE, { state: { expandedNoticeId: id } });
     } else {
       // 새로운 아이템 선택
-      setSelectedItem(index);
+      setSelectedItem(id);
     }
   };
 
@@ -35,11 +35,11 @@ export default function Notice() {
         <S.NoticeContainer>
           <Inner>
             <S.NoticeList>
-              {data?.map((text, index) => (
+              {data?.map((text) => (
                 <S.NoticeItem
-                  key={index}
-                  isSelected={selectedItem === index}
-                  onClick={() => handleItemClick(index)}
+                  key={text.id}
+                  isSelected={selectedItem === text.id}
+                  onClick={() => handleItemClick(text.id)}
                 >
                   {text.title}
                 </S.NoticeItem>
