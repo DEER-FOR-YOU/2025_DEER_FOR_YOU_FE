@@ -9,3 +9,8 @@ export type NoticeList = {
   content: string;
   createdAt: string;
 }[];
+
+export interface Member {
+  memberId: number;
+  role: string;
+}

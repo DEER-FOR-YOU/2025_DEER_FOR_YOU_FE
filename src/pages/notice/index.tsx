@@ -5,7 +5,7 @@ import NoticeItem from './NoticeItem';
 import plus from '../../assets/plus.svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
-import { getNotices } from '../../apis/notice';
+import { getNotices, getMember } from '../../apis/notice';
 import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
 
 export default function NoticePage() {
@@ -16,6 +16,7 @@ export default function NoticePage() {
     location.state?.expandedNoticeId || null,
   );
   const { data, isLoading } = useApiQuery(getNotices(), ['notice']);
+  const { data: member } = useApiQuery(getMember(), ['member']);
 
   if (isLoading) {
     return <div></div>;
@@ -36,7 +37,7 @@ export default function NoticePage() {
           />
         ))}
       </S.NoticeList>
-      {isAdmin && (
+      {member?.role === 'ROLE_ADMIN' && (
         <S.Button
           src={plus}
           alt="plus"
