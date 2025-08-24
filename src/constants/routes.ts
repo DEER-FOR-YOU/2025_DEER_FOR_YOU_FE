@@ -7,4 +7,5 @@ export const ROUTES = {
   MY: '/my',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
+  NOTICE_EDIT: '/notice/edit/:id',
 };
