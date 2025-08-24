@@ -34,7 +34,7 @@ export default function Navbar() {
       activeIcon: musicActive,
     },
     {
-      path: ROUTES.MY,
+      path: ROUTES.MYPAGE,
       label: '마이',
       icon: my,
       activeIcon: myActive,

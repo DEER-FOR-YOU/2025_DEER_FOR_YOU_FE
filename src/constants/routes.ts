@@ -4,7 +4,9 @@ export const ROUTES = {
   GOODS: '/goods',
   MAP: '/map',
   TIMELINE: '/timeline',
-  MY: '/my',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
+  MYPAGE: '/my-page',
+  LOGIN: '/login',
+  REGISTER: '/register',
 };

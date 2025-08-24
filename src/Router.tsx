@@ -12,6 +12,9 @@ const Map = lazy(() => import('./pages/map'));
 const Timeline = lazy(() => import('./pages/timeline'));
 const Notice = lazy(() => import('./pages/notice'));
 const NoticePost = lazy(() => import('./pages/notice/post'));
+const My = lazy(() => import('./pages/mypage'));
+const Register = lazy(() => import('./pages/register'));
+const Login = lazy(() => import('./pages/login'));
 const withSuspense = (element: React.ReactNode) => (
   <Suspense fallback={<></>}>{element}</Suspense>
 );
@@ -47,6 +50,10 @@ const router = createBrowserRouter([
           {
             path: ROUTES.NOTICE,
             element: withSuspense(<Notice />),
+          },
+          {
+            path: ROUTES.MYPAGE,
+            element: withSuspense(<My />),
           },
         ],
       },
