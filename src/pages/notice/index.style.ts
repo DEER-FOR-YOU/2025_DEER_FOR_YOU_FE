@@ -13,6 +13,6 @@ export const NoticeList = styled.div`
 export const Button = styled.img`
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
 `;

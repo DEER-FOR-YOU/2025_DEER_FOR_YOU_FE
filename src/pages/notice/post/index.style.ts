@@ -38,7 +38,7 @@ export const Title = styled.input`
 export const SendButton = styled.button`
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   background: none;
   border: none;
   cursor: pointer;
