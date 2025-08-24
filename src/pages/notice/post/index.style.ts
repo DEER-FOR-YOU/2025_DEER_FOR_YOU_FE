@@ -42,7 +42,7 @@ export const SendButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  /* padding: 8px; */
   border-radius: 6px;
   transition: background-color 0.2s ease;
 
