@@ -70,8 +70,109 @@ export const ButtonText2 = styled.div`
 `;
 export const MapWrapper = styled.div`
   padding: 16px;
+  position: relative;
 `;
 
 export const MapImage = styled.img`
   width: 100%;
+`;
+
+//부드 리스트
+export const BotthList = styled.div`
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  position: absolute;
+  bottom: 36px;
+
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: calc(100% - 40px);
+  margin: 0 4px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const BoothItem = styled.div`
+  padding: 11px 16px 11px 12px;
+  background-color: #fff;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+`;
+
+export const BoothImage = styled.img`
+  width: 70px;
+  height: 70px;
+`;
+export const BotthTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 140px;
+  width: 140px;
+`;
+
+export const BoothName = styled.div`
+  color: #000;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.35px;
+
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  text-overflow: ellipsis; /* 넘친 부분을 ... 으로 표시 */
+`;
+
+export const BoothType = styled.div`
+  color: #7f8992;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.25px;
+
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  text-overflow: ellipsis; /* 넘친 부분을 ... 으로 표시 */
+`;
+
+export const BoothNotice = styled.div`
+  color: #7f8992;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.25px;
+
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  text-overflow: ellipsis; /* 넘친 부분을 ... 으로 표시 */
+
+  margin-top: -3px;
+  margin-bottom: 1px;
+`;
+
+export const BoothLocationContainer = styled.div`
+  display: flex;
+  gap: 3px;
+`;
+
+export const BoothLocation = styled.img``;
+
+export const BoothLocationText = styled.div`
+  color: #464b50;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.25px;
 `;
