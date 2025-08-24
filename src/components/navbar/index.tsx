@@ -1,13 +1,13 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import * as S from './index.style';
-import home from '../../assets/home.svg';
-import homeActive from '../../assets/home_active.svg';
-import schedule from '../../assets/schedule.svg';
-import scheduleActive from '../../assets/schecule_active.svg';
-import my from '../../assets/my.svg';
-import myActive from '../../assets/my_active.svg';
-import music from '../../assets/music.svg';
-import musicActive from '../../assets/music_active.svg';
+import home from '../../assets/navbar/home.svg';
+import homeActive from '../../assets/navbar/home_active.svg';
+import schedule from '../../assets/navbar/schedule.svg';
+import scheduleActive from '../../assets/navbar/schedule_active.svg';
+import my from '../../assets/navbar/my.svg';
+import myActive from '../../assets/navbar/my_active.svg';
+import music from '../../assets/navbar/music.svg';
+import musicActive from '../../assets/navbar/music_active.svg';
 import { ROUTES } from '../../constants/routes';
 
 export default function Navbar() {
