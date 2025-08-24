@@ -7,6 +7,7 @@ import deleteIcon from '../../assets/delete.svg';
 import { deleteNotice } from '../../apis/notice';
 import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
 import { useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 interface NoticeItemProps {
   notice: {
@@ -32,6 +33,7 @@ export default function NoticeItem({
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const handleToggle = () => {
     const newState = !isOpen;
     setIsOpen(newState);
@@ -127,13 +129,17 @@ export default function NoticeItem({
     deleteNoticeMutation();
   };
 
+  const handleEdit = () => {
+    navigate(`/notice/edit/${notice.id}`);
+  };
+
   return (
     <>
       <S.NoticeItemWrapper>
         {/* 슬라이딩 액션 버튼들 - 관리자일 때만 표시 */}
         {isAdmin && (
           <S.ActionButtons isVisible={slideOffset > 0}>
-            <S.EditButton>
+            <S.EditButton onClick={handleEdit}>
               <S.EditIcon src={editIcon} alt="edit" />
             </S.EditButton>
             <S.DeleteButton onClick={handleDelete}>
