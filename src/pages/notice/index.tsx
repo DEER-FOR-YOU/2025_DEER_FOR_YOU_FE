@@ -17,7 +17,6 @@ export default function NoticePage() {
   );
   const { data, isLoading } = useApiQuery(getNotices(), ['notice']);
   const { data: member } = useApiQuery(getMember(), ['member']);
-
   if (isLoading) {
     return <div></div>;
   }
@@ -30,6 +29,7 @@ export default function NoticePage() {
           <NoticeItem
             key={notice.id}
             notice={notice}
+            isAdmin={member?.role === 'ROLE_ADMIN'}
             isExpanded={expandedNoticeId === notice.id}
             onToggle={(id) =>
               setExpandedNoticeId(expandedNoticeId === id ? null : id)
@@ -37,7 +37,7 @@ export default function NoticePage() {
           />
         ))}
       </S.NoticeList>
-      {isAdmin && (
+      {member?.role === 'ROLE_ADMIN' && (
         <S.Button
           src={plus}
           alt="plus"
