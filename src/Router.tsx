@@ -55,6 +55,14 @@ const router = createBrowserRouter([
             path: ROUTES.MYPAGE,
             element: withSuspense(<My />),
           },
+          {
+            path: ROUTES.LOGIN,
+            element: withSuspense(<Login />),
+          },
+          {
+            path: ROUTES.REGISTER,
+            element: withSuspense(<Register />),
+          },
         ],
       },
       {
