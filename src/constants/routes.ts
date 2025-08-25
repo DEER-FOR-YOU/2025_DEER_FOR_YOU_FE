@@ -3,6 +3,7 @@ export const ROUTES = {
   ARTISTS: '/artists',
   GOODS: '/goods',
   MAP: '/map',
+  BOOTHS: '/booths',
   TIMELINE: '/timeline',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
@@ -11,4 +12,5 @@ export const ROUTES = {
   REGISTER: '/register',
   FIND_PASSWORD: '/password',
   CHANGE_PASSWORD: '/my-page/password',
+  NOTICE_EDIT: '/notice/edit/:id',
 };

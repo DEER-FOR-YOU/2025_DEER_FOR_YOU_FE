@@ -3,6 +3,8 @@ import Header from '../../components/header';
 import KakaoMap from './KakaoMap';
 import ButtonList from './ButtonList';
 import { useState } from 'react';
+import SearchBar from '../../components/searchBar';
+import BoothList from './BoothList';
 
 export default function Map() {
   const [selectedButton, setSelectedButton] = useState<string>('전체');
@@ -10,6 +12,9 @@ export default function Map() {
   return (
     <S.Container>
       <Header title="전체지도" />
+      <S.SearchBarContainer>
+        <SearchBar />
+      </S.SearchBarContainer>
       <ButtonList
         selectedButton={selectedButton}
         setSelectedButton={setSelectedButton}
@@ -19,6 +24,7 @@ export default function Map() {
         zoom={2}
         selectedButton={selectedButton}
       />
+      <BoothList />
     </S.Container>
   );
 }
