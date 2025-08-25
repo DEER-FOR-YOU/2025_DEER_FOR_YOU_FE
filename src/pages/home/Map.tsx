@@ -128,7 +128,7 @@ export default function Map() {
             {mapImage.map((item) => (
               <S.BoothItem key={item.id}>
                 <S.BoothImage src={item.image} alt="booth" />
-                <S.BotthTextContainer>
+                <S.BoothTextContainer>
                   <S.BoothName>{item.boothName}</S.BoothName>
                   <S.BoothType>{item.boothType}</S.BoothType>
                   <S.BoothNotice>{item.boothNotice}</S.BoothNotice>
@@ -136,7 +136,7 @@ export default function Map() {
                     <S.BoothLocation src={where} alt="where" />
                     <S.BoothLocationText>{item.location}</S.BoothLocationText>
                   </S.BoothLocationContainer>
-                </S.BotthTextContainer>
+                </S.BoothTextContainer>
               </S.BoothItem>
             ))}
           </S.BotthList>

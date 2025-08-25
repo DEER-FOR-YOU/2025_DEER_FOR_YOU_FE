@@ -108,7 +108,7 @@ export const BoothImage = styled.img`
   width: 70px;
   height: 70px;
 `;
-export const BotthTextContainer = styled.div`
+export const BoothTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 140px;
