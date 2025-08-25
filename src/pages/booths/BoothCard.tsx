@@ -5,6 +5,7 @@ import time from '../../assets/when.svg';
 import place from '../../assets/where.svg';
 import { getKorLocation } from '../../utils/getKorLocation';
 import { getBoothTypeText } from '../../utils/getBoothTypeText';
+// import basic_booth from '../../assets/basic_booth.png';
 
 export default function BoothCard({ booth }: { booth: any }) {
   console.log(booth);
@@ -15,6 +16,9 @@ export default function BoothCard({ booth }: { booth: any }) {
         src={booth.image.imageUrl}
         alt={booth.name}
         fullSize={booth.boothAffiliation === 'COUNCIL' ? true : false}
+        style={{
+          backgroundColor: !booth.image.imageUrl ? '#BEC6CD' : 'transparent',
+        }}
       />
       <S.TextContainer>
         <S.TextFitstRow>
