@@ -52,7 +52,7 @@ export const MoreText = styled.div`
 export const LostList = styled.div`
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 8px;
   overflow-x: auto;
 
   scrollbar-width: none;

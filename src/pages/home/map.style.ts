@@ -43,7 +43,7 @@ export const ButtonContainer = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: center;
-  padding-bottom: 22px;
+  padding-bottom: 12px;
 `;
 export const ButtonText = styled.div`
   font-family: 'NeoDunggeunmoPro';
@@ -52,7 +52,7 @@ export const ButtonText = styled.div`
   font-weight: 400;
   line-height: 100%; /* 16px */
   letter-spacing: -0.8px;
-  padding: 15px 30px;
+  padding: 15px 40px;
   text-align: center;
   cursor: pointer;
 `;
@@ -69,7 +69,7 @@ export const ButtonText2 = styled.div`
   cursor: pointer;
 `;
 export const MapWrapper = styled.div`
-  padding: 16px;
+  padding: 15px 13px 7px 13px;
   position: relative;
 `;
 
