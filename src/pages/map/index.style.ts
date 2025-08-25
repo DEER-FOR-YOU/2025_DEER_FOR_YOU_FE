@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 74px);
+  position: relative;
   /* min-height: 100vh; */
   /* display: flex; */
   /* flex-direction: column; */
@@ -12,4 +13,9 @@ export const Container = styled.div`
     flex: 1;
     min-height: 0;
   } */
+`;
+
+export const SearchBarContainer = styled.div`
+  padding: 0 20px;
+  margin-top: 12px;
 `;

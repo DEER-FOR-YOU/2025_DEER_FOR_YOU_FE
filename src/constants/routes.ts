@@ -3,6 +3,7 @@ export const ROUTES = {
   ARTISTS: '/artists',
   GOODS: '/goods',
   MAP: '/map',
+  BOOTHS: '/booths',
   TIMELINE: '/timeline',
   MY: '/my',
   NOTICE: '/notice',

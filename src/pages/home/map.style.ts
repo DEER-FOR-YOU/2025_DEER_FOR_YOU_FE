@@ -84,8 +84,6 @@ export const BotthList = styled.div`
   overflow-x: auto;
   position: absolute;
   bottom: 36px;
-
-  overflow-x: auto;
   white-space: nowrap;
   max-width: calc(100% - 40px);
   margin: 0 4px;
@@ -108,7 +106,7 @@ export const BoothImage = styled.img`
   width: 70px;
   height: 70px;
 `;
-export const BotthTextContainer = styled.div`
+export const BoothTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 140px;
