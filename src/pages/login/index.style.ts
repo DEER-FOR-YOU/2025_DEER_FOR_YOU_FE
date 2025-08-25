@@ -36,12 +36,12 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const NavigationText = styled.div`
-  ${({ theme }) => theme.fonts.pretender_16}
+  ${({ theme }) => theme.fonts.pretender_14}
   color: ${({ theme }) => theme.colors.basic.dark_gray};
 
   span {
     margin-left: 0.6rem;
-    ${({ theme }) => theme.fonts.pretender_16}
+    ${({ theme }) => theme.fonts.pretender_14}
     font-weight: 600;
     color: ${({ theme }) => theme.colors.blue.blue30};
     cursor: pointer;
