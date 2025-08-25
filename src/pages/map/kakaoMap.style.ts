@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 
 export const MapContainer = styled.div`
   width: 100%;
-  height: calc(100% - 168px);
+  /* height: calc(100% - 168px); */
   overflow: hidden;
+
+  flex-grow: 1;
 `;
 
 export const MapWrapper = styled.div`
