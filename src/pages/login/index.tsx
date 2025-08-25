@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../apis/login';
 import { TokenProccesor } from '../../utils/Authorization/TokenProccesor';
 import Modal from './components/modal/Modal';
+import { useToastContext } from '../../components/toast/Toast';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -15,6 +16,8 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
   const isFormValid = email && password;
+
+  const { show } = useToastContext();
 
   const handleLogin = () => {
     if (isFormValid) {
@@ -27,9 +30,10 @@ const LoginPage = () => {
           TokenProccesor({
             tokenResponse: response.data,
           });
-          navigate('/');
+          navigate('/root');
+          show('로그인이 완료되었습니다.', 'info', true);
         })
-        .catch((error) => {
+        .catch(() => {
           setIsError(true);
         });
     }
@@ -69,9 +73,7 @@ const LoginPage = () => {
           </S.NavigationText>
           <S.NavigationText>
             비밀번호를 잊으셨나요?{' '}
-            <span onClick={() => navigate('/find-password')}>
-              비밀번호 찾기
-            </span>
+            <span onClick={() => navigate('/password')}>비밀번호 찾기</span>
           </S.NavigationText>
         </S.NavigationWrapper>
       </S.Container>

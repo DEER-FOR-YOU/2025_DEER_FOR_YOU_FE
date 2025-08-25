@@ -3,25 +3,26 @@ import * as S from './index.style';
 import InputBox from './components/input/InputBox';
 import Header from '../../components/header';
 import Button from './components/button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
-  registerMember,
+  changePassword,
   sendEmail,
   verifyCertificationCode,
 } from '../../apis/register';
 import useToast from '../../hooks/useToast';
 
-const RegisterPage = () => {
+const PasswordPage = () => {
   const [text, setText] = useState('');
   const [email, setEmail] = useState('');
   const [certificationCode, setCertificationCode] = useState('');
-  const [password, setPassword] = useState('');
-  const [checkPassword, setCheckPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [checkNewPassword, setCheckNewPassword] = useState('');
   const [temporaryToken, setTemporaryToken] = useState('');
 
   const isEnabled =
-    email && password && temporaryToken && checkPassword === password;
+    email && newPassword && temporaryToken && checkNewPassword === newPassword;
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { show } = useToast();
 
   const handleSendEmail = () => {
@@ -47,21 +48,21 @@ const RegisterPage = () => {
       });
   };
 
-  const handleRegister = () => {
+  const handleChangePassword = () => {
     if (isEnabled) {
-      registerMember({ email, password, checkPassword, temporaryToken })
+      changePassword({ email, temporaryToken, newPassword, checkNewPassword })
         .execute()
         .then(() => {
-          show('회원가입이 완료되었습니다.', 'info');
-          navigate('/login');
+          show('비밀번호 변경이 완료되었습니다.', 'info');
+          pathname === '/password' ? navigate('/login') : navigate('/my-page');
         })
         .catch((err) => {
-          if (err.response?.data?.message === '이미 존재하는 회원입니다.') {
-            show('이미 가입된 이메일입니다.', 'error');
+          if (err.response?.data?.message === '존재하지 않는 회원입니다.') {
+            show('존재하지 않는 회원입니다.', 'error');
           } else if (err.response?.data?.message === '잘못된 비밀번호입니다.') {
             show('비밀번호가 올바르지 않습니다.', 'error');
           } else {
-            show('회원가입에 실패했습니다.', 'error');
+            show('비밀번호 변경에 실패했습니다.', 'error');
           }
         });
     }
@@ -70,7 +71,9 @@ const RegisterPage = () => {
   return (
     <>
       <S.Container>
-        <Header title="회원가입" />
+        <Header
+          title={pathname === '/password' ? '비밀번호 찾기' : '비밀번호 변경'}
+        />
         <S.InputWrapper>
           <InputBox
             title="이메일 계정"
@@ -95,33 +98,37 @@ const RegisterPage = () => {
               text: text,
             }}
           />
-          <InputBox
-            title="비밀번호"
-            placeholder="특수 문자 2개 이상, 영문, 숫자 포함된 8자~20자 입력"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <InputBox
-            title="비밀번호 확인"
-            placeholder="비밀번호 확인"
-            value={checkPassword}
-            onChange={(e) => setCheckPassword(e.target.value)}
-          />
+          {temporaryToken && (
+            <>
+              <InputBox
+                title="새 비밀번호"
+                placeholder="특수 문자 2개 이상, 영문, 숫자 포함된 8자~20자 입력"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
+              <InputBox
+                title="새 비밀번호 확인"
+                placeholder="새 비밀번호 확인"
+                value={checkNewPassword}
+                onChange={(e) => setCheckNewPassword(e.target.value)}
+              />
+            </>
+          )}
         </S.InputWrapper>
-        <S.ButtonWrapper>
-          <Button type="check" disabled={!isEnabled} onClick={handleRegister}>
-            회원가입
-          </Button>
-        </S.ButtonWrapper>
-        <S.NavigationWrapper>
-          <S.NavigationText>
-            이미 계정이 있으신가요?{' '}
-            <span onClick={() => navigate('/login')}>로그인</span>
-          </S.NavigationText>
-        </S.NavigationWrapper>
+        {temporaryToken && (
+          <S.ButtonWrapper>
+            <Button
+              type="check"
+              disabled={!isEnabled}
+              onClick={handleChangePassword}
+            >
+              변경하기
+            </Button>
+          </S.ButtonWrapper>
+        )}
       </S.Container>
     </>
   );
 };
 
-export default RegisterPage;
+export default PasswordPage;

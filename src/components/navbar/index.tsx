@@ -46,7 +46,7 @@ export default function Navbar() {
   };
 
   return (
-    <S.NavbarContainer>
+    <S.NavbarContainer data-navbar="true">
       {navItems.map((item) => {
         const isActive = location.pathname === item.path;
         return (

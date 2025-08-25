@@ -9,4 +9,6 @@ export const ROUTES = {
   MYPAGE: '/my-page',
   LOGIN: '/login',
   REGISTER: '/register',
+  FIND_PASSWORD: '/password',
+  CHANGE_PASSWORD: '/my-page/password',
 };
