@@ -84,8 +84,6 @@ export const BotthList = styled.div`
   overflow-x: auto;
   position: absolute;
   bottom: 36px;
-
-  overflow-x: auto;
   white-space: nowrap;
   max-width: calc(100% - 40px);
   margin: 0 4px;
