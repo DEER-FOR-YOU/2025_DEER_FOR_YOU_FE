@@ -10,7 +10,7 @@ export async function getBooths({
   boothLocation?: string;
   boothAffiliation?: string;
   boothType?: string;
-  lastBoothId?: string;
+  lastBoothId: string;
 }): Promise<any> {
   const params = new URLSearchParams();
 
@@ -27,7 +27,17 @@ export async function getBooths({
   return res;
 }
 
-export const useInfiniteBooths = (location: string) => {
+interface UseInfiniteBoothsProps {
+  boothLocation?: string;
+  boothAffiliation?: string;
+  boothType?: string;
+}
+
+export const useInfiniteBooths = ({
+  boothLocation,
+  boothAffiliation,
+  boothType,
+}: UseInfiniteBoothsProps) => {
   const {
     data,
     fetchNextPage,
@@ -36,10 +46,12 @@ export const useInfiniteBooths = (location: string) => {
     refetch,
     isLoading,
   } = useInfiniteQuery({
-    queryKey: ['booths', location],
+    queryKey: ['booths', boothLocation, boothAffiliation, boothType],
     queryFn: ({ pageParam }) =>
       getBooths({
-        boothLocation: location,
+        boothLocation,
+        boothAffiliation,
+        boothType,
         lastBoothId: pageParam.toString(),
       }),
     initialPageParam: 0, // 첫 요청은 lastBoothId = 0

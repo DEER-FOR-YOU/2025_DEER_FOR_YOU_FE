@@ -10,20 +10,25 @@ import type { Booth } from '../../types/booth';
 
 export default function BoothsPage() {
   const [searchParams] = useSearchParams();
-  const location = searchParams.get('location');
-
+  const boothlocation = searchParams.get('location');
   const [selectedType, setSelectedType] = useState<string>('');
   const [selectedAffiliation, setSelectedAffiliation] = useState<string>('');
 
-  console.log(location);
-  const { data, isLoading } = useInfiniteBooths(location || '');
+  const { data, isLoading } = useInfiniteBooths({
+    boothLocation: boothlocation || '',
+    boothAffiliation: selectedType,
+    boothType: selectedAffiliation,
+  });
 
   if (isLoading) return <div></div>;
 
   return (
     <S.Container>
-      <Header title={location} />
-      <ButtonList />
+      <Header title={boothlocation} />
+      <ButtonList
+        selectedType={selectedType}
+        setSelectedType={setSelectedType}
+      />
       <ButtonList2 />
       <S.BoothsListContainer>
         {data?.pages.map((page) =>
