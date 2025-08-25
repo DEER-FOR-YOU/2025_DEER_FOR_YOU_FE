@@ -16,8 +16,8 @@ export default function BoothsPage() {
 
   const { data, isLoading } = useInfiniteBooths({
     boothLocation: boothlocation || '',
-    boothAffiliation: selectedType,
-    boothType: selectedAffiliation,
+    boothAffiliation: selectedAffiliation,
+    boothType: selectedType,
   });
 
   if (isLoading) return <div></div>;
@@ -26,10 +26,16 @@ export default function BoothsPage() {
     <S.Container>
       <Header title={boothlocation} />
       <ButtonList
-        selectedType={selectedType}
+        selectedAffiliation={selectedAffiliation}
+        setSelectedAffiliation={setSelectedAffiliation}
         setSelectedType={setSelectedType}
       />
-      <ButtonList2 />
+      {selectedAffiliation !== 'FOOD_TRUCK' && (
+        <ButtonList2
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+        />
+      )}
       <S.BoothsListContainer>
         {data?.pages.map((page) =>
           page.data.map((booth: Booth) => (

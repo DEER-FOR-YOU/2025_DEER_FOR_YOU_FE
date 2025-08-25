@@ -8,11 +8,11 @@ export const ButtonList2Container = styled.div`
   gap: 8px;
 `;
 
-export const Button = styled.div`
+export const Button = styled.div<{ isActive: boolean }>`
   padding: 8px 10px;
-  border: 1px solid #d2d9df;
+  border: 1px solid ${({ isActive }) => (isActive ? '#000' : '#d2d9df')};
 
-  color: #9fa6ac;
+  color: ${({ isActive }) => (isActive ? '#464B50' : '#9fa6ac')};
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
