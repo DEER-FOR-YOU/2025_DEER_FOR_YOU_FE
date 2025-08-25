@@ -34,7 +34,7 @@ export default function Navbar() {
       activeIcon: musicActive,
     },
     {
-      path: ROUTES.MY,
+      path: ROUTES.MYPAGE,
       label: '마이',
       icon: my,
       activeIcon: myActive,
@@ -46,7 +46,7 @@ export default function Navbar() {
   };
 
   return (
-    <S.NavbarContainer>
+    <S.NavbarContainer data-navbar="true">
       {navItems.map((item) => {
         const isActive = location.pathname === item.path;
         return (

@@ -18,6 +18,8 @@ const DefaultLayout = () => {
     ROUTES.MAP,
     ROUTES.TIMELINE,
     ROUTES.NOTICE,
+    ROUTES.MYPAGE,
+    ROUTES.CHANGE_PASSWORD,
   ].includes(location.pathname);
 
   return (

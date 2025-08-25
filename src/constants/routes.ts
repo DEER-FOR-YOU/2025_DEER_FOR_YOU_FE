@@ -5,8 +5,12 @@ export const ROUTES = {
   MAP: '/map',
   BOOTHS: '/booths',
   TIMELINE: '/timeline',
-  MY: '/my',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
+  MYPAGE: '/my-page',
+  LOGIN: '/login',
+  REGISTER: '/register',
+  FIND_PASSWORD: '/password',
+  CHANGE_PASSWORD: '/my-page/password',
   NOTICE_EDIT: '/notice/edit/:id',
 };

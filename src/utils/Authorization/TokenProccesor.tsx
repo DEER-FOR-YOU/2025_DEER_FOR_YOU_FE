@@ -1,23 +1,14 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import type { TokenResponse } from '../../apis/login/index.types';
 
-const TokenProccesor = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-
-  useEffect(() => {
-    const accessToken = searchParams.get('accessToken');
-    const refreshToken = searchParams.get('refreshToken');
-
-    if (accessToken && refreshToken) {
-      sessionStorage.setItem('accessToken', accessToken);
-      sessionStorage.setItem('refreshToken', refreshToken);
-    }
-    navigate('/', { replace: true });
-  }, []);
-
-  return <></>;
+const TokenProccesor = ({
+  tokenResponse,
+}: {
+  tokenResponse: TokenResponse;
+}) => {
+  if (tokenResponse.accessToken && tokenResponse.refreshToken) {
+    sessionStorage.setItem('accessToken', tokenResponse.accessToken);
+    sessionStorage.setItem('refreshToken', tokenResponse.refreshToken);
+  }
 };
 
-export default TokenProccesor;
+export { TokenProccesor };
