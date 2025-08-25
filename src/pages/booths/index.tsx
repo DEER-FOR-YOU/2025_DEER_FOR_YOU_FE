@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import Header from '../map/Header';
 import { useInfiniteBooths } from '../../hooks/useInfiniteBooths';
 import BoothCard from './BoothCard';
+import ButtonList from './ButtonList';
+import ButtonList2 from './ButtonList2';
 
 export default function BoothsPage() {
   const [searchParams] = useSearchParams();
@@ -23,6 +25,8 @@ export default function BoothsPage() {
   return (
     <S.Container>
       <Header title={location} />
+      <ButtonList />
+      <ButtonList2 />
       <S.BoothsListContainer>
         {data?.pages.map((page) =>
           page.data.map((booth: any) => (
