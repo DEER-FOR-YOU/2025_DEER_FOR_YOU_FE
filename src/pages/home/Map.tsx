@@ -23,30 +23,36 @@ export default function Map() {
 
   // 자동 스크롤 기능
   useEffect(() => {
-    const boothList = boothListRef.current;
-    if (!boothList) return;
+    // 데이터가 로딩되지 않았거나 boothList가 없으면 실행하지 않음
+    if (!data || !boothListRef.current) return;
 
-    const autoScroll = () => {
-      // 스크롤이 끝에 도달하면 처음으로 돌아가기
-      if (
-        boothList.scrollLeft >=
-        boothList.scrollWidth - boothList.clientWidth - 1
-      ) {
-        boothList.scrollLeft = 0;
-      } else {
-        // 오른쪽으로 2px씩 스크롤 (더 부드러운 움직임)
-        boothList.scrollLeft += 2;
-      }
-    };
+    // DOM 업데이트 후 약간의 지연을 주어 안정적인 스크롤 시작
+    const timer = setTimeout(() => {
+      const boothList = boothListRef.current;
+      if (!boothList) return;
 
-    // 50ms마다 스크롤 실행 (적당한 속도)
-    const intervalId = setInterval(autoScroll, 50);
+      const autoScroll = () => {
+        // 스크롤이 끝에 도달하면 처음으로 돌아가기
+        if (
+          boothList.scrollLeft >=
+          boothList.scrollWidth - boothList.clientWidth - 1
+        ) {
+          boothList.scrollLeft = 0;
+        } else {
+          // 오른쪽으로 2px씩 스크롤 (더 부드러운 움직임)
+          boothList.scrollLeft += 2;
+        }
+      };
 
-    // 컴포넌트 언마운트 시 인터벌 정리
-    return () => clearInterval(intervalId);
-  }, []);
+      // 50ms마다 스크롤 실행 (적당한 속도)
+      const intervalId = setInterval(autoScroll, 50);
 
-  console.log(data);
+      // 컴포넌트 언마운트 시 인터벌 정리
+      return () => clearInterval(intervalId);
+    }, 100); // 100ms 지연
+
+    return () => clearTimeout(timer);
+  }, [data]); // data를 의존성 배열에 추가
 
   if (isLoading || !data) {
     return <div></div>;
