@@ -5,20 +5,18 @@ import { useInfiniteBooths } from '../../hooks/useInfiniteBooths';
 import BoothCard from './BoothCard';
 import ButtonList from './ButtonList';
 import ButtonList2 from './ButtonList2';
+import { useState } from 'react';
+import type { Booth } from '../../types/booth';
 
 export default function BoothsPage() {
   const [searchParams] = useSearchParams();
   const location = searchParams.get('location');
 
+  const [selectedType, setSelectedType] = useState<string>('');
+  const [selectedAffiliation, setSelectedAffiliation] = useState<string>('');
+
   console.log(location);
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    refetch,
-    isLoading,
-  } = useInfiniteBooths(location || '');
+  const { data, isLoading } = useInfiniteBooths(location || '');
 
   if (isLoading) return <div></div>;
 
@@ -29,7 +27,7 @@ export default function BoothsPage() {
       <ButtonList2 />
       <S.BoothsListContainer>
         {data?.pages.map((page) =>
-          page.data.map((booth: any) => (
+          page.data.map((booth: Booth) => (
             <BoothCard key={booth.id} booth={booth} />
           )),
         )}
