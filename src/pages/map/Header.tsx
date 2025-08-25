@@ -4,9 +4,9 @@ import arrow from '../../assets/arrow_back.svg';
 import { useNavigate } from 'react-router-dom';
 import dropdownDown from '../../assets/dropdown_down.svg';
 import dropdownUp from '../../assets/dropdown_up.svg';
-
+import { getHeaderTitle } from '../../utils/getHeaderTitle';
 interface HeaderProps {
-  title: string;
+  title: string | null;
   onLocationChange?: (location: string) => void;
 }
 
@@ -16,9 +16,9 @@ export default function Header({ title, onLocationChange }: HeaderProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const locations = [
-    { id: 1, name: '전체지도' },
-    { id: 2, name: '학생회관' },
-    { id: 3, name: '송백관' },
+    { id: 1, name: '전체지도', englishName: 'map' },
+    { id: 2, name: '학생회관', englishName: 'STUDENT_HALL' },
+    { id: 3, name: '송백관', englishName: 'SONG_BAEK_HALL' },
   ];
 
   const handleTitleClick = () => {
@@ -57,7 +57,7 @@ export default function Header({ title, onLocationChange }: HeaderProps) {
       <S.HeaderContent>
         <S.Arrow src={arrow} alt="arrow" onClick={() => navigate(-1)} />
         <S.TitleContainer onClick={handleTitleClick}>
-          <S.Title>{title}</S.Title>
+          <S.Title>{getHeaderTitle(title || '')}</S.Title>
           <S.DropdownIcon
             src={isDropdownOpen ? dropdownUp : dropdownDown}
             alt="dropdown"
@@ -94,8 +94,11 @@ export default function Header({ title, onLocationChange }: HeaderProps) {
               </S.DropDownItemWrapper>
               <S.DropDownItemWrapper>
                 <S.DropdownItem
-                  isSelected={locations[1].name === title}
-                  onClick={() => handleLocationSelect(locations[1].name)}
+                  isSelected={locations[1].englishName === title}
+                  onClick={() => {
+                    handleLocationSelect(locations[1].name);
+                    navigate('/booths?location=STUDENT_HALL');
+                  }}
                 >
                   {locations[1].name}
                 </S.DropdownItem>
@@ -104,8 +107,11 @@ export default function Header({ title, onLocationChange }: HeaderProps) {
             <S.FirstRowLine>
               <S.DropDownItemWrapper>
                 <S.DropdownItem
-                  isSelected={locations[2].name === title}
-                  onClick={() => handleLocationSelect(locations[2].name)}
+                  isSelected={locations[2].englishName === title}
+                  onClick={() => {
+                    handleLocationSelect(locations[2].name);
+                    navigate('/booths?location=SONG_BAEK_HALL');
+                  }}
                 >
                   {locations[2].name}
                 </S.DropdownItem>
