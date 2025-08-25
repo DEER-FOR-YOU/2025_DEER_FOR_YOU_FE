@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  position: absolute;
-  bottom: 22px;
+  /* position: absolute; */
+  position: fixed;
+  /* bottom: 22px; */
+  bottom: 100px;
   z-index: 100;
   width: 100%;
+  max-width: 550px;
 `;
 
 export const BoothList = styled.div`
