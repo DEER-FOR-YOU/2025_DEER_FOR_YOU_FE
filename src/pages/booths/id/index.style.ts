@@ -71,3 +71,44 @@ export const PlaceText = styled.div`
   line-height: 150%; /* 24px */
   letter-spacing: -0.4px;
 `;
+
+export const NoticeWrapper = styled.div`
+  padding: 0 20px;
+`;
+
+export const NoticeContainer = styled.div`
+  padding: 10px;
+  background-color: #f1f3f5;
+`;
+
+export const NoticeText = styled.div`
+  background-color: #9393ff;
+  padding: 2.5px 5px;
+
+  color: #f1f3f5;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 13px */
+  letter-spacing: -0.325px;
+  white-space: nowrap;
+`;
+
+export const NoticeTextWrapper = styled.div`
+  display: flex;
+  gap: 6px;
+  align-items: center;
+`;
+
+export const NoticeContent = styled.div`
+  color: #7f8992;
+  font-family: 'Pretendard';
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -0.325px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;

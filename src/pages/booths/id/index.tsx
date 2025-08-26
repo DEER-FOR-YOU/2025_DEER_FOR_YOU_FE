@@ -37,6 +37,7 @@ export default function BoothsDetailPage() {
     boothNotice,
     boothType,
     operationTime,
+    locationDetail,
   } = data || {};
 
   console.log(data);
@@ -70,10 +71,23 @@ export default function BoothsDetailPage() {
               </S.PlaceContainer>
               <S.PlaceContainer>
                 <S.PlaceIcon src={place} alt="time" />
-                <S.PlaceText>{boothLocation}</S.PlaceText>
+                <S.PlaceText>
+                  {boothLocation === 'STUDENT_HALL' && '학생회관 앞 '}
+                  {locationDetail === 'FOOD_TRUCK' ? '' : locationDetail}
+                </S.PlaceText>
               </S.PlaceContainer>
             </S.PlaceTimeContainer>
           </S.ContentContainer>
+          {boothNotice && (
+            <S.NoticeWrapper>
+              <S.NoticeContainer>
+                <S.NoticeTextWrapper>
+                  <S.NoticeText>안내</S.NoticeText>
+                  <S.NoticeContent>{boothNotice}</S.NoticeContent>
+                </S.NoticeTextWrapper>
+              </S.NoticeContainer>
+            </S.NoticeWrapper>
+          )}
         </>
       )}
     </S.Container>
