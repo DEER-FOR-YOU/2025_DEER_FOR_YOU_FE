@@ -4,6 +4,7 @@ export const ROUTES = {
   GOODS: '/goods',
   MAP: '/map',
   BOOTHS: '/booths',
+  BOOTHS_DETAIL: '/booths/:id',
   TIMELINE: '/timeline',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
@@ -16,4 +17,5 @@ export const ROUTES = {
   LOST_ITEM: '/lost-item',
   LOST_ITEM_CREATE: '/lost-item/create',
   LOST_ITEM_EDIT: '/lost-item/edit/:id',
+  EVENTS: '/events',
 };

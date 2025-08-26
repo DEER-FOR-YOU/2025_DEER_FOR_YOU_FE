@@ -22,7 +22,6 @@ export default function NoticePage() {
   if (isLoading) {
     return <div></div>;
   }
-
   return (
     <S.Container>
       <Header title="공지사항" />
