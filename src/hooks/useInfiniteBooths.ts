@@ -8,11 +8,13 @@ export async function getBooths({
   boothAffiliation,
   boothType,
   lastBoothId,
+  keyword,
 }: {
   boothLocation?: string;
   boothAffiliation?: string;
   boothType?: string;
   lastBoothId: string;
+  keyword?: string | null;
 }): Promise<any> {
   const params = new URLSearchParams();
 
@@ -21,6 +23,7 @@ export async function getBooths({
   if (boothAffiliation) params.append('boothAffiliation', boothAffiliation);
   if (boothType) params.append('boothType', boothType);
   if (lastBoothId) params.append('lastBoothId', lastBoothId);
+  if (keyword) params.append('keyword', keyword);
 
   // 세션스토리지에서 토큰 가져오기
   const token = sessionStorage.getItem('accessToken');
@@ -44,6 +47,7 @@ interface UseInfiniteBoothsProps {
   boothAffiliation?: string;
   boothType?: string;
   isLoggedIn: boolean;
+  keyword?: string | null;
 }
 
 export const useInfiniteBooths = ({
@@ -51,6 +55,7 @@ export const useInfiniteBooths = ({
   boothAffiliation,
   boothType,
   isLoggedIn,
+  keyword,
 }: UseInfiniteBoothsProps) => {
   const { ref, inView } = useInView();
 
@@ -68,6 +73,7 @@ export const useInfiniteBooths = ({
       boothAffiliation,
       boothType,
       isLoggedIn,
+      keyword,
     ],
     queryFn: ({ pageParam }) =>
       getBooths({
@@ -75,6 +81,7 @@ export const useInfiniteBooths = ({
         boothAffiliation,
         boothType,
         lastBoothId: pageParam.toString(),
+        keyword,
       }),
     initialPageParam: 0, // 첫 요청은 lastBoothId = 0
     getNextPageParam: (lastPage) => {

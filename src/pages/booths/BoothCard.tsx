@@ -13,7 +13,6 @@ import heart_active from '../../assets/heart_active.svg';
 import { useQueryClient } from '@tanstack/react-query';
 
 export default function BoothCard({ booth }: { booth: any }) {
-  console.log(booth);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const putBoothItemMutation = useApiMutation(putBoothItem(booth.id), {

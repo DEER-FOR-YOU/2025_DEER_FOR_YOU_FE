@@ -14,6 +14,10 @@ export default function BoothsPage() {
   const boothlocation = searchParams.get('location');
   const [selectedType, setSelectedType] = useState<string>('');
   const [selectedAffiliation, setSelectedAffiliation] = useState<string>('');
+  const keyword = searchParams.get('keyword');
+
+  console.log(keyword);
+  console.log(boothlocation);
 
   // SONG_BAEK_HALL일 때 필터 초기화
   useEffect(() => {
@@ -35,26 +39,32 @@ export default function BoothsPage() {
       boothAffiliation: selectedAffiliation,
       boothType: selectedType,
       isLoggedIn,
+      keyword,
     });
+  console.log(data);
 
   if (isLoading) return <div></div>;
 
   return (
     <S.Container>
       <Header title={boothlocation} />
-      <ButtonList
-        selectedAffiliation={selectedAffiliation}
-        setSelectedAffiliation={setSelectedAffiliation}
-        setSelectedType={setSelectedType}
-        boothlocation={boothlocation}
-      />
-      {selectedAffiliation !== 'FOOD_TRUCK' &&
-        boothlocation !== 'SONG_BAEK_HALL' && (
-          <ButtonList2
-            selectedType={selectedType}
+      {boothlocation && (
+        <>
+          <ButtonList
+            selectedAffiliation={selectedAffiliation}
+            setSelectedAffiliation={setSelectedAffiliation}
             setSelectedType={setSelectedType}
+            boothlocation={boothlocation}
           />
-        )}
+          {selectedAffiliation !== 'FOOD_TRUCK' &&
+            boothlocation !== 'SONG_BAEK_HALL' && (
+              <ButtonList2
+                selectedType={selectedType}
+                setSelectedType={setSelectedType}
+              />
+            )}
+        </>
+      )}
       <S.BoothsListContainer>
         {data?.pages.map((page) =>
           page.data.map((booth: Booth) => (
