@@ -28,7 +28,7 @@ export default function TimeItem({ item }: TimeItemProps) {
         queryClient.invalidateQueries();
       },
       onError: () => {
-        alert('북마크 추가에 실패했습니다.');
+        // alert('북마크 추가에 실패했습니다.');
       },
     },
   );
