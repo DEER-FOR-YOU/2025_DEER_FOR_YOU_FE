@@ -83,6 +83,7 @@ const router = createBrowserRouter([
             path: ROUTES.LOST_ITEM,
             element: withSuspense(<LostItemPage />),
           },
+          {
             path: ROUTES.BOOTHS,
             element: withSuspense(<BoothsPage />),
           },
