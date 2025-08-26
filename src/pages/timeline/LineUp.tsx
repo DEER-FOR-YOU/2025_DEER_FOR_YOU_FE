@@ -7,22 +7,22 @@ import kiki from '../../assets/artists/kiki.png';
 
 const artists9 = [
   {
-    name: 'Crush',
+    name: '크러쉬',
     when: '20:30 ~ 22:00',
     img: crush,
   },
   {
-    name: 'Carder',
+    name: '카더가든',
     when: '22:00 ~ 23:00',
     img: carder,
   },
   {
-    name: 'Sili',
+    name: '실리카겔',
     when: '20:30 ~ 22:00',
     img: sili,
   },
   {
-    name: 'Kiki',
+    name: '키키',
     when: '22:00 ~ 23:00',
     img: kiki,
   },
