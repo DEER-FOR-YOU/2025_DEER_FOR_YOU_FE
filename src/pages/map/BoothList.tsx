@@ -22,7 +22,7 @@ export default function BoothList() {
   }
 
   const handleTotalButtonClick = () => {
-    navigate(ROUTES.BOOTHS);
+    navigate(`${ROUTES.BOOTHS}?location=STUDENT_HALL`);
   };
 
   return (
