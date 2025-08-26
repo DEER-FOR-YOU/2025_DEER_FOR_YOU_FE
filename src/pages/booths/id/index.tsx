@@ -9,14 +9,27 @@ import { getBoothTypeText } from '../../../utils/getBoothTypeText';
 import heart from '../../../assets/heart.svg';
 import place from '../../../assets/where.svg';
 import time from '../../../assets/when.svg';
+import heart_active from '../../../assets/heart_active.svg';
+import { useApiMutation } from '../../../apis/config/builder/ApiBuilder';
+import { putBoothItem } from '../../../apis/booth';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function BoothsDetailPage() {
   const { id } = useParams();
   const [location, setLocation] = useState<string>('전체지도');
+  const isLoggedIn = !!sessionStorage.getItem('accessToken');
+  const queryClient = useQueryClient();
+  const putBoothItemMutation = useApiMutation(putBoothItem(id), {
+    onSuccess: () => {
+      console.log('북마크 추가되었습니다.');
+      queryClient.invalidateQueries();
+    },
+  });
 
   const { data, isLoading } = useApiQuery(getBoothDetail(id), [
     'boothDetail',
     id,
+    isLoggedIn,
   ]);
 
   useEffect(() => {
@@ -41,7 +54,9 @@ export default function BoothsDetailPage() {
     items,
   } = data || {};
 
-  console.log(data);
+  const handleBookmarkClick = () => {
+    putBoothItemMutation.mutate();
+  };
 
   return (
     <S.Container>
@@ -63,7 +78,11 @@ export default function BoothsDetailPage() {
                   )}
                 </S.BoothType>
               </S.NameTypeContainer>
-              <S.HeartIcon src={heart} alt="heart" />
+              <S.HeartIcon
+                src={data?.isBookmarked ? heart_active : heart}
+                alt="heart"
+                onClick={handleBookmarkClick}
+              />
             </S.NameTypeBookmarkContainer>
             <S.PlaceTimeContainer>
               <S.PlaceContainer>

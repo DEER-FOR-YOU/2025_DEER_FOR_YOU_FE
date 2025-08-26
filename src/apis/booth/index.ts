@@ -12,3 +12,9 @@ export const getBoothDetail = (id: string | undefined) => {
     'GET',
   );
 };
+
+export const putBoothItem = (id: string | undefined) => {
+  return ApiBuilder.create<void, void>(
+    `/api/v1/bookmarks/booths/${id}`,
+  ).setMethod('PUT');
+};

@@ -14,9 +14,12 @@ export default function Timeline() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentDate = searchParams.get('date') || '9'; // 기본값은 9일
 
+  // 로그인 상태 확인 (accessToken 존재 여부)
+  const isLoggedIn = !!sessionStorage.getItem('accessToken');
+
   const { data, isLoading } = useApiQuery(
     getTimelines(getFullDate(Number(currentDate))),
-    ['timeline', currentDate],
+    ['timeline', currentDate, isLoggedIn], // queryKey에 로그인 상태 포함
   );
 
   const handleDateChange = (date: string) => {
