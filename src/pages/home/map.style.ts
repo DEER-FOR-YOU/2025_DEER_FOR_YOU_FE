@@ -85,7 +85,7 @@ export const BotthList = styled.div`
   position: absolute;
   bottom: 36px;
   white-space: nowrap;
-  max-width: calc(100% - 40px);
+  max-width: calc(100% - 34px);
   margin: 0 4px;
 
   &::-webkit-scrollbar {
