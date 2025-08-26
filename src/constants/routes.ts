@@ -4,6 +4,7 @@ export const ROUTES = {
   GOODS: '/goods',
   MAP: '/map',
   BOOTHS: '/booths',
+  BOOTHS_DETAIL: '/booths/:id',
   TIMELINE: '/timeline',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
@@ -13,4 +14,5 @@ export const ROUTES = {
   FIND_PASSWORD: '/password',
   CHANGE_PASSWORD: '/my-page/password',
   NOTICE_EDIT: '/notice/edit/:id',
+  EVENTS: '/events',
 };

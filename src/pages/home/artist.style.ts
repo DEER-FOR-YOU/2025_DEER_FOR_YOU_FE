@@ -39,8 +39,8 @@ export const TextContainer = styled.div`
 
 export const HeaderText = styled.div`
   color: #d2d9df;
-  font-family: 'Pretendard';
-  font-size: 12px;
+  font-family: Pretendard;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 500;
   line-height: 140%; /* 16.8px */
@@ -190,7 +190,7 @@ export const ArtistName = styled.div`
   /* transform: translateX(-50%); */
   color: #fff;
   font-family: 'Pretendard';
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
   pointer-events: none;
   z-index: 3;
@@ -205,7 +205,7 @@ export const ArtistSubtitle = styled.div`
   /* transform: translateX(-50%); */
   color: #fff;
   font-family: 'Pretendard';
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 600;
   pointer-events: none;
   z-index: 3;

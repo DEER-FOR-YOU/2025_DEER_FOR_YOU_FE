@@ -20,7 +20,7 @@ export default function GoodsPage() {
           <S.WhenContainer>
             <S.WhenImageContainer>
               <img src={where} alt="where" />
-              <S.LabelText>장소</S.LabelText>
+              <S.LabelText style={{ marginLeft: '2px' }}>장소</S.LabelText>
             </S.WhenImageContainer>
             <S.Border>|</S.Border>
             <S.ContentText>상명대학교 계당관 앞 총학생회 부스</S.ContentText>

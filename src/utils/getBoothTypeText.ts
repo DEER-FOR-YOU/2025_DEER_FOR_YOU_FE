@@ -2,7 +2,7 @@ import { getTypeKor } from './getTypeKor';
 
 export const getBoothTypeText = (
   boothType: string | null,
-  boothAffiliation: string,
+  boothAffiliation: string | null,
 ) => {
   if (boothType === null) {
     switch (boothAffiliation) {

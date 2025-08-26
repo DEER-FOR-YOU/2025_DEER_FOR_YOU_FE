@@ -1,5 +1,5 @@
 import * as S from './index.style';
-import Header from '../../components/header';
+import Header from './Header';
 import KakaoMap from './KakaoMap';
 import ButtonList from './ButtonList';
 import { useState } from 'react';
@@ -8,12 +8,20 @@ import BoothList from './BoothList';
 
 export default function Map() {
   const [selectedButton, setSelectedButton] = useState<string>('전체');
+  const [selectedLocation, setSelectedLocation] = useState<string>('전체지도');
+
+  const handleLocationChange = (location: string) => {
+    setSelectedLocation(location);
+  };
 
   return (
     <S.Container>
-      <Header title="전체지도" />
+      <Header
+        title={selectedLocation}
+        onLocationChange={handleLocationChange}
+      />
       <S.SearchBarContainer>
-        <SearchBar />
+        <SearchBar placeholder="부스 / 주점을 검색해보세요" />
       </S.SearchBarContainer>
       <ButtonList
         selectedButton={selectedButton}

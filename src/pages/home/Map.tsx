@@ -103,10 +103,7 @@ export default function Map() {
         </S.MapWrapper>
         <S.ButtonContainer>
           <Button>
-            <S.ButtonText onClick={handleButtonClick}>전체지도</S.ButtonText>
-          </Button>
-          <Button>
-            <S.ButtonText2> 부스 </S.ButtonText2>
+            <S.ButtonText onClick={handleButtonClick}>자세히 보기</S.ButtonText>
           </Button>
         </S.ButtonContainer>
       </Outer>
