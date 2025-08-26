@@ -10,6 +10,7 @@ import arrowFront from '../../assets/arrow_front.svg';
 import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
 import { putTimeLines } from '../../apis/timeline';
 import { useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 interface TimeItemProps {
   item: TimeTableItem;
@@ -18,7 +19,7 @@ interface TimeItemProps {
 export default function TimeItem({ item }: TimeItemProps) {
   const [showDetails, setShowDetails] = useState(false);
   const queryClient = useQueryClient();
-
+  const navigate = useNavigate();
   const putTimeLinesMutation = useApiMutation(
     putTimeLines(item.timeTableId.toString()),
     {
@@ -93,7 +94,11 @@ export default function TimeItem({ item }: TimeItemProps) {
               <S.LuckySubTitle>총학 이벤트 - 상품 증정</S.LuckySubTitle>
             </S.LuckyText>
           </S.LuckyLeft>
-          <S.LuckyRight src={arrowFront} alt="arrow" />
+          <S.LuckyRight
+            src={arrowFront}
+            alt="arrow"
+            onClick={() => navigate('/events?name=행운권 추첨')}
+          />
         </S.LuckyMoreContainer>
       )}
     </>
