@@ -8,7 +8,7 @@ const getTimelines = (timeTableDay: string) => {
 };
 
 const putTimeLines = (timeTableId: string) => {
-  return ApiBuilder.create<void, TimeTableList>(
+  return ApiBuilder.create<void, void>(
     `/api/v1/bookmarks/time-tables/${timeTableId}`,
   ).setMethod('PUT');
 };

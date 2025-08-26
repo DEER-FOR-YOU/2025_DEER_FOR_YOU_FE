@@ -22,8 +22,18 @@ export async function getBooths({
   if (boothType) params.append('boothType', boothType);
   if (lastBoothId) params.append('lastBoothId', lastBoothId);
 
+  // 세션스토리지에서 토큰 가져오기
+  const token = sessionStorage.getItem('accessToken');
+
+  // 헤더 설정
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const res = await axios.get(
     `${process.env.REACT_APP_API_URL}/api/v1/booths?${params.toString()}`,
+    { headers },
   );
 
   return res;
@@ -33,12 +43,14 @@ interface UseInfiniteBoothsProps {
   boothLocation?: string;
   boothAffiliation?: string;
   boothType?: string;
+  isLoggedIn: boolean;
 }
 
 export const useInfiniteBooths = ({
   boothLocation,
   boothAffiliation,
   boothType,
+  isLoggedIn,
 }: UseInfiniteBoothsProps) => {
   const { ref, inView } = useInView();
 
@@ -50,7 +62,13 @@ export const useInfiniteBooths = ({
     refetch,
     isLoading,
   } = useInfiniteQuery({
-    queryKey: ['booths', boothLocation, boothAffiliation, boothType],
+    queryKey: [
+      'booths',
+      boothLocation,
+      boothAffiliation,
+      boothType,
+      isLoggedIn,
+    ],
     queryFn: ({ pageParam }) =>
       getBooths({
         boothLocation,

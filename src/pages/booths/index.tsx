@@ -27,11 +27,14 @@ export default function BoothsPage() {
     }
   }, [boothlocation]);
 
+  const isLoggedIn = !!sessionStorage.getItem('accessToken');
+
   const { data, isLoading, ref, isFetchingNextPage, hasNextPage } =
     useInfiniteBooths({
       boothLocation: boothlocation || '',
       boothAffiliation: selectedAffiliation,
       boothType: selectedType,
+      isLoggedIn,
     });
 
   if (isLoading) return <div></div>;

@@ -7,9 +7,21 @@ import { getKorLocation } from '../../utils/getKorLocation';
 import { getBoothTypeText } from '../../utils/getBoothTypeText';
 import { useNavigate } from 'react-router-dom';
 // import basic_booth from '../../assets/basic_booth.png';
+import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
+import { putBoothItem } from '../../apis/booth';
+import heart_active from '../../assets/heart_active.svg';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function BoothCard({ booth }: { booth: any }) {
+  console.log(booth);
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const putBoothItemMutation = useApiMutation(putBoothItem(booth.id), {
+    onSuccess: () => {
+      console.log('북마크 추가되었습니다.');
+      queryClient.invalidateQueries();
+    },
+  });
 
   const handleClick = () => {
     if (booth.boothAffiliation === 'COUNCIL') {
@@ -17,6 +29,12 @@ export default function BoothCard({ booth }: { booth: any }) {
     } else {
       navigate(`/booths/${booth.id}`);
     }
+  };
+
+  const handleBookmarkClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation(); // 이벤트 버블링 방지
+    putBoothItemMutation.mutate();
   };
 
   return (
@@ -37,7 +55,11 @@ export default function BoothCard({ booth }: { booth: any }) {
               {getBoothTypeText(booth.boothType, booth.boothAffiliation)}
             </S.BoothType>
           </S.FirstRowLeft>
-          <S.HeartIcon src={heart} alt="heart" />
+          <S.HeartIcon
+            src={booth.isBookmarked ? heart_active : heart}
+            alt="heart"
+            onClick={handleBookmarkClick}
+          />
         </S.TextFitstRow>
         <S.TextSecondRow>
           <S.TimeContainer>

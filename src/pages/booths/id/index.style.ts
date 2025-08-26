@@ -46,7 +46,9 @@ export const BoothType = styled.div`
   letter-spacing: -0.4px;
 `;
 
-export const HeartIcon = styled.img``;
+export const HeartIcon = styled.img`
+  cursor: pointer;
+`;
 
 export const PlaceTimeContainer = styled.div`
   display: flex;
