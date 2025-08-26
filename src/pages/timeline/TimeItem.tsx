@@ -7,10 +7,15 @@ import { nineDayClub, tenDayClub } from './club';
 import timeImage from '../../assets/when.svg';
 import luckyImage from '../../assets/lucky.svg';
 import arrowFront from '../../assets/arrow_front.svg';
-import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
+import {
+  useApiMutation,
+  useApiQuery,
+} from '../../apis/config/builder/ApiBuilder';
 import { putTimeLines } from '../../apis/timeline';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { useToastContext } from '../../components/toast/Toast';
+import { getMember } from '../../apis/notice';
 
 interface TimeItemProps {
   item: TimeTableItem;
@@ -18,20 +23,28 @@ interface TimeItemProps {
 
 export default function TimeItem({ item }: TimeItemProps) {
   const [showDetails, setShowDetails] = useState(false);
+  const { show } = useToastContext();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const putTimeLinesMutation = useApiMutation(
     putTimeLines(item.timeTableId.toString()),
     {
       onSuccess: () => {
-        // 모든 캐시 삭제
         queryClient.invalidateQueries();
       },
       onError: () => {
-        // alert('북마크 추가에 실패했습니다.');
+        memberData
+          ? show('북마크 추가에 실패했습니다.', 'error', true)
+          : show('로그인 후 이용해주세요', 'error', true);
       },
     },
   );
+
+  const { data: memberData } = useApiQuery(getMember(), ['member'], {
+    queryKey: ['member'],
+    enabled: !!sessionStorage.getItem('accessToken'),
+  });
+
   const handleMoreClick = () => {
     if ([3, 8, 9].includes(item.timeTableId)) {
       setShowDetails(!showDetails);
