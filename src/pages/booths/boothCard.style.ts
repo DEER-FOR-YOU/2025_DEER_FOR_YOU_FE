@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const BoothCardContainer = styled.div`
   border: 1px solid #bec6cd;
+  cursor: pointer;
 `;
 
 export const BoothCardImage = styled.img<{ fullSize: boolean }>`

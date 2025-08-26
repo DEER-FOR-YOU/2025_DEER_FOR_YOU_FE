@@ -5,11 +5,13 @@ import time from '../../assets/when.svg';
 import place from '../../assets/where.svg';
 import { getKorLocation } from '../../utils/getKorLocation';
 import { getBoothTypeText } from '../../utils/getBoothTypeText';
+import { useNavigate } from 'react-router-dom';
 // import basic_booth from '../../assets/basic_booth.png';
 
 export default function BoothCard({ booth }: { booth: any }) {
+  const navigate = useNavigate();
   return (
-    <S.BoothCardContainer>
+    <S.BoothCardContainer onClick={() => navigate(`/booths/${booth.id}`)}>
       <S.BoothCardImage
         src={booth.image.imageUrl}
         alt={booth.name}

@@ -4,6 +4,7 @@ export const ROUTES = {
   GOODS: '/goods',
   MAP: '/map',
   BOOTHS: '/booths',
+  BOOTHS_DETAIL: '/booths/:id',
   TIMELINE: '/timeline',
   NOTICE: '/notice',
   NOTICE_POST: '/notice/post',
