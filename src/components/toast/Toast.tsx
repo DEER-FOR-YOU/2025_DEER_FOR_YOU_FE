@@ -18,6 +18,8 @@ const ToastContainer = styled.div<{ isNavBar?: boolean }>`
   align-items: center;
 
   width: calc(100% - 4rem);
+  max-width: calc(550px - 4rem);
+
   left: 50%;
   bottom: ${({ isNavBar }) => (isNavBar ? '9rem' : '2.4rem')};
 

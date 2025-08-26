@@ -9,7 +9,6 @@ import { getNotices, getMember } from '../../apis/notice';
 import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
 
 export default function NoticePage() {
-  const isAdmin = true; //임시
   const navigate = useNavigate();
   const location = useLocation();
   const [expandedNoticeId, setExpandedNoticeId] = useState<number | null>(

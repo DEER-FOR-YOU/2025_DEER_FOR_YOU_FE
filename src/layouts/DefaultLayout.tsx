@@ -20,6 +20,7 @@ const DefaultLayout = () => {
     ROUTES.NOTICE,
     ROUTES.MYPAGE,
     ROUTES.CHANGE_PASSWORD,
+    ROUTES.LOST_ITEM,
   ].includes(location.pathname);
 
   return (
