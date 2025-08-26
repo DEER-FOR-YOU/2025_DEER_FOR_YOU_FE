@@ -8,4 +8,11 @@ export const BoothsListContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 0 20px;
+  margin-top: 24px;
+`;
+
+export const SearchBarContainer = styled.div`
+  padding: 0 20px;
+  margin-top: 12px;
+  margin-bottom: 16px;
 `;
