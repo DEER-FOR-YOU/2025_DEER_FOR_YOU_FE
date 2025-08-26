@@ -6,13 +6,26 @@ import { nineDayClub, tenDayClub } from './club';
 import timeImage from '../../assets/when.svg';
 import luckyImage from '../../assets/lucky.svg';
 import arrowFront from '../../assets/arrow_front.svg';
+import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
+import { putTimeLines } from '../../apis/timeline';
+
 interface TimeItemProps {
   item: TimeTableItem;
 }
 
 export default function TimeItem({ item }: TimeItemProps) {
   const [showDetails, setShowDetails] = useState(false);
-
+  const putTimeLinesMutation = useApiMutation(
+    putTimeLines(item.timeTableId.toString()),
+    {
+      onSuccess: () => {
+        alert('북마크 추가되었습니다.');
+      },
+      onError: () => {
+        alert('북마크 추가에 실패했습니다.');
+      },
+    },
+  );
   const handleMoreClick = () => {
     if ([3, 8, 9].includes(item.timeTableId)) {
       setShowDetails(!showDetails);
@@ -28,12 +41,20 @@ export default function TimeItem({ item }: TimeItemProps) {
     return [];
   };
 
+  const handleBookmarkClick = () => {
+    putTimeLinesMutation.mutate();
+  };
+
   return (
     <>
       <S.Container>
         <S.Header>
           <S.Time>{item.timeDescription}</S.Time>
-          <S.Bookmark src={bookmark} alt="bookmark" />
+          <S.Bookmark
+            src={bookmark}
+            alt="bookmark"
+            onClick={handleBookmarkClick}
+          />
         </S.Header>
         <S.Footer>
           <S.Content>

@@ -7,4 +7,10 @@ const getTimelines = (timeTableDay: string) => {
     .setParams({ timeTableDay: timeTableDay });
 };
 
-export { getTimelines };
+const putTimeLines = (timeTableId: string) => {
+  return ApiBuilder.create<void, TimeTableList>(
+    `/api/v1/bookmarks/time-tables/${timeTableId}`,
+  ).setMethod('PUT');
+};
+
+export { getTimelines, putTimeLines };
