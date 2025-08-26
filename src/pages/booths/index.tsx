@@ -7,12 +7,21 @@ import ButtonList from './ButtonList';
 import ButtonList2 from './ButtonList2';
 import { useState } from 'react';
 import type { Booth } from '../../types/booth';
+import React, { useEffect } from 'react';
 
 export default function BoothsPage() {
   const [searchParams] = useSearchParams();
   const boothlocation = searchParams.get('location');
   const [selectedType, setSelectedType] = useState<string>('');
   const [selectedAffiliation, setSelectedAffiliation] = useState<string>('');
+
+  // SONG_BAEK_HALL일 때 필터 초기화
+  useEffect(() => {
+    if (boothlocation === 'SONG_BAEK_HALL') {
+      setSelectedType('');
+      setSelectedAffiliation('');
+    }
+  }, [boothlocation]);
 
   const { data, isLoading } = useInfiniteBooths({
     boothLocation: boothlocation || '',
