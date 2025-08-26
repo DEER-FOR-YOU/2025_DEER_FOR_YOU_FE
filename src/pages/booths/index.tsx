@@ -19,6 +19,10 @@ export default function BoothsPage() {
   useEffect(() => {
     if (boothlocation === 'SONG_BAEK_HALL') {
       setSelectedType('');
+      setSelectedAffiliation('COUNCIL');
+    }
+    if (boothlocation === 'STUDENT_HALL') {
+      setSelectedType('');
       setSelectedAffiliation('');
     }
   }, [boothlocation]);
@@ -38,13 +42,15 @@ export default function BoothsPage() {
         selectedAffiliation={selectedAffiliation}
         setSelectedAffiliation={setSelectedAffiliation}
         setSelectedType={setSelectedType}
+        boothlocation={boothlocation}
       />
-      {selectedAffiliation !== 'FOOD_TRUCK' && (
-        <ButtonList2
-          selectedType={selectedType}
-          setSelectedType={setSelectedType}
-        />
-      )}
+      {selectedAffiliation !== 'FOOD_TRUCK' &&
+        boothlocation !== 'SONG_BAEK_HALL' && (
+          <ButtonList2
+            selectedType={selectedType}
+            setSelectedType={setSelectedType}
+          />
+        )}
       <S.BoothsListContainer>
         {data?.pages.map((page) =>
           page.data.map((booth: Booth) => (
