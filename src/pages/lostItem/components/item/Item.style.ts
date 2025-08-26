@@ -67,7 +67,7 @@ export const ItemImage = styled.img`
   width: 9.6rem;
   height: 9.6rem;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  object-fit: fill;
 `;
 
 export const ItemContent = styled.div`

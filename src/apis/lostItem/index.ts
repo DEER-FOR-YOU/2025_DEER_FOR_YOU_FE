@@ -11,12 +11,10 @@ const buildFormData = (
   images?: File[] | null,
 ): FormData => {
   const form = new FormData();
-
-  Object.keys(payload).forEach((key) => {
-    const value = payload[key];
-    if (value === undefined || value === null) return;
-    form.append(key, String(value));
-  });
+  form.append(
+    'request',
+    new Blob([JSON.stringify(payload)], { type: 'application/json' }),
+  );
 
   if (images && images.length > 0) {
     images.forEach((file) => {
@@ -58,8 +56,7 @@ const createLostItem = (
 
   return ApiBuilder.create<FormData, number>('/api/v1/lost-items')
     .setMethod('POST')
-    .setData(form)
-    .setHeaders({ 'Content-Type': 'multipart/form-data' });
+    .setData(form);
 };
 
 const updateLostItem = (
@@ -73,8 +70,7 @@ const updateLostItem = (
 
   return ApiBuilder.create<FormData, void>('/api/v1/lost-items')
     .setMethod('PUT')
-    .setData(form)
-    .setHeaders({ 'Content-Type': 'multipart/form-data' });
+    .setData(form);
 };
 
 const deleteLostItem = (id: number) => {

@@ -1,5 +1,5 @@
 export interface LostItemModifyRequest {
-  id: number;
+  lostItemId: number;
   title: string;
   description: string;
   lostPlace: string;

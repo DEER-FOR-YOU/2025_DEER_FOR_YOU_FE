@@ -57,7 +57,7 @@ const Item = ({ item, isAdmin, openModal }: ItemProps) => {
   const navigate = useNavigate();
 
   const handleEdit = () => {
-    navigate(`/lost/edit/${item.lostItemId}`);
+    navigate(`/lost-item/edit/${item.lostItemId}`);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
