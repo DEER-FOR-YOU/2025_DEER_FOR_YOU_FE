@@ -27,11 +27,12 @@ export default function BoothsPage() {
     }
   }, [boothlocation]);
 
-  const { data, isLoading } = useInfiniteBooths({
-    boothLocation: boothlocation || '',
-    boothAffiliation: selectedAffiliation,
-    boothType: selectedType,
-  });
+  const { data, isLoading, ref, isFetchingNextPage, hasNextPage } =
+    useInfiniteBooths({
+      boothLocation: boothlocation || '',
+      boothAffiliation: selectedAffiliation,
+      boothType: selectedType,
+    });
 
   if (isLoading) return <div></div>;
 
@@ -56,6 +57,12 @@ export default function BoothsPage() {
           page.data.map((booth: Booth) => (
             <BoothCard key={booth.id} booth={booth} />
           )),
+        )}
+        {/* 무한 스크롤을 위한 Intersection Observer 요소 */}
+        {hasNextPage && (
+          <div ref={ref} style={{ height: '20px', margin: '20px 0' }}>
+            {isFetchingNextPage && <div></div>}
+          </div>
         )}
       </S.BoothsListContainer>
     </S.Container>

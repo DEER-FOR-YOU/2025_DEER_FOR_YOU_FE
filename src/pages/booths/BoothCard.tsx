@@ -8,8 +8,6 @@ import { getBoothTypeText } from '../../utils/getBoothTypeText';
 // import basic_booth from '../../assets/basic_booth.png';
 
 export default function BoothCard({ booth }: { booth: any }) {
-  console.log(booth);
-
   return (
     <S.BoothCardContainer>
       <S.BoothCardImage

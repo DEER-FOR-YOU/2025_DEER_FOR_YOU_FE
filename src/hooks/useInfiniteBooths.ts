@@ -1,4 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 import axios from 'axios';
 
 export async function getBooths({
@@ -38,6 +40,8 @@ export const useInfiniteBooths = ({
   boothAffiliation,
   boothType,
 }: UseInfiniteBoothsProps) => {
+  const { ref, inView } = useInView();
+
   const {
     data,
     fetchNextPage,
@@ -65,6 +69,13 @@ export const useInfiniteBooths = ({
     },
   });
 
+  // 무한 스크롤 자동 실행
+  useEffect(() => {
+    if (inView && hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
+
   return {
     fetchNextPage,
     hasNextPage,
@@ -72,5 +83,6 @@ export const useInfiniteBooths = ({
     refetch,
     data,
     isLoading,
+    ref, // Intersection Observer ref 추가
   };
 };
