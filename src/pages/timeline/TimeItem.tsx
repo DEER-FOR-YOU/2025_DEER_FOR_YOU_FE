@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import type { TimeTableItem } from '../../apis/timeline/index.types';
 import * as S from './TimeItem.style';
 import bookmark from '../../assets/bookmark.svg';
+import bookmark_active from '../../assets/bookmark_active.svg';
 import { nineDayClub, tenDayClub } from './club';
 import timeImage from '../../assets/when.svg';
 import luckyImage from '../../assets/lucky.svg';
 import arrowFront from '../../assets/arrow_front.svg';
 import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
 import { putTimeLines } from '../../apis/timeline';
+import { useQueryClient } from '@tanstack/react-query';
 
 interface TimeItemProps {
   item: TimeTableItem;
@@ -15,11 +17,14 @@ interface TimeItemProps {
 
 export default function TimeItem({ item }: TimeItemProps) {
   const [showDetails, setShowDetails] = useState(false);
+  const queryClient = useQueryClient();
+
   const putTimeLinesMutation = useApiMutation(
     putTimeLines(item.timeTableId.toString()),
     {
       onSuccess: () => {
-        alert('북마크 추가되었습니다.');
+        // 모든 캐시 삭제
+        queryClient.invalidateQueries();
       },
       onError: () => {
         alert('북마크 추가에 실패했습니다.');
@@ -51,7 +56,7 @@ export default function TimeItem({ item }: TimeItemProps) {
         <S.Header>
           <S.Time>{item.timeDescription}</S.Time>
           <S.Bookmark
-            src={bookmark}
+            src={item.bookmarked ? bookmark_active : bookmark}
             alt="bookmark"
             onClick={handleBookmarkClick}
           />
