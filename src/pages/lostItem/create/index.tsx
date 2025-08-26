@@ -40,13 +40,11 @@ const LostItemCreatePage = () => {
     images.length > 0;
 
   useEffect(() => {
-    if (!memberData) return;
-
-    if (memberData.role !== 'ROLE_ADMIN') {
+    if (memberData?.role !== 'ROLE_ADMIN') {
       show('이용할 수 없는 기능입니다.', 'error', true);
       navigate('/lost-item');
     }
-  }, [memberData, show, navigate]);
+  }, [memberData]);
 
   const handleCreateLostItem = () => {
     createLostItem(
