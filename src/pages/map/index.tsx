@@ -5,13 +5,24 @@ import ButtonList from './ButtonList';
 import { useState } from 'react';
 import SearchBar from '../../components/searchBar';
 import BoothList from './BoothList';
+import { useNavigate } from 'react-router-dom';
 
 export default function Map() {
   const [selectedButton, setSelectedButton] = useState<string>('전체');
   const [selectedLocation, setSelectedLocation] = useState<string>('전체지도');
+  const [keyword, setKeyword] = useState<string>('');
+  const navigate = useNavigate();
 
   const handleLocationChange = (location: string) => {
     setSelectedLocation(location);
+  };
+
+  const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleSearchPage = () => {
+    navigate(`/booths?keyword=${keyword}`);
   };
 
   return (
@@ -21,7 +32,12 @@ export default function Map() {
         onLocationChange={handleLocationChange}
       />
       <S.SearchBarContainer>
-        <SearchBar placeholder="부스 / 주점을 검색해보세요" />
+        <SearchBar
+          placeholder="부스 / 주점을 검색해보세요"
+          value={keyword}
+          onChange={handleKeywordChange}
+          onClick={handleSearchPage}
+        />
       </S.SearchBarContainer>
       <ButtonList
         selectedButton={selectedButton}

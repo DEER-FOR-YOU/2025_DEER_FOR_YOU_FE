@@ -34,7 +34,7 @@ export const SearchBarInput = styled.input`
   padding: 0;
   outline: none;
 
-  color: #bec6cd;
+  color: black;
   font-family: 'NeoDunggeunmoPro';
   font-size: 1.4rem;
   font-style: normal;
@@ -47,4 +47,6 @@ export const SearchBarInput = styled.input`
   }
 `;
 
-export const SearchBarIcon = styled.img``;
+export const SearchBarIcon = styled.img`
+  cursor: pointer;
+`;

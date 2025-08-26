@@ -83,7 +83,7 @@ export default function Header({ title, onLocationChange }: HeaderProps) {
             <S.FirstRowLine>
               <S.DropDownItemWrapper>
                 <S.DropdownItem
-                  isSelected={locations[0].name === title}
+                  isSelected={locations[0].name === title || title === null}
                   onClick={() => {
                     handleLocationSelect(locations[0].name);
                     navigate('/map');
