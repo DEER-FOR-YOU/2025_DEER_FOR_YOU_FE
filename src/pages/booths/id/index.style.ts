@@ -74,6 +74,7 @@ export const PlaceText = styled.div`
 
 export const NoticeWrapper = styled.div`
   padding: 0 20px;
+  margin-bottom: 48px;
 `;
 
 export const NoticeContainer = styled.div`
@@ -111,4 +112,59 @@ export const NoticeContent = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+`;
+
+export const ItemListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px;
+`;
+
+export const ItemListTitle = styled.div`
+  color: #000;
+  font-family: 'Pretendard';
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 30px */
+  letter-spacing: -0.5px;
+  text-transform: capitalize;
+`;
+export const ItemList = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ItemWrapper = styled.div`
+  padding: 4px 0;
+  border-bottom: 1px solid #eceff0;
+`;
+
+export const ItemContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ItemName = styled.div`
+  color: #000;
+  font-family: 'Pretendard';
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  letter-spacing: -0.4px;
+  text-transform: capitalize;
+`;
+
+export const ItemPrice = styled.div`
+  color: #252528;
+  font-family: 'Pretendard';
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  letter-spacing: -0.4px;
+  text-transform: capitalize;
 `;

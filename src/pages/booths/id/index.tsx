@@ -38,6 +38,7 @@ export default function BoothsDetailPage() {
     boothType,
     operationTime,
     locationDetail,
+    items,
   } = data || {};
 
   console.log(data);
@@ -87,6 +88,21 @@ export default function BoothsDetailPage() {
                 </S.NoticeTextWrapper>
               </S.NoticeContainer>
             </S.NoticeWrapper>
+          )}
+          {items && items.length > 0 && (
+            <S.ItemListContainer>
+              <S.ItemListTitle>상품 목록</S.ItemListTitle>
+              <S.ItemList>
+                {items.map((item) => (
+                  <S.ItemWrapper key={item.id}>
+                    <S.ItemContainer>
+                      <S.ItemName>{item.itemName}</S.ItemName>
+                      <S.ItemPrice>{item.itemPrice}원</S.ItemPrice>
+                    </S.ItemContainer>
+                  </S.ItemWrapper>
+                ))}
+              </S.ItemList>
+            </S.ItemListContainer>
           )}
         </>
       )}
