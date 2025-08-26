@@ -14,5 +14,8 @@ export const ROUTES = {
   FIND_PASSWORD: '/password',
   CHANGE_PASSWORD: '/my-page/password',
   NOTICE_EDIT: '/notice/edit/:id',
+  LOST_ITEM: '/lost-item',
+  LOST_ITEM_CREATE: '/lost-item/create',
+  LOST_ITEM_EDIT: '/lost-item/edit/:id',
   EVENTS: '/events',
 };

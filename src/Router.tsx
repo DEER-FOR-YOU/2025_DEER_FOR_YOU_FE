@@ -17,6 +17,9 @@ const Register = lazy(() => import('./pages/register'));
 const Login = lazy(() => import('./pages/login'));
 const Password = lazy(() => import('./pages/password'));
 const NoticeEdit = lazy(() => import('./pages/notice/edit'));
+const LostItemPage = lazy(() => import('./pages/lostItem'));
+const LostItemCreatePage = lazy(() => import('./pages/lostItem/create'));
+const LostItemEditPage = lazy(() => import('./pages/lostItem/edit'));
 const BoothsPage = lazy(() => import('./pages/booths'));
 const BoothsDetailPage = lazy(() => import('./pages/booths/id'));
 
@@ -77,6 +80,9 @@ const router = createBrowserRouter([
             element: withSuspense(<Password />),
           },
           {
+            path: ROUTES.LOST_ITEM,
+            element: withSuspense(<LostItemPage />),
+          },
             path: ROUTES.BOOTHS,
             element: withSuspense(<BoothsPage />),
           },
@@ -96,6 +102,14 @@ const router = createBrowserRouter([
           {
             path: ROUTES.NOTICE_EDIT,
             element: withSuspense(<NoticeEdit />),
+          },
+          {
+            path: ROUTES.LOST_ITEM_EDIT,
+            element: withSuspense(<LostItemEditPage />),
+          },
+          {
+            path: ROUTES.LOST_ITEM_CREATE,
+            element: withSuspense(<LostItemCreatePage />),
           },
         ],
       },

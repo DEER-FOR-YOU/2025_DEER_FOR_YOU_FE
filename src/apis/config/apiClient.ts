@@ -20,8 +20,7 @@ apiClient.interceptors.response.use(
     if (
       error.response &&
       error.response.data &&
-      error.response.status === 401 &&
-      error.response.data.message === '유효하지 않은 액세스 토큰입니다.'
+      error.response.status === 401
     ) {
       try {
         const reissueRequestDto = {
@@ -30,8 +29,7 @@ apiClient.interceptors.response.use(
         };
 
         const reissueUrl =
-          (process.env.REACT_APP_ENDPOINT || 'http://localhost:8080') +
-          '/api/v1/reissue';
+          process.env.REACT_APP_API_URL + '/api/v1/auth/reissue';
 
         const { data } = await axios.post(reissueUrl, reissueRequestDto);
 
@@ -44,19 +42,13 @@ apiClient.interceptors.response.use(
       } catch (reissueError) {
         console.error('토큰 재발급 실패:', reissueError);
         sessionStorage.clear();
-        redirectToLogin();
       }
     } else if (error.response && error.response.status === 401) {
       sessionStorage.clear();
-      redirectToLogin();
     }
 
     return Promise.reject(error);
   },
 );
-
-function redirectToLogin() {
-  window.location.href = '/intro';
-}
 
 export default apiClient;

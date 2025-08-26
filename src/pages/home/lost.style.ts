@@ -98,3 +98,21 @@ export const LostItemInfoText = styled.div`
   line-height: 150%; /* 21px */
   letter-spacing: -0.35px;
 `;
+
+export const NoItemSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto 0;
+  width: 100%;
+`;
+
+export const NoItemTitle = styled.div`
+  ${({ theme }) => theme.fonts.pretender_20};
+  color: ${({ theme }) => theme.colors.basic.dark_gray};
+  font-weight: 600;
+  letter-spacing: -0.03rem;
+  margin-top: 2rem;
+`;
