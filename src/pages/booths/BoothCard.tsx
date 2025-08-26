@@ -10,8 +10,17 @@ import { useNavigate } from 'react-router-dom';
 
 export default function BoothCard({ booth }: { booth: any }) {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (booth.boothAffiliation === 'COUNCIL') {
+      navigate(`/events?name=${booth.boothName}`);
+    } else {
+      navigate(`/booths/${booth.id}`);
+    }
+  };
+
   return (
-    <S.BoothCardContainer onClick={() => navigate(`/booths/${booth.id}`)}>
+    <S.BoothCardContainer onClick={handleClick}>
       <S.BoothCardImage
         src={booth.image.imageUrl}
         alt={booth.name}
