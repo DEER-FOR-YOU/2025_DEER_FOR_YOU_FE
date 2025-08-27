@@ -12,7 +12,7 @@ import SearchBar from '../../components/searchBar';
 
 export default function BoothsPage() {
   const [searchParams] = useSearchParams();
-  const boothlocation = searchParams.get('location');
+  const boothlocation = searchParams.get('location') || '';
   const keyword = searchParams.get('keyword');
   const [selectedType, setSelectedType] = useState<string>('');
   const [selectedAffiliation, setSelectedAffiliation] = useState<string>('');
@@ -50,7 +50,7 @@ export default function BoothsPage() {
       isLoggedIn,
       keyword,
     });
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) return <div></div>;
 
