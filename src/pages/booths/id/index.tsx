@@ -15,7 +15,7 @@ import { putBoothItem } from '../../../apis/booth';
 import { useQueryClient } from '@tanstack/react-query';
 import { getMember } from '../../../apis/notice';
 import { useToastContext } from '../../../components/toast/Toast';
-import facility from '../../../assets/map/student_hall.png';
+import facility from '../../../assets/map/student_hall.svg';
 import location_black from '../../../assets/location_black.svg';
 import { removeA } from '../../../utils/removeA';
 
