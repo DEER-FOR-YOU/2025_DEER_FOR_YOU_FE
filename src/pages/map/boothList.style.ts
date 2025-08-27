@@ -32,7 +32,7 @@ export const BoothItemContainer = styled.div`
 
 export const TotalButtonContainer = styled.button`
   display: flex;
-  padding: 7.891px 19px 8.109px 19px;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
   gap: 6px;
@@ -45,7 +45,7 @@ export const TotalButtonContainer = styled.button`
   left: 50%;
   transform: translateX(-50%);
   bottom: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 export const ButtonText = styled.div`
