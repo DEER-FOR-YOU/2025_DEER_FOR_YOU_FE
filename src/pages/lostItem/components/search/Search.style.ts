@@ -28,6 +28,7 @@ export const Search = styled.input`
 
   border-right: 2px solid ${(props) => props.theme.colors.basic.light_gray};
   border-bottom: 2px solid ${(props) => props.theme.colors.basic.mid_gray};
+  border-radius: 0px;
   background: ${(props) => props.theme.colors.basic.white};
 
   padding: 1.9rem 1.6rem;
