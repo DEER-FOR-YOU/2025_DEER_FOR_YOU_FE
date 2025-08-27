@@ -22,6 +22,10 @@ const LostItemCreatePage = lazy(() => import('./pages/lostItem/create'));
 const LostItemEditPage = lazy(() => import('./pages/lostItem/edit'));
 const BoothsPage = lazy(() => import('./pages/booths'));
 const BoothsDetailPage = lazy(() => import('./pages/booths/id'));
+const MyAccount = lazy(() => import('./pages/mypage/account'));
+const MyTimeline = lazy(() => import('./pages/mypage/timeline'));
+const MyBooth = lazy(() => import('./pages/mypage/booth'));
+const MyAdmin = lazy(() => import('./pages/mypage/admin'));
 
 const withSuspense = (element: React.ReactNode) => (
   <Suspense fallback={<></>}>{element}</Suspense>
@@ -111,6 +115,22 @@ const router = createBrowserRouter([
           {
             path: ROUTES.LOST_ITEM_CREATE,
             element: withSuspense(<LostItemCreatePage />),
+          },
+          {
+            path: ROUTES.MYPAGE_ACCOUNT,
+            element: withSuspense(<MyAccount />),
+          },
+          {
+            path: ROUTES.MYPAGE_TIMELINE,
+            element: withSuspense(<MyTimeline />),
+          },
+          {
+            path: ROUTES.MYPAGE_BOOTH,
+            element: withSuspense(<MyBooth />),
+          },
+          {
+            path: ROUTES.MYPAGE_ADMIN,
+            element: withSuspense(<MyAdmin />),
           },
         ],
       },

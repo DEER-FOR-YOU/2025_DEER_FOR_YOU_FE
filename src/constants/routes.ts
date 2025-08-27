@@ -18,4 +18,8 @@ export const ROUTES = {
   LOST_ITEM_CREATE: '/lost-item/create',
   LOST_ITEM_EDIT: '/lost-item/edit/:id',
   EVENTS: '/events',
+  MYPAGE_ACCOUNT: '/my-page/account',
+  MYPAGE_TIMELINE: '/my-page/timeline',
+  MYPAGE_BOOTH: '/my-page/booth',
+  MYPAGE_ADMIN: '/my-page/admin',
 };

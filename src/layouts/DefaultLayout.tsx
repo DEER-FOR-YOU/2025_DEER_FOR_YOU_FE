@@ -11,6 +11,7 @@ const DefaultLayout = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+
   const showNavbar =
     [
       ROUTES.ARTISTS,
@@ -22,8 +23,14 @@ const DefaultLayout = () => {
       ROUTES.MYPAGE,
       ROUTES.CHANGE_PASSWORD,
       ROUTES.LOST_ITEM,
+      ROUTES.BOOTHS,
+    ROUTES.MYPAGE_TIMELINE,
+    ROUTES.MYPAGE_BOOTH,
+    ROUTES.MYPAGE_ACCOUNT,
+    ROUTES.MYPAGE_ADMIN,
     ].includes(location.pathname) ||
     location.pathname.startsWith(ROUTES.BOOTHS);
+
 
   return (
     <>

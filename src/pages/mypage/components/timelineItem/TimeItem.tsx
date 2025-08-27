@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import type { TimeTableItem } from '../../apis/timeline/index.types';
+import type { TimeTableItem } from '../../../../apis/timeline/index.types';
 import * as S from './TimeItem.style';
 import bookmark from '../../assets/bookmark.svg';
 import bookmark_active from '../../assets/bookmark_active.svg';
-import { nineDayClub, tenDayClub } from './club';
+import { nineDayClub, tenDayClub } from '../../../timeline/club';
 import timeImage from '../../assets/when.svg';
 import luckyImage from '../../assets/lucky.svg';
 import arrowFront from '../../assets/arrow_front.svg';
 import {
   useApiMutation,
   useApiQuery,
-} from '../../apis/config/builder/ApiBuilder';
-import { putTimeLines } from '../../apis/timeline';
+} from '../../../../apis/config/builder/ApiBuilder';
+import { putTimeLines } from '../../../../apis/timeline';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { useToastContext } from '../../components/toast/Toast';
-import { getMember } from '../../apis/notice';
+import { useToastContext } from '../../../../components/toast/Toast';
+import { getMember } from '../../../../apis/notice';
 
 interface TimeItemProps {
   item: TimeTableItem;
@@ -30,13 +30,8 @@ export default function TimeItem({ item }: TimeItemProps) {
     putTimeLines(item.timeTableId.toString()),
     {
       onSuccess: () => {
-        show('북마크 추가에 성공했습니다.', 'info', true);
+        show('북마크가 삭제되었습니다.', 'info', true);
         queryClient.invalidateQueries();
-      },
-      onError: () => {
-        memberData
-          ? show('북마크 추가에 실패했습니다.', 'error', true)
-          : show('로그인 후 이용해주세요', 'error', true);
       },
     },
   );
