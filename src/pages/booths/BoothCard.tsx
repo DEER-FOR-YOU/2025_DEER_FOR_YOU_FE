@@ -25,6 +25,9 @@ export default function BoothCard({ booth }: { booth: any }) {
   });
   const putBoothItemMutation = useApiMutation(putBoothItem(booth.id), {
     onSuccess: () => {
+      !booth.isBookmarked
+        ? show('북마크 추가에 성공했습니다.', 'info', true)
+        : show('북마크 제거에 성공했습니다.', 'info', true);
       queryClient.invalidateQueries();
     },
     onError: () => {

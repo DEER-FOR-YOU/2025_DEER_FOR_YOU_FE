@@ -31,6 +31,9 @@ export default function BoothsDetailPage() {
   });
   const putBoothItemMutation = useApiMutation(putBoothItem(id), {
     onSuccess: () => {
+      !data?.isBookmarked
+        ? show('북마크 추가에 성공했습니다.', 'info', true)
+        : show('북마크 제거에 성공했습니다.', 'info', true);
       queryClient.invalidateQueries();
     },
     onError: () => {
