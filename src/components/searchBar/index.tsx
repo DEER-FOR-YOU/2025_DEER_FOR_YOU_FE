@@ -4,9 +4,13 @@ import searchIcon from '../../assets/search.svg';
 
 export default function SearchBar({
   onClick,
+  setSelectedType,
+  setSelectedAffiliation,
   ...props
 }: {
   onClick?: () => void;
+  setSelectedType?: (type: string) => void;
+  setSelectedAffiliation?: (affiliation: string) => void;
 } & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <S.SearchBarWrapper>
@@ -18,7 +22,11 @@ export default function SearchBar({
               <S.SearchBarIcon
                 src={searchIcon}
                 alt="search"
-                onClick={onClick}
+                onClick={() => {
+                  setSelectedType?.('');
+                  setSelectedAffiliation?.('');
+                  onClick?.();
+                }}
               />
             </S.SearchBarContainer>
           </S.SearchBarWrapper4>

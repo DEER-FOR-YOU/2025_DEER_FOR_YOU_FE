@@ -57,7 +57,7 @@ export default function Notice() {
             </Button>
           </S.ScrollDownButtonWrapper> */}
           <Button
-            style={{ alignSelf: 'flex-end' }}
+            style={{ alignSelf: 'center' }}
             css={S.Button}
             onClick={() => navigate(ROUTES.NOTICE)}
           >

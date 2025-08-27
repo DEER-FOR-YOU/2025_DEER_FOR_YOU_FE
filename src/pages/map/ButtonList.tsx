@@ -35,6 +35,10 @@ const BUTTON_LIST = [
     id: 8,
     title: '흡연구역',
   },
+  {
+    id: 9,
+    title: 'DIY',
+  },
 ];
 interface ButtonListProps {
   selectedButton: string;

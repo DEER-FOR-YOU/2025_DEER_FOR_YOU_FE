@@ -9,6 +9,7 @@ import Event from './Event';
 import Map from './Map';
 import Notice from './Notice';
 import Lost from './Lost';
+import Creator from './Creator';
 import { EventModal } from './modal';
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
       <Event />
       <Notice />
       <Lost />
+      <Creator />
       <EventModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </S.Container>
   );

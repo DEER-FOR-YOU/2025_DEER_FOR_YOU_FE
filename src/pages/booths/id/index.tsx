@@ -13,16 +13,33 @@ import heart_active from '../../../assets/heart_active.svg';
 import { useApiMutation } from '../../../apis/config/builder/ApiBuilder';
 import { putBoothItem } from '../../../apis/booth';
 import { useQueryClient } from '@tanstack/react-query';
+import { getMember } from '../../../apis/notice';
+import { useToastContext } from '../../../components/toast/Toast';
+import facility from '../../../assets/map/student_hall.svg';
+import location_black from '../../../assets/location_black.svg';
+import { removeA } from '../../../utils/removeA';
 
 export default function BoothsDetailPage() {
   const { id } = useParams();
   const [location, setLocation] = useState<string>('전체지도');
   const isLoggedIn = !!sessionStorage.getItem('accessToken');
   const queryClient = useQueryClient();
+  const { show } = useToastContext();
+  const { data: memberData } = useApiQuery(getMember(), ['member'], {
+    queryKey: ['member'],
+    enabled: !!sessionStorage.getItem('accessToken'),
+  });
   const putBoothItemMutation = useApiMutation(putBoothItem(id), {
     onSuccess: () => {
-      console.log('북마크 추가되었습니다.');
+      !data?.isBookmarked
+        ? show('북마크 추가에 성공했습니다.', 'info', true)
+        : show('북마크 제거에 성공했습니다.', 'info', true);
       queryClient.invalidateQueries();
+    },
+    onError: () => {
+      memberData
+        ? show('북마크 추가에 실패했습니다.', 'error', true)
+        : show('로그인 후 이용해주세요', 'error', true);
     },
   });
 
@@ -122,6 +139,20 @@ export default function BoothsDetailPage() {
                 ))}
               </S.ItemList>
             </S.ItemListContainer>
+          )}
+          {locationDetail && (
+            <S.FacilityContainer>
+              <S.FacilityTitle>시설 정보</S.FacilityTitle>
+              <S.FacilityImg src={facility} alt="facility" />
+              <S.FactiltyFooter>
+                <S.FacilityFooterImg src={location_black} alt="location" />
+                <S.FacilityFooterText>
+                  상명대학교 천안캠퍼스 한누리관
+                  {locationDetail !== 'FOOD_TRUCK' &&
+                    ` ${removeA(locationDetail)}번 부스`}
+                </S.FacilityFooterText>
+              </S.FactiltyFooter>
+            </S.FacilityContainer>
           )}
         </>
       )}
