@@ -22,6 +22,10 @@ const DefaultLayout = () => {
     ROUTES.CHANGE_PASSWORD,
     ROUTES.LOST_ITEM,
     ROUTES.BOOTHS,
+    ROUTES.MYPAGE_TIMELINE,
+    ROUTES.MYPAGE_BOOTH,
+    ROUTES.MYPAGE_ACCOUNT,
+    ROUTES.MYPAGE_ADMIN,
   ].includes(location.pathname);
 
   return (

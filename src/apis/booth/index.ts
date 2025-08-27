@@ -13,6 +13,12 @@ export const getBoothDetail = (id: string | undefined) => {
   );
 };
 
+export const getBookmarkBooth = () => {
+  return ApiBuilder.create<void, BoothList>(
+    `/api/v1/booths/bookmarks`,
+  ).setMethod('GET');
+};
+
 export const putBoothItem = (id: string | undefined) => {
   return ApiBuilder.create<void, void>(
     `/api/v1/bookmarks/booths/${id}`,
