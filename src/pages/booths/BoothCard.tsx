@@ -80,15 +80,17 @@ export default function BoothCard({ booth }: { booth: any }) {
             <S.TimeIcon src={time} alt="time" />
             <S.TimeText>{booth.operationTime}</S.TimeText>
           </S.TimeContainer>
-          <S.PlaceContainer>
-            <S.PlaceIcon src={place} alt="place" />
-            <S.TimeText>
-              {getKorLocation(booth.boothLocation)}{' '}
-              {booth.locationDetail === 'FOOD_TRUCK'
-                ? ''
-                : booth.locationDetail}
-            </S.TimeText>
-          </S.PlaceContainer>
+          {booth.boothAffiliation !== 'COUNCIL' && (
+            <S.PlaceContainer>
+              <S.PlaceIcon src={place} alt="place" />
+              <S.TimeText>
+                {getKorLocation(booth.boothLocation)}{' '}
+                {booth.locationDetail === 'FOOD_TRUCK'
+                  ? ''
+                  : booth.locationDetail}
+              </S.TimeText>
+            </S.PlaceContainer>
+          )}
         </S.TextSecondRow>
       </S.TextContainer>
     </S.BoothCardContainer>
