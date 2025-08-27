@@ -28,6 +28,8 @@ export const BoothItemContainer = styled.div`
   display: flex;
   gap: 13px;
   align-items: center;
+
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const TotalButtonContainer = styled.button`
