@@ -15,6 +15,9 @@ import { putBoothItem } from '../../../apis/booth';
 import { useQueryClient } from '@tanstack/react-query';
 import { getMember } from '../../../apis/notice';
 import { useToastContext } from '../../../components/toast/Toast';
+import facility from '../../../assets/map/student_hall.png';
+import location_black from '../../../assets/location_black.svg';
+import { removeA } from '../../../utils/removeA';
 
 export default function BoothsDetailPage() {
   const { id } = useParams();
@@ -133,6 +136,20 @@ export default function BoothsDetailPage() {
                 ))}
               </S.ItemList>
             </S.ItemListContainer>
+          )}
+          {locationDetail && (
+            <S.FacilityContainer>
+              <S.FacilityTitle>시설 정보</S.FacilityTitle>
+              <S.FacilityImg src={facility} alt="facility" />
+              <S.FactiltyFooter>
+                <S.FacilityFooterImg src={location_black} alt="location" />
+                <S.FacilityFooterText>
+                  상명대학교 천안캠퍼스 한누리관
+                  {locationDetail !== 'FOOD_TRUCK' &&
+                    ` ${removeA(locationDetail)}번 부스`}
+                </S.FacilityFooterText>
+              </S.FactiltyFooter>
+            </S.FacilityContainer>
           )}
         </>
       )}
