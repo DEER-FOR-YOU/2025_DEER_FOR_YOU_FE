@@ -11,18 +11,19 @@ const DefaultLayout = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const showNavbar = [
-    ROUTES.ARTISTS,
-    ROUTES.GOODS,
-    ROUTES.HOME,
-    ROUTES.MAP,
-    ROUTES.TIMELINE,
-    ROUTES.NOTICE,
-    ROUTES.MYPAGE,
-    ROUTES.CHANGE_PASSWORD,
-    ROUTES.LOST_ITEM,
-    ROUTES.BOOTHS,
-  ].includes(location.pathname);
+  const showNavbar =
+    [
+      ROUTES.ARTISTS,
+      ROUTES.GOODS,
+      ROUTES.HOME,
+      ROUTES.MAP,
+      ROUTES.TIMELINE,
+      ROUTES.NOTICE,
+      ROUTES.MYPAGE,
+      ROUTES.CHANGE_PASSWORD,
+      ROUTES.LOST_ITEM,
+    ].includes(location.pathname) ||
+    location.pathname.startsWith(ROUTES.BOOTHS);
 
   return (
     <>
