@@ -8,6 +8,7 @@ import { deleteNotice } from '../../apis/notice';
 import { useApiMutation } from '../../apis/config/builder/ApiBuilder';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { formatDateTime } from '../../utils/formatDate';
 
 interface NoticeItemProps {
   notice: {
@@ -165,7 +166,7 @@ export default function NoticeItem({
         >
           <S.TextFlex>
             <S.Title>{notice.title}</S.Title>
-            <S.CreatedAt>{notice.createdAt}</S.CreatedAt>
+            <S.CreatedAt>{formatDateTime(notice.createdAt)}</S.CreatedAt>
           </S.TextFlex>
           <S.ArrowDown
             src={arrowDown}
