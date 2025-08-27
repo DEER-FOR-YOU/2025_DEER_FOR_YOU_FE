@@ -141,7 +141,7 @@ export const ItemList = styled.div`
 `;
 
 export const ItemWrapper = styled.div`
-  padding: 4px 0;
+  padding: 8px 0;
   border-bottom: 1px solid #eceff0;
 `;
 
