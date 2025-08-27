@@ -13,6 +13,7 @@ export type NoticeList = {
 export interface Member {
   memberId: number;
   role: string;
+  email: string;
 }
 
 export interface Notice {
