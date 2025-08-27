@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import * as S from './index.style';
-import TimeItem from '../../../pages/timeline/TimeItem';
 import Header from '../../../components/header';
 import { useApiQuery } from '../../../apis/config/builder/ApiBuilder';
 import { getBookmarkTimelines } from '../../../apis/my';
@@ -8,6 +7,7 @@ import { useToastContext } from '../../../components/toast/Toast';
 import { useNavigate } from 'react-router-dom';
 import { getMember } from '../../../apis/notice';
 import Saved from '../assets/graySaved.svg';
+import TimeItem from '../components/timelineItem/TimeItem';
 
 const MyTimeLine = () => {
   const { data: timelineData } = useApiQuery(getBookmarkTimelines(), [
