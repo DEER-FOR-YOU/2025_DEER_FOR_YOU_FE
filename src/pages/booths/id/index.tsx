@@ -13,16 +13,27 @@ import heart_active from '../../../assets/heart_active.svg';
 import { useApiMutation } from '../../../apis/config/builder/ApiBuilder';
 import { putBoothItem } from '../../../apis/booth';
 import { useQueryClient } from '@tanstack/react-query';
+import { getMember } from '../../../apis/notice';
+import { useToastContext } from '../../../components/toast/Toast';
 
 export default function BoothsDetailPage() {
   const { id } = useParams();
   const [location, setLocation] = useState<string>('전체지도');
   const isLoggedIn = !!sessionStorage.getItem('accessToken');
   const queryClient = useQueryClient();
+  const { show } = useToastContext();
+  const { data: memberData } = useApiQuery(getMember(), ['member'], {
+    queryKey: ['member'],
+    enabled: !!sessionStorage.getItem('accessToken'),
+  });
   const putBoothItemMutation = useApiMutation(putBoothItem(id), {
     onSuccess: () => {
-      console.log('북마크 추가되었습니다.');
       queryClient.invalidateQueries();
+    },
+    onError: () => {
+      memberData
+        ? show('북마크 추가에 실패했습니다.', 'error', true)
+        : show('로그인 후 이용해주세요', 'error', true);
     },
   });
 
