@@ -9,6 +9,7 @@ import { useState } from 'react';
 import type { Booth } from '../../types/booth';
 import React, { useEffect } from 'react';
 import SearchBar from '../../components/searchBar';
+import emptyStateImage from '../../assets/search2.svg';
 
 export default function BoothsPage() {
   const [searchParams] = useSearchParams();
@@ -87,10 +88,18 @@ export default function BoothsPage() {
         </>
       )}
       <S.BoothsListContainer>
-        {data?.pages.map((page) =>
-          page.data.map((booth: Booth) => (
-            <BoothCard key={booth.id} booth={booth} />
-          )),
+        {data && data.pages.length > 0 && data.pages[0].data.length === 0 ? (
+          <S.EmptyState>
+            <img src={emptyStateImage} alt="empty" />
+            <p>검색결과 없음</p>
+            <span>일치하는 검색 결과가 없습니다</span>
+          </S.EmptyState>
+        ) : (
+          data?.pages.map((page) =>
+            page.data.map((booth: Booth) => (
+              <BoothCard key={booth.id} booth={booth} />
+            )),
+          )
         )}
         {/* 무한 스크롤을 위한 Intersection Observer 요소 */}
         {hasNextPage && (
