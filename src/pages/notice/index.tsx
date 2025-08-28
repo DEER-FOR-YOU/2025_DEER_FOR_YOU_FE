@@ -7,6 +7,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 import { getNotices, getMember } from '../../apis/notice';
 import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
+import NoItem from '../../assets/loudspeaker.svg';
 
 export default function NoticePage() {
   const navigate = useNavigate();
@@ -26,17 +27,25 @@ export default function NoticePage() {
     <S.Container>
       <Header title="공지사항" />
       <S.NoticeList>
-        {data?.map((notice) => (
-          <NoticeItem
-            key={notice.id}
-            notice={notice}
-            isAdmin={member?.role === 'ROLE_ADMIN'}
-            isExpanded={expandedNoticeId === notice.id}
-            onToggle={(id) =>
-              setExpandedNoticeId(expandedNoticeId === id ? null : id)
-            }
-          />
-        ))}
+        {data && data.length > 0 ? (
+          data.map((notice) => (
+            <NoticeItem
+              key={notice.id}
+              notice={notice}
+              isAdmin={member?.role === 'ROLE_ADMIN'}
+              isExpanded={expandedNoticeId === notice.id}
+              onToggle={(id) =>
+                setExpandedNoticeId(expandedNoticeId === id ? null : id)
+              }
+            />
+          ))
+        ) : (
+          <S.NoItemSection>
+            <S.NoItemIcon src={NoItem} alt="No Item" />
+            <S.NoItemTitle>공지사항 없음</S.NoItemTitle>
+            <S.NoItemSubTitle>아직 공지사항이 없습니다.</S.NoItemSubTitle>
+          </S.NoItemSection>
+        )}
       </S.NoticeList>
       {member?.role === 'ROLE_ADMIN' && (
         <S.Button
