@@ -43,7 +43,7 @@ const MyAccount = () => {
             <S.RightText>{memberData?.email}</S.RightText>
           </S.ContentWrapper>
           <S.ContentWrapper>
-            <S.LeftText>이름</S.LeftText>
+            <S.LeftText>비밀번호</S.LeftText>
             <S.RightText onClick={() => navigate('/my-page/password')}>
               <span>변경하기</span>
             </S.RightText>
