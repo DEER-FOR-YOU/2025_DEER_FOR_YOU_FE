@@ -22,7 +22,7 @@ export default function Board() {
     return <div></div>;
   }
 
-  const percentage = calculatePercentage(data?.totalUniqueView || 0);
+  const percentage = calculatePercentage(data?.totalPageView || 0);
 
   return (
     <S.Wrapper>
@@ -48,7 +48,7 @@ export default function Board() {
       </S.HeaderContainer>
       <S.NumberTextContainer>
         <S.NumberBigText>
-          {data?.totalUniqueView.toLocaleString()}
+          {data?.totalPageView.toLocaleString()}
         </S.NumberBigText>
         <S.NumberSmallText>{Math.floor(percentage)}%</S.NumberSmallText>
       </S.NumberTextContainer>
