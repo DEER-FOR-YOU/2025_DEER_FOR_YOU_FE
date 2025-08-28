@@ -16,11 +16,11 @@ export const NoticeHeader = styled.div`
 `;
 
 export const NoticeContainer = styled.div`
-  padding: 20px;
+  padding: 20px 20px 15px 20px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   /* align-items: flex-end; */
 `;
 
@@ -84,5 +84,9 @@ export const ScrollButtonImg = styled.img`
 `;
 
 export const Button = css`
-  padding: 14px 20px;
+  padding: 14px 48px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.8px;
 `;

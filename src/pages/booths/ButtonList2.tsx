@@ -11,7 +11,12 @@ export default function ButtonList2({
   setSelectedType,
 }: ButtonList2Props) {
   const handleAffiliationClick = (affiliation: string) => {
-    setSelectedType(affiliation);
+    // 같은 버튼을 다시 클릭하면 선택 해제
+    if (selectedType === affiliation) {
+      setSelectedType('');
+    } else {
+      setSelectedType(affiliation);
+    }
   };
   return (
     <S.ButtonList2Container>

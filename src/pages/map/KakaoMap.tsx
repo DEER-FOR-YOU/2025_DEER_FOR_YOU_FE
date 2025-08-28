@@ -8,6 +8,7 @@ import lost from '../../assets/markers/lost.svg';
 import toilet from '../../assets/markers/toilet.svg';
 import smoke from '../../assets/markers/smoke.svg';
 import activity from '../../assets/markers/activity.svg';
+import DIY from '../../assets/markers/DIY.svg';
 
 // 마커 데이터 타입 정의
 interface MarkerData {
@@ -80,6 +81,12 @@ const MARKERS: MarkerData[] = [
     position: { lat: 36.833174, lng: 127.17997 },
     image: activity,
     title: '체험',
+  },
+  {
+    id: 'DIY',
+    position: { lat: 36.833213, lng: 127.180241 },
+    image: DIY,
+    title: 'DIY',
   },
 ];
 
@@ -210,6 +217,7 @@ export default function KakaoMap({
       공연장: '공연장',
       의무실: '의무실',
       흡연구역: '흡연구역',
+      DIY: 'DIY',
     };
 
     return marker.title === buttonTitleMap[selectedButton];

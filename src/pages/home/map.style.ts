@@ -100,6 +100,8 @@ export const BoothItem = styled.div`
   gap: 12px;
   align-items: center;
   width: 100%;
+
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const BoothImage = styled.img`
