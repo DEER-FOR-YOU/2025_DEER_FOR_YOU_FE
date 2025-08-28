@@ -32,7 +32,7 @@ export const NoticeList = styled.div`
   scrollbar-gutter: stable;
 
   /* 스크롤바 항상 표시 */
-  &::-webkit-scrollbar {
+  /* &::-webkit-scrollbar {
     width: 28px;
   }
 
@@ -46,7 +46,7 @@ export const NoticeList = styled.div`
     background-position: top;
     background-size: 120% 110%;
     height: auto;
-  }
+  } */
 `;
 
 export const NoticeItem = styled.div<{ isSelected?: boolean }>`
