@@ -6,20 +6,35 @@ import place from '../../../../assets/where.svg';
 import { getKorLocation } from '../../../../utils/getKorLocation';
 import { getBoothTypeText } from '../../../../utils/getBoothTypeText';
 import { useNavigate } from 'react-router-dom';
-import { useApiMutation } from '../../../../apis/config/builder/ApiBuilder';
+import {
+  useApiMutation,
+  useApiQuery,
+} from '../../../../apis/config/builder/ApiBuilder';
 import { putBoothItem } from '../../../../apis/booth';
 import heart_active from '../../../../assets/heart_active.svg';
 import { useQueryClient } from '@tanstack/react-query';
 import { useToastContext } from '../../../../components/toast/Toast';
+import { getMember } from '../../../../apis/notice';
 
 export default function BoothCard({ booth }: { booth: any }) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { show } = useToastContext();
+  const { data: memberData } = useApiQuery(getMember(), ['member'], {
+    queryKey: ['member'],
+    enabled: !!sessionStorage.getItem('accessToken'),
+  });
   const putBoothItemMutation = useApiMutation(putBoothItem(booth.id), {
     onSuccess: () => {
-      show('북마크가 삭제되었습니다.', 'info', true);
+      !booth.isBookmarked
+        ? show('북마크 추가에 성공했습니다.', 'info', true)
+        : show('북마크 제거에 성공했습니다.', 'info', true);
       queryClient.invalidateQueries();
+    },
+    onError: () => {
+      memberData
+        ? show('북마크 추가에 실패했습니다.', 'error', true)
+        : show('로그인 후 이용해주세요', 'error', true);
     },
   });
 

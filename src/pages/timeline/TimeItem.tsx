@@ -30,7 +30,9 @@ export default function TimeItem({ item }: TimeItemProps) {
     putTimeLines(item.timeTableId.toString()),
     {
       onSuccess: () => {
-        show('북마크 추가에 성공했습니다.', 'info', true);
+        !item.bookmarked
+          ? show('북마크 추가에 성공했습니다.', 'info', true)
+          : show('북마크 제거에 성공했습니다.', 'info', true);
         queryClient.invalidateQueries();
       },
       onError: () => {

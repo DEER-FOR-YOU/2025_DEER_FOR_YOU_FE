@@ -129,11 +129,6 @@ const MyPage = () => {
           좋아요
         </MenuRow>
 
-        <MenuRow onClick={navigateToNotification}>
-          <img src={Notification} />
-          알림
-        </MenuRow>
-
         <S.HorizontalLine />
 
         {memberData?.role === 'ROLE_ADMIN' && (

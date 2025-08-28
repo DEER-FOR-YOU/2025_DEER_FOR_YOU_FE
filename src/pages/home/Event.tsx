@@ -8,6 +8,7 @@ import squid from '../../assets/events/squid.svg';
 import watermelon from '../../assets/events/watermelon.svg';
 import polygon from '../../assets/polygon.svg';
 import Button from '../../components/button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const eventList = [
   {
@@ -38,6 +39,12 @@ const eventList = [
 ];
 
 export default function Event() {
+  const navigate = useNavigate();
+
+  const handleNavigate = (query: string) => {
+    navigate(`/events?name=${query}`);
+  };
+
   return (
     <S.Container>
       <S.TextContainer>
@@ -46,19 +53,19 @@ export default function Event() {
       </S.TextContainer>
       <S.EventContainer>
         <S.EventRowBox>
-          <Button fullSize>
+          <Button fullSize onClick={() => handleNavigate(eventList[0].title)}>
             <S.Content>
               <S.EventImage src={eventList[0].image} />
               <S.EventName>{eventList[0].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize>
+          <Button fullSize onClick={() => handleNavigate(eventList[1].title)}>
             <S.Content>
               <S.EventImage src={eventList[1].image} />
               <S.EventName>{eventList[1].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize>
+          <Button fullSize onClick={() => handleNavigate(eventList[2].title)}>
             <S.Content>
               <S.EventImage src={eventList[2].image} />
               <S.EventName>{eventList[2].title}</S.EventName>
@@ -66,19 +73,19 @@ export default function Event() {
           </Button>
         </S.EventRowBox>
         <S.EventRowBox>
-          <Button fullSize>
+          <Button fullSize onClick={() => handleNavigate(eventList[3].title)}>
             <S.Content>
               <S.EventImage src={eventList[3].image} />
               <S.EventName>{eventList[3].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize>
+          <Button fullSize onClick={() => handleNavigate(eventList[4].title)}>
             <S.Content>
               <S.EventImage src={eventList[4].image} />
               <S.EventName>{eventList[4].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize>
+          <Button fullSize onClick={() => handleNavigate(eventList[5].title)}>
             <S.Content>
               <S.EventImage src={eventList[5].image} />
               <S.EventName>{eventList[5].title}</S.EventName>

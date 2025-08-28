@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as S from './index.style';
 import { useNavigate } from 'react-router-dom';
 import { useApiQuery } from '../../../apis/config/builder/ApiBuilder';
@@ -10,7 +10,7 @@ import BoothCard from '../components/boothItem/BoothCard';
 import Heart from '../assets/grayHeart.svg';
 
 const MyBooth = () => {
-  const { data: memberData } = useApiQuery(getMember(), ['member'], {
+  const { data: memberData, isLoading } = useApiQuery(getMember(), ['member'], {
     queryKey: ['member'],
     enabled: !!sessionStorage.getItem('accessToken'),
   });
@@ -19,13 +19,25 @@ const MyBooth = () => {
   ]);
   const { show } = useToastContext();
   const navigate = useNavigate();
+  const shownRef = useRef(false);
 
   useEffect(() => {
-    if (!memberData) {
+    const hasToken = !!sessionStorage.getItem('accessToken');
+    if (shownRef.current) return;
+
+    if (!hasToken) {
       show('로그인 후 이용해주세요.', 'error', true);
+      shownRef.current = true;
+      navigate('/my-page');
+      return;
+    }
+
+    if (!isLoading && !memberData) {
+      show('로그인 후 이용해주세요.', 'error', true);
+      shownRef.current = true;
       navigate('/my-page');
     }
-  }, [memberData]);
+  }, [memberData, isLoading, navigate, show]);
 
   return (
     <>
