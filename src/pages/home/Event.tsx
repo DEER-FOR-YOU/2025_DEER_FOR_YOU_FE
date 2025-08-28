@@ -14,27 +14,33 @@ const eventList = [
   {
     title: '드레스코드',
     image: dress,
+    query: '드레스코드',
   },
   {
     title: 'QR 코드',
     image: qr,
+    query: 'QR코드 구체화',
   },
 
   {
     title: '수박서리',
     image: watermelon,
+    query: '수박서리',
   },
   {
     title: '행운권 추첨',
     image: lucky,
+    query: '행운권 추첨',
   },
   {
     title: '피지컬 100',
     image: physical,
+    query: '피지컬 100',
   },
   {
     title: '오징어게임',
     image: squid,
+    query: '오징어게임',
   },
 ];
 
@@ -53,19 +59,19 @@ export default function Event() {
       </S.TextContainer>
       <S.EventContainer>
         <S.EventRowBox>
-          <Button fullSize onClick={() => handleNavigate(eventList[0].title)}>
+          <Button fullSize onClick={() => handleNavigate(eventList[0].query)}>
             <S.Content>
               <S.EventImage src={eventList[0].image} />
               <S.EventName>{eventList[0].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize onClick={() => handleNavigate(eventList[1].title)}>
+          <Button fullSize onClick={() => handleNavigate(eventList[1].query)}>
             <S.Content>
               <S.EventImage src={eventList[1].image} />
               <S.EventName>{eventList[1].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize onClick={() => handleNavigate(eventList[2].title)}>
+          <Button fullSize onClick={() => handleNavigate(eventList[2].query)}>
             <S.Content>
               <S.EventImage src={eventList[2].image} />
               <S.EventName>{eventList[2].title}</S.EventName>
@@ -73,19 +79,19 @@ export default function Event() {
           </Button>
         </S.EventRowBox>
         <S.EventRowBox>
-          <Button fullSize onClick={() => handleNavigate(eventList[3].title)}>
+          <Button fullSize onClick={() => handleNavigate(eventList[3].query)}>
             <S.Content>
               <S.EventImage src={eventList[3].image} />
               <S.EventName>{eventList[3].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize onClick={() => handleNavigate(eventList[4].title)}>
+          <Button fullSize onClick={() => handleNavigate(eventList[4].query)}>
             <S.Content>
               <S.EventImage src={eventList[4].image} />
               <S.EventName>{eventList[4].title}</S.EventName>
             </S.Content>
           </Button>
-          <Button fullSize onClick={() => handleNavigate(eventList[5].title)}>
+          <Button fullSize onClick={() => handleNavigate(eventList[5].query)}>
             <S.Content>
               <S.EventImage src={eventList[5].image} />
               <S.EventName>{eventList[5].title}</S.EventName>

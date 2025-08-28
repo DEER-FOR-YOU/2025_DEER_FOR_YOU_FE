@@ -90,3 +90,33 @@ export const ButtonImg = styled.img`
   padding: 5px 9px;
   cursor: pointer;
 `;
+
+export const CountWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  background-color: #eceff0;
+
+  padding: 0.8rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const CountTitle = styled.div`
+  ${({ theme }) => theme.fonts.pretender_16}
+  font-weight: 600;
+  color: #7f8992;
+`;
+
+export const CountContent = styled.div`
+  ${({ theme }) => theme.fonts.pretender_14}
+  font-weight: 600;
+  color: #7f8992;
+
+  span {
+    ${({ theme }) => theme.fonts.pretender_14}
+    font-weight: 600;
+    color: #010075;
+  }
+`;

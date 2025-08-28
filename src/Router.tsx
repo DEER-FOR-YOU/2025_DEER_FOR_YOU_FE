@@ -28,6 +28,7 @@ const MyBooth = lazy(() => import('./pages/mypage/booth'));
 const MyAdmin = lazy(() => import('./pages/mypage/admin'));
 const Creators = lazy(() => import('./pages/creators'));
 const Event = lazy(() => import('./pages/event'));
+const Default = lazy(() => import('./pages/default'));
 
 const withSuspense = (element: React.ReactNode) => (
   <Suspense fallback={<></>}>{element}</Suspense>
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
           {
             path: ROUTES.EVENTS,
             element: withSuspense(<Event />),
+          },
+          {
+            path: ROUTES.NOT_FOUND,
+            element: withSuspense(<Default />),
           },
         ],
       },
