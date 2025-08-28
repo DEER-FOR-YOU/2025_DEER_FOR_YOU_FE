@@ -22,5 +22,6 @@ export const ROUTES = {
   MYPAGE_TIMELINE: '/my-page/timeline',
   MYPAGE_BOOTH: '/my-page/booth',
   MYPAGE_ADMIN: '/my-page/admin',
+  NOT_FOUND: '*',
   CREATORS: '/creators',
 };

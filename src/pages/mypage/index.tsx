@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, use } from 'react';
 import * as S from './index.style';
 import Header from '../../components/header';
 import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
@@ -11,7 +11,7 @@ import LogoutModal from './components/LogoutModal';
 
 import Saved from './assets/saved.svg';
 import Heart from './assets/heart.svg';
-import Notification from './assets/notification.svg';
+import { useQueryClient } from '@tanstack/react-query';
 
 const MyPage = () => {
   const [isLogin, setIsLogin] = useState<boolean>(
@@ -29,6 +29,7 @@ const MyPage = () => {
   });
 
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
@@ -52,11 +53,6 @@ const MyPage = () => {
     navigate('/my-page/booth');
   };
 
-  const navigateToNotification = () => {
-    if (!isLogin) return;
-    navigate('/my-page/notification');
-  };
-
   const navigateToTimeline = () => {
     if (!isLogin) return;
     navigate('/my-page/timeline');
@@ -73,6 +69,7 @@ const MyPage = () => {
   };
 
   const handleLogout = () => {
+    queryClient.clear();
     sessionStorage.removeItem('accessToken');
     sessionStorage.removeItem('refreshToken');
     setIsLogin(false);

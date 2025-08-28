@@ -27,8 +27,8 @@ const DefaultLayout = () => {
       ROUTES.MYPAGE_BOOTH,
       ROUTES.MYPAGE_ACCOUNT,
       ROUTES.MYPAGE_ADMIN,
+      ROUTES.EVENTS,
       ROUTES.CREATORS,
-    ROUTES.EVENTS,
     ].includes(location.pathname) ||
     location.pathname.startsWith(ROUTES.BOOTHS);
 

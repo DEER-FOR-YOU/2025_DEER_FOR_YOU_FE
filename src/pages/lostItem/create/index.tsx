@@ -9,6 +9,7 @@ import { useToastContext } from '../../../components/toast/Toast';
 import { useNavigate } from 'react-router-dom';
 import { useApiQuery } from '../../../apis/config/builder/ApiBuilder';
 import { getMember } from '../../../apis/notice';
+import { queryClient } from '../../../QueryClient';
 
 const LostItemCreatePage = () => {
   const [title, setTitle] = useState('');
@@ -61,6 +62,9 @@ const LostItemCreatePage = () => {
       .execute()
       .then(() => {
         show('분실물 등록이 완료되었습니다.', 'info', true);
+        queryClient.invalidateQueries({
+          queryKey: ['lostItems'],
+        });
         navigate('/lost-item');
       })
       .catch(() => {

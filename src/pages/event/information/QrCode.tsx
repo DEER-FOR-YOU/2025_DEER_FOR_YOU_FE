@@ -15,7 +15,7 @@ const QrCode = () => {
         <S.BasicRowBlackText>소속감 증대</S.BasicRowBlackText>
       </S.BasicRow>
       <S.CustomMargin topSize={3.6} />
-      <S.Title>드레스코드: 블루</S.Title>
+      <S.Title>진행 방법</S.Title>
       <S.CustomMargin bottomSize={2.4} />
       <S.BasicRow>
         <S.BasicRowBlackText>상의 하의 모두 착용</S.BasicRowBlackText>
