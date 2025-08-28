@@ -27,6 +27,7 @@ export const NameTypeBookmarkContainer = styled.div`
 export const NameTypeContainer = styled.div`
   display: flex;
   gap: 6px;
+  align-items: center;
 `;
 
 export const BoothName = styled.div`

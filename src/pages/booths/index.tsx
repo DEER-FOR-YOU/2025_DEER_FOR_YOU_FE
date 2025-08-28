@@ -19,8 +19,6 @@ export default function BoothsPage() {
   const [selectedAffiliation, setSelectedAffiliation] = useState<string>('');
   const [keywordInput, setKeywordInput] = useState<string>('');
   const navigate = useNavigate();
-  console.log(keyword);
-  console.log(boothlocation);
 
   // SONG_BAEK_HALL일 때 필터 초기화
   useEffect(() => {

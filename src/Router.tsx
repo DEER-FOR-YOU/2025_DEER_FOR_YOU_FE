@@ -26,6 +26,7 @@ const MyAccount = lazy(() => import('./pages/mypage/account'));
 const MyTimeline = lazy(() => import('./pages/mypage/timeline'));
 const MyBooth = lazy(() => import('./pages/mypage/booth'));
 const MyAdmin = lazy(() => import('./pages/mypage/admin'));
+const Creators = lazy(() => import('./pages/creators'));
 const Event = lazy(() => import('./pages/event'));
 
 const withSuspense = (element: React.ReactNode) => (
@@ -97,6 +98,9 @@ const router = createBrowserRouter([
             element: withSuspense(<BoothsDetailPage />),
           },
           {
+            path: ROUTES.CREATORS,
+            element: withSuspense(<Creators />),
+          },
             path: ROUTES.EVENTS,
             element: withSuspense(<Event />),
           },

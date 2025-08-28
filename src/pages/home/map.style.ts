@@ -83,7 +83,7 @@ export const BotthList = styled.div`
   gap: 8px;
   overflow-x: auto;
   position: absolute;
-  bottom: 36px;
+  bottom: 26px;
   white-space: nowrap;
   max-width: calc(100% - 34px);
   margin: 0 4px;
@@ -101,7 +101,7 @@ export const BoothItem = styled.div`
   align-items: center;
   width: 100%;
 
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 8px 0.5px rgba(0, 0, 0, 0.2);
 `;
 
 export const BoothImage = styled.img`
@@ -156,7 +156,7 @@ export const BoothNotice = styled.div`
   white-space: nowrap; /* 줄바꿈 방지 */
   text-overflow: ellipsis; /* 넘친 부분을 ... 으로 표시 */
 
-  margin-top: -3px;
+  margin-top: 0;
   margin-bottom: 1px;
 `;
 

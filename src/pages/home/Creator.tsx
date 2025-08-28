@@ -1,13 +1,20 @@
 import React from 'react';
 import * as S from './creator.style';
 import starha from '../../assets/creators/starha.png';
+import { ROUTES } from '../../constants/routes';
+import { useNavigate } from 'react-router-dom';
 
 export default function Creator() {
+  const navigate = useNavigate();
+
+  const handleMoreClick = () => {
+    navigate(ROUTES.CREATORS);
+  };
   return (
     <S.Container>
       <S.CreatorHeader>
         <S.CreatorTitle>누가 만들었나요?</S.CreatorTitle>
-        <S.CreatorMore>더 보기</S.CreatorMore>
+        <S.CreatorMore onClick={handleMoreClick}>더 보기</S.CreatorMore>
       </S.CreatorHeader>
       <S.CreatorList>
         <S.CreatorItem>
