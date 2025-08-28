@@ -18,10 +18,12 @@ import { useToastContext } from '../../../components/toast/Toast';
 import facility from '../../../assets/map/student_hall.svg';
 import location_black from '../../../assets/location_black.svg';
 import { removeA } from '../../../utils/removeA';
+import { getMapImage } from '../../../assets/map';
 
 export default function BoothsDetailPage() {
   const { id } = useParams();
   const [location, setLocation] = useState<string>('전체지도');
+  const [mapImage, setMapImage] = useState<string>('');
   const isLoggedIn = !!sessionStorage.getItem('accessToken');
   const queryClient = useQueryClient();
   const { show } = useToastContext();
@@ -54,6 +56,23 @@ export default function BoothsDetailPage() {
       setLocation(data.boothLocation);
     }
   }, [data]);
+
+  // 맵 이미지 로드
+  useEffect(() => {
+    const loadMapImage = async () => {
+      if (data?.locationDetail) {
+        try {
+          const imageSrc = await getMapImage(data.locationDetail);
+          setMapImage(imageSrc);
+        } catch (error) {
+          console.error('맵 이미지 로드 실패:', error);
+          setMapImage(facility); // 기본 이미지로 fallback
+        }
+      }
+    };
+
+    loadMapImage();
+  }, [data?.locationDetail]);
 
   if (isLoading) {
     return <div></div>;
@@ -143,7 +162,7 @@ export default function BoothsDetailPage() {
           {locationDetail && (
             <S.FacilityContainer>
               <S.FacilityTitle>시설 정보</S.FacilityTitle>
-              <S.FacilityImg src={facility} alt="facility" />
+              <S.FacilityImg src={mapImage || facility} alt="facility" />
               <S.FactiltyFooter>
                 <S.FacilityFooterImg src={location_black} alt="location" />
                 <S.FacilityFooterText>

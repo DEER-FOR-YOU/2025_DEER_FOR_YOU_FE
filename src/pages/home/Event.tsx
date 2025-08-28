@@ -28,7 +28,7 @@ const eventList = [
     query: '수박서리',
   },
   {
-    title: '행운추첨',
+    title: '행운권 추첨',
     image: lucky,
     query: '행운권 추첨',
   },
