@@ -30,7 +30,7 @@ const LoginPage = () => {
           TokenProccesor({
             tokenResponse: response.data,
           });
-          navigate('/root');
+          navigate('/');
           show('로그인이 완료되었습니다.', 'info', true);
         })
         .catch(() => {
