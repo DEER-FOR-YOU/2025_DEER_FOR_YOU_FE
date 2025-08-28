@@ -133,7 +133,7 @@ export default function KakaoMap({
         // 카카오맵 초기화 함수가 있다면 호출
         if (typeof window.kakao.maps.load === 'function') {
           window.kakao.maps.load(() => {
-            console.log('카카오맵 초기화 완료');
+            // console.log('카카오맵 초기화 완료');
             setIsLoaded(true);
           });
         } else {
@@ -142,7 +142,7 @@ export default function KakaoMap({
         }
       }
     } catch (error) {
-      console.error('카카오맵 초기화 중 오류:', error);
+      // console.error('카카오맵 초기화 중 오류:', error);
     }
   };
 
@@ -166,7 +166,7 @@ export default function KakaoMap({
       'script[src*="dapi.kakao.com"]',
     );
     if (existingScript) {
-      console.log('기존 카카오맵 스크립트 발견, 초기화 시도');
+      // console.log('기존 카카오맵 스크립트 발견, 초기화 시도');
       initializeKakaoMap();
       return;
     }
@@ -176,19 +176,19 @@ export default function KakaoMap({
     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&libraries=services&autoload=false`;
     script.async = true;
     script.onload = () => {
-      console.log('카카오맵 SDK 로드 완료');
+      // console.log('카카오맵 SDK 로드 완료');
 
       // SDK 초기화를 위한 재시도 로직
       const checkSDKReady = () => {
         if (isSDKReady()) {
-          console.log('카카오맵 SDK 준비 완료');
+          // console.log('카카오맵 SDK 준비 완료');
           initializeKakaoMap();
         } else if (retryCount < 15) {
-          console.log(`SDK 초기화 대기 중... (${retryCount + 1}/15)`);
+          // console.log(`SDK 초기화 대기 중... (${retryCount + 1}/15)`);
           setRetryCount((prev) => prev + 1);
           setTimeout(checkSDKReady, 300);
         } else {
-          console.error('카카오맵 SDK 초기화 실패 - 최대 재시도 횟수 초과');
+          // console.error('카카오맵 SDK 초기화 실패 - 최대 재시도 횟수 초과');
           // 마지막 시도로 초기화 함수 호출
           initializeKakaoMap();
         }
@@ -198,7 +198,7 @@ export default function KakaoMap({
       setTimeout(checkSDKReady, 200);
     };
     script.onerror = () => {
-      console.error('카카오맵 SDK 로드 실패');
+      // console.error('카카오맵 SDK 로드 실패');
     };
 
     document.head.appendChild(script);
