@@ -114,6 +114,7 @@ const slideDown = keyframes`
 
 export const LogOutContainer = styled.div<{ isClosing?: boolean }>`
   width: 100%;
+  max-width: 550px;
   height: 100%;
 
   position: fixed;
@@ -130,6 +131,8 @@ export const LogOutContainer = styled.div<{ isClosing?: boolean }>`
 
   align-items: center;
   justify-content: flex-end;
+
+  margin: 0 auto;
 `;
 
 export const LogOutWrapper = styled.div<{ isClosing?: boolean }>`
