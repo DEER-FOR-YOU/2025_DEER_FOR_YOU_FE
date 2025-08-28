@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './index.style';
 import InputBox from './components/input/InputBox';
 import Header from '../../components/header';
@@ -10,6 +10,8 @@ import {
   verifyCertificationCode,
 } from '../../apis/register';
 import useToast from '../../hooks/useToast';
+import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
+import { getMember } from '../../apis/notice';
 
 const PasswordPage = () => {
   const [text, setText] = useState('');
@@ -24,6 +26,17 @@ const PasswordPage = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { show } = useToast();
+
+  const { data: memberData } = useApiQuery(getMember(), ['member'], {
+    queryKey: ['member'],
+    enabled: !!sessionStorage.getItem('accessToken'),
+  });
+
+  useEffect(() => {
+    if (memberData && pathname === '/my-page/password') {
+      setEmail(memberData.email ?? '');
+    }
+  }, [memberData, pathname]);
 
   const handleSendEmail = () => {
     sendEmail({ email })
@@ -80,6 +93,7 @@ const PasswordPage = () => {
             placeholder="이메일 주소 입력"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={!!memberData && pathname === '/my-page/password'}
             rightButton={{
               label: '발송',
               onClick: handleSendEmail,
