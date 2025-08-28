@@ -10,7 +10,7 @@ const MENU = [
   'QR코드 구체화',
   '피지컬 100',
   '드레스코드',
-  '오징어 게임',
+  '오징어게임',
   '행운권 추첨',
 ];
 
@@ -39,9 +39,9 @@ const Header = ({
     <>
       <S.Container>
         <S.TitleRow onClick={() => setOpen((v) => !v)}>
-          <S.BackIcon src={back} alt="back" />
+          <S.BackIcon src={back} alt="back" onClick={() => navigate(-1)} />
           <S.Title>이벤트</S.Title>
-          <S.Chevron src={open ? arrowUp : arrowDown} open={open} />
+          <S.Chevron src={!open ? arrowUp : arrowDown} open={open} />
         </S.TitleRow>
         <S.Dropdown open={open}>
           <S.MenuGrid>

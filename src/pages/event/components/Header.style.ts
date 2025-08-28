@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 1.7rem 2rem;
+  padding: 0.3rem 2rem;
   border-bottom: 1px solid var(--gray-background-gray, #eceff0);
   z-index: 1100;
 `;
@@ -74,9 +74,8 @@ export const MenuItem = styled.div<{ active?: boolean }>`
 `;
 
 export const BackIcon = styled.img`
-  width: 1.1rem;
-  height: 2rem;
-  aspect-ratio: 11.75/20.5;
+  width: 12px;
+  height: 36px;
   cursor: pointer;
 `;
 
@@ -85,7 +84,7 @@ export const Chevron = styled.img<{ open?: boolean }>`
   top: 50%;
   left: calc(50% + 3rem);
   transform: translateY(-50%)
-    ${(p) => (p.open ? 'rotate(-180deg)' : 'rotate(180deg)')};
+    ${(p) => (p.open ? 'rotate(180deg)' : 'rotate(-180deg)')};
   width: 0.9rem;
   height: 1.3rem;
   transition: transform 140ms ease;
