@@ -1,5 +1,5 @@
 export const ROUTES = {
-  HOME: '/root',
+  HOME: '/',
   ARTISTS: '/artists',
   GOODS: '/goods',
   MAP: '/map',
@@ -22,4 +22,5 @@ export const ROUTES = {
   MYPAGE_TIMELINE: '/my-page/timeline',
   MYPAGE_BOOTH: '/my-page/booth',
   MYPAGE_ADMIN: '/my-page/admin',
+  CREATORS: '/creators',
 };
