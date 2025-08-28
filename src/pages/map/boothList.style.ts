@@ -4,7 +4,7 @@ export const Container = styled.div`
   /* position: absolute; */
   position: fixed;
   /* bottom: 22px; */
-  bottom: 100px;
+  bottom: 90px;
   z-index: 100;
   width: 100%;
   max-width: 550px;
@@ -16,6 +16,7 @@ export const BoothList = styled.div`
   overflow-x: auto;
   white-space: nowrap;
   padding-left: 20px;
+  padding-bottom: 10px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -29,7 +30,7 @@ export const BoothItemContainer = styled.div`
   gap: 13px;
   align-items: center;
 
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px 0.5px rgba(0, 0, 0, 0.2);
 `;
 
 export const TotalButtonContainer = styled.button`

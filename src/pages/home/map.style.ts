@@ -83,7 +83,8 @@ export const BotthList = styled.div`
   gap: 8px;
   overflow-x: auto;
   position: absolute;
-  bottom: 26px;
+  bottom: 16px;
+  padding-bottom: 10px;
   white-space: nowrap;
   max-width: calc(100% - 34px);
   margin: 0 4px;
@@ -100,8 +101,7 @@ export const BoothItem = styled.div`
   gap: 12px;
   align-items: center;
   width: 100%;
-
-  box-shadow: 2px 2px 8px 0.5px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
 export const BoothImage = styled.img`
