@@ -15,12 +15,14 @@ const InputBox = ({
   value,
   onChange,
   rightButton,
+  disabled,
 }: {
   title: string;
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   rightButton?: RightButton;
+  disabled?: boolean;
 }) => {
   const isPassword = title === '새 비밀번호' || title === '새 비밀번호 확인';
   const isEmail = title === '이메일 계정';
@@ -39,6 +41,7 @@ const InputBox = ({
               placeholder={placeholder}
               value={value}
               onChange={onChange}
+              disabled={disabled}
             />
           </S.InputOuter>
           {!isPassword && (

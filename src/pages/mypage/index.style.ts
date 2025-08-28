@@ -114,10 +114,11 @@ const slideDown = keyframes`
 
 export const LogOutContainer = styled.div<{ isClosing?: boolean }>`
   width: 100%;
-  height: 100vh;
+  max-width: 550px;
+  height: 100%;
 
-  position: absolute;
-  top: 0;
+  position: fixed;
+  inset: 0;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.4);
   opacity: 0;
@@ -130,6 +131,8 @@ export const LogOutContainer = styled.div<{ isClosing?: boolean }>`
 
   align-items: center;
   justify-content: flex-end;
+
+  margin: 0 auto;
 `;
 
 export const LogOutWrapper = styled.div<{ isClosing?: boolean }>`
@@ -142,7 +145,12 @@ export const LogOutWrapper = styled.div<{ isClosing?: boolean }>`
   justify-content: center;
   background-color: #fff;
 
+  box-sizing: border-box;
   padding: 3.5rem 2rem;
+  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
+  max-height: calc(100% - 2rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: 1.2rem 1.2rem 0 0;
 
   gap: 3.6rem;
