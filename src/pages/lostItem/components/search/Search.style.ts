@@ -21,16 +21,16 @@ export const SearchOuter = styled.div`
 
 export const Search = styled.input`
   width: 100%;
-  height: 6rem;
   box-sizing: border-box;
 
   ${({ theme }) => theme.fonts.neo_dunggeunmo_14}
 
   border-right: 2px solid ${(props) => props.theme.colors.basic.light_gray};
   border-bottom: 2px solid ${(props) => props.theme.colors.basic.mid_gray};
+  border-radius: 0px;
   background: ${(props) => props.theme.colors.basic.white};
 
-  padding: 1.9rem 1.6rem;
+  padding: 1.3rem 1.6rem;
 
   &:focus {
     outline: none;

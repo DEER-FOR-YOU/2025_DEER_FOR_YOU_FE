@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import type { TimeTableItem } from '../../../../apis/timeline/index.types';
 import * as S from './TimeItem.style';
-import bookmark from '../../assets/bookmark.svg';
-import bookmark_active from '../../assets/bookmark_active.svg';
+import bookmark from '../../../../assets/bookmark.svg';
+import bookmark_active from '../../../../assets/bookmark_active.svg';
 import { nineDayClub, tenDayClub } from '../../../timeline/club';
-import timeImage from '../../assets/when.svg';
-import luckyImage from '../../assets/lucky.svg';
-import arrowFront from '../../assets/arrow_front.svg';
+import timeImage from '../../../../assets/when.svg';
+import luckyImage from '../../../../assets/lucky.svg';
+import arrowFront from '../../../../assets/arrow_front.svg';
 import {
   useApiMutation,
   useApiQuery,
@@ -30,8 +30,15 @@ export default function TimeItem({ item }: TimeItemProps) {
     putTimeLines(item.timeTableId.toString()),
     {
       onSuccess: () => {
-        show('북마크가 삭제되었습니다.', 'info', true);
+        !item.bookmarked
+          ? show('북마크 추가에 성공했습니다.', 'info', true)
+          : show('북마크 제거에 성공했습니다.', 'info', true);
         queryClient.invalidateQueries();
+      },
+      onError: () => {
+        memberData
+          ? show('북마크 추가에 실패했습니다.', 'error', true)
+          : show('로그인 후 이용해주세요', 'error', true);
       },
     },
   );
