@@ -25,7 +25,7 @@ const eventList = [
     image: watermelon,
   },
   {
-    title: '행운추첨',
+    title: '행운권 추첨',
     image: lucky,
   },
   {
