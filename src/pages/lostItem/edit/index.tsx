@@ -270,14 +270,12 @@ const LostItemEditPage = () => {
     const maybeFiles = await Promise.all(filePromises);
     const files = (maybeFiles.filter(Boolean) as File[]).slice();
 
-    console.log(request, files);
-
     updateLostItem(request, files)
       .execute()
       .then(() => {
         queryClient.invalidateQueries({ queryKey: ['lostItemDetail', itemId] });
         queryClient.invalidateQueries({
-          queryKey: ['lostItems', 1, undefined, null],
+          queryKey: ['lostItems'],
         });
         show('분실물 수정이 완료되었습니다.', 'info', true);
         navigate('/lost-item');

@@ -27,7 +27,7 @@ export const DetailContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 56px;
+  margin-top: 3.75rem;
 `;
 
 export const WhenWhereContainer = styled.div`
