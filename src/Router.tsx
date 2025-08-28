@@ -101,6 +101,7 @@ const router = createBrowserRouter([
             path: ROUTES.CREATORS,
             element: withSuspense(<Creators />),
           },
+          {
             path: ROUTES.EVENTS,
             element: withSuspense(<Event />),
           },
