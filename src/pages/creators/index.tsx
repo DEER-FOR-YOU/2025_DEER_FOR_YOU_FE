@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import * as S from './index.style';
 import banner from '../../assets/banner.svg';
 import defaultProfile from '../../assets/creators/default.svg';
-import id1 from '../../assets/creators/id1.jpeg';
-import id2 from '../../assets/creators/id2.jpeg';
-import id3 from '../../assets/creators/id3.jpeg';
-import id4 from '../../assets/creators/id4.jpeg';
-import id5 from '../../assets/creators/id5.webp';
-import id7 from '../../assets/creators/id7.jpeg';
-import id8 from '../../assets/creators/id8.jpeg';
-import id9 from '../../assets/creators/id9.jpeg';
+import id1 from '../../assets/creators/id1.svg';
+import id2 from '../../assets/creators/id2.svg';
+import id3 from '../../assets/creators/id3.svg';
+import id4 from '../../assets/creators/id4.svg';
+import id5 from '../../assets/creators/id5.svg';
+import id6 from '../../assets/creators/id6.png';
+import id7 from '../../assets/creators/id7.svg';
+import id8 from '../../assets/creators/id8.svg';
+import id9 from '../../assets/creators/id9.svg';
 
 export default function Creators() {
   const [activeTab, setActiveTab] = useState('총학');
@@ -75,7 +76,7 @@ export default function Creators() {
           name: '차현우',
           role: 'FE',
           major: '소프트웨어학과 22학번',
-          image: defaultProfile,
+          image: id6,
         },
         {
           id: 7,
