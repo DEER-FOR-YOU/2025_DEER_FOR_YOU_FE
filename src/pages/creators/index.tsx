@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import * as S from './index.style';
 import banner from '../../assets/banner.svg';
 import defaultProfile from '../../assets/creators/default.svg';
+import id1 from '../../assets/creators/id1.jpeg';
+import id2 from '../../assets/creators/id2.jpeg';
+import id3 from '../../assets/creators/id3.jpeg';
+import id4 from '../../assets/creators/id4.jpeg';
+import id5 from '../../assets/creators/id5.webp';
+import id7 from '../../assets/creators/id7.jpeg';
+import id8 from '../../assets/creators/id8.jpeg';
+import id9 from '../../assets/creators/id9.jpeg';
 
 export default function Creators() {
   const [activeTab, setActiveTab] = useState('총학');
@@ -25,56 +33,91 @@ export default function Creators() {
       items: [
         {
           id: 1,
-          name: '김상명',
-          role: '학생회장',
-          major: '컴퓨터공학과',
-          image: defaultProfile,
+          name: '이동현',
+          role: '기획 총괄',
+          major: '식품식품공학과 21학번',
+          image: id1,
         },
         {
           id: 2,
-          name: '이상명',
-          role: '부학생회장',
-          major: '컴퓨터공학과',
-          image: defaultProfile,
+          name: '조하민',
+          role: '기획 부총괄',
+          major: '스페이스 디자인전공 23학번',
+          image: id2,
+        },
+        {
+          id: 3,
+          name: '엄정웅',
+          role: '기획 부총괄',
+          major: '식물식품공학과 22학번',
+          image: id3,
+        },
+        {
+          id: 4,
+          name: '김예인',
+          role: '디자인 부총괄',
+          major: '커뮤니케이션 디자인전공 23학번',
+          image: id4,
         },
       ],
     },
     개발: {
       items: [
         {
-          id: 3,
-          name: '박개발',
-          role: '프론트엔드 개발자',
-          major: '컴퓨터공학과',
+          id: 5,
+          name: '정연재',
+          role: '풀스택',
+          major: '소프트웨어학과 20학번',
+          image: id5,
+        },
+        {
+          id: 6,
+          name: '차현우',
+          role: '프론트엔드',
+          major: '소프트웨어학과 22학번',
           image: defaultProfile,
         },
         {
-          id: 4,
-          name: '최개발',
-          role: '백엔드 개발자',
-          major: '컴퓨터공학과',
-          image: defaultProfile,
+          id: 7,
+          name: '금한준',
+          role: '프론트엔드',
+          major: '소프트웨어학과 22학번',
+          image: id7,
+        },
+        {
+          id: 8,
+          name: '권민석',
+          role: '백엔드',
+          major: '소프트웨어학과 21학번',
+          image: id8,
+        },
+        {
+          id: 9,
+          name: '김대현',
+          role: '프론트엔드',
+          major: '소프트웨어학과 22학번',
+          image: id9,
         },
       ],
     },
     디자인: {
       items: [
         {
-          id: 5,
+          id: 10,
           name: '디노',
           role: '디자인 팀원',
           major: '커뮤니케이션 디자인전공 20학번',
           image: defaultProfile,
         },
         {
-          id: 6,
+          id: 11,
           name: '테드',
           role: '디자인 팀원',
           major: '커뮤니케이션 디자인전공 21학번',
           image: defaultProfile,
         },
         {
-          id: 7,
+          id: 12,
           name: '어피치',
           role: '디자인 팀원',
           major: '커뮤니케이션 디자인전공 21학번',
@@ -110,7 +153,7 @@ export default function Creators() {
       <S.ContentList>
         {tabData[activeTab].items.map((item) => (
           <S.ContentItem key={item.id}>
-            <S.ContetntImg src={defaultProfile} alt="profile" />
+            <S.ContetntImg src={item.image} alt="profile" />
             <S.ContentTextContainer>
               <S.ContentName>{item.name}</S.ContentName>
               <S.ContentRole>{item.role}</S.ContentRole>
