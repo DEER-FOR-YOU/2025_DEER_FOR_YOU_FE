@@ -9,6 +9,7 @@ import { getTimelines } from '../../apis/timeline';
 import { useApiQuery } from '../../apis/config/builder/ApiBuilder';
 import { getFullDate } from '../../utils/getFullDate';
 import TimeList from './TimeList';
+import Alarm from './Alarm';
 
 export default function Timeline() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -52,6 +53,7 @@ export default function Timeline() {
           10일
         </Button>
       </S.DateButtonContainer>
+      <Alarm />
       <LineUp currentDate={currentDate} />
       <TimeList data={data!} currentDate={currentDate} />
     </S.Container>
