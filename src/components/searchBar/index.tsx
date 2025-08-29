@@ -6,11 +6,13 @@ export default function SearchBar({
   onClick,
   setSelectedType,
   setSelectedAffiliation,
+  boothlocation,
   ...props
 }: {
   onClick?: () => void;
   setSelectedType?: (type: string) => void;
   setSelectedAffiliation?: (affiliation: string) => void;
+  boothlocation?: string;
 } & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <S.SearchBarWrapper>
@@ -23,8 +25,13 @@ export default function SearchBar({
                 src={searchIcon}
                 alt="search"
                 onClick={() => {
-                  setSelectedType?.('');
-                  setSelectedAffiliation?.('');
+                  if (boothlocation === 'SONG_BAEK_HALL') {
+                    setSelectedType?.('');
+                    setSelectedAffiliation?.('COUNCIL');
+                  } else {
+                    setSelectedType?.('');
+                    setSelectedAffiliation?.('');
+                  }
                   onClick?.();
                 }}
               />

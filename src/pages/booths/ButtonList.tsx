@@ -78,13 +78,13 @@ export default function ButtonList({
         </>
       ) : (
         <>
-          <Button
+          {/* <Button
             css={S.Button}
             isActive={selectedAffiliation === 'EXTERNAL'}
             onClick={() => handleTypeClick('EXTERNAL')}
           >
             교외부스
-          </Button>
+          </Button> */}
           <Button
             css={S.Button}
             isActive={selectedAffiliation === 'COUNCIL'}

@@ -24,7 +24,7 @@ export default function BoothsPage() {
   useEffect(() => {
     if (boothlocation === 'SONG_BAEK_HALL') {
       setSelectedType('');
-      setSelectedAffiliation('');
+      setSelectedAffiliation('COUNCIL');
       setKeywordInput('');
     }
     if (boothlocation === 'STUDENT_HALL') {
@@ -68,6 +68,7 @@ export default function BoothsPage() {
           onClick={handleSearchPage}
           setSelectedType={setSelectedType}
           setSelectedAffiliation={setSelectedAffiliation}
+          boothlocation={boothlocation}
         />
       </S.SearchBarContainer>
       {boothlocation && (
