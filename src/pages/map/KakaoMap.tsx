@@ -78,7 +78,10 @@ const MARKERS: MarkerData[] = [
   },
   {
     id: 'activity',
-    position: { lat: 36.833174, lng: 127.17997 },
+    positions: [
+      { lat: 36.833174, lng: 127.17997 },
+      { lat: 36.834088, lng: 127.17972 },
+    ],
     image: activity,
     title: '체험',
   },
