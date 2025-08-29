@@ -7,7 +7,6 @@ import id2 from '../../assets/creators/id2.jpeg';
 import id3 from '../../assets/creators/id3.jpeg';
 import id4 from '../../assets/creators/id4.jpeg';
 import id5 from '../../assets/creators/id5.webp';
-import id6 from '../../assets/creators/id6.png';
 import id7 from '../../assets/creators/id7.jpeg';
 import id8 from '../../assets/creators/id8.jpeg';
 import id9 from '../../assets/creators/id9.jpeg';
@@ -76,7 +75,7 @@ export default function Creators() {
           name: '차현우',
           role: 'FE',
           major: '소프트웨어학과 22학번',
-          image: id6,
+          image: defaultProfile,
         },
         {
           id: 7,
