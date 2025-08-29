@@ -36,7 +36,7 @@ export default function Creators() {
           id: 1,
           name: '이동현',
           role: '기획 총괄',
-          major: '식품식품공학과 21학번',
+          major: '식물식품공학과 21학번',
           image: id1,
         },
         {
