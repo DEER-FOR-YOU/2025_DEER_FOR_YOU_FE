@@ -51,10 +51,10 @@ export default function ArtistPage() {
   return (
     <S.Container>
       <Header title="아티스트" />
-      <S.DateBorder>09</S.DateBorder>
+      <S.DateBorder>9일</S.DateBorder>
       <Card data={data[0]} marginBottom={36} />
       <Card data={data[1]} marginBottom={60} />
-      <S.DateBorder>10</S.DateBorder>
+      <S.DateBorder>10일</S.DateBorder>
       <Card data={data[2]} marginBottom={36} />
       <Card data={data[3]} marginBottom={0} />
     </S.Container>

@@ -223,8 +223,8 @@ export default function Artist() {
                   zIndex: 2,
                 }}
               />
+              <S.ArtistCardOverlay />
             </S.ArtistImageWrapper>
-            <S.ArtistCardOverlay />
             <S.ArtistTextContainer>
               <S.ArtistSubtitle>
                 {artists[displayedIndex].subtitle}

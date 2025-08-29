@@ -116,9 +116,8 @@ export const PrevArtistCard = styled.div<{ isDragging?: boolean }>`
   transform: scale(0.8);
   pointer-events: none;
   transition: all 0.3s ease;
-  position: relative;
+  background: none;
 `;
-
 export const CurrentArtistCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -127,6 +126,7 @@ export const CurrentArtistCard = styled.div`
   opacity: 1;
   pointer-events: none;
   transition: all 0.3s ease;
+  background: none;
   position: relative;
 `;
 
@@ -154,22 +154,20 @@ export const ArtistImageWrapper = styled.div`
   height: 264px;
   position: relative;
   display: inline-block;
+  z-index: 1;
 `;
 
 export const ArtistCardOverlay = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  height: 60%;
-
+  bottom: 0;
+  height: 100%;
   pointer-events: none;
+  z-index: 999;
 
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.64) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 105%);
 `;
 
 export const ArtistCardOverlay2 = styled.div`
@@ -194,6 +192,7 @@ export const ArtistTextContainer = styled.div`
   left: 18px;
   display: flex;
   flex-direction: column;
+  z-index: 1000;
 `;
 
 export const ArtistName = styled.div`
@@ -202,7 +201,7 @@ export const ArtistName = styled.div`
   font-size: 2rem;
   font-weight: 600;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4; /* Increased z-index to sit above overlay */
   line-height: 150%; /* 24px */
   letter-spacing: -0.4px;
 `;
@@ -213,7 +212,7 @@ export const ArtistSubtitle = styled.div`
   font-size: 2rem;
   font-weight: 600;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4; /* Increased z-index to sit above overlay */
 `;
 
 export const IndicatorContainer = styled.div`
