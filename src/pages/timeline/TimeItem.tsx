@@ -21,11 +21,53 @@ interface TimeItemProps {
   item: TimeTableItem;
 }
 
+// 현재 시간이 해당 시간대에 포함되는지 확인하는 함수
+const isCurrentTimeInRange = (
+  timeDescription: string,
+  date: string,
+): boolean => {
+  const now = new Date();
+  const today = now.toISOString().split('T')[0]; // YYYY-MM-DD 형식
+
+  // 날짜가 오늘이 아니면 false
+  if (today !== date) return false;
+
+  // 시간 범위 파싱 (예: "10:00 ~ 22:00")
+  const timeMatch = timeDescription.match(
+    /(\d{1,2}):(\d{2})\s*~\s*(\d{1,2}):(\d{2})/,
+  );
+  if (!timeMatch) return false;
+
+  const startHour = parseInt(timeMatch[1]);
+  const startMinute = parseInt(timeMatch[2]);
+  const endHour = parseInt(timeMatch[3]);
+  const endMinute = parseInt(timeMatch[4]);
+
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+
+  const currentTimeInMinutes = currentHour * 60 + currentMinute;
+  const startTimeInMinutes = startHour * 60 + startMinute;
+  const endTimeInMinutes = endHour * 60 + endMinute;
+
+  return (
+    currentTimeInMinutes >= startTimeInMinutes &&
+    currentTimeInMinutes <= endTimeInMinutes
+  );
+};
+
 export default function TimeItem({ item }: TimeItemProps) {
   const [showDetails, setShowDetails] = useState(false);
   const { show } = useToastContext();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+
+  // 현재 시간이 해당 시간대에 포함되는지 확인
+  const isCurrentTime = isCurrentTimeInRange(
+    item.timeDescription,
+    item.timeTableDay,
+  );
+
   const putTimeLinesMutation = useApiMutation(
     putTimeLines(item.timeTableId.toString()),
     {
@@ -69,9 +111,9 @@ export default function TimeItem({ item }: TimeItemProps) {
 
   return (
     <>
-      <S.Container>
+      <S.Container isCurrentTime={isCurrentTime}>
         <S.Header>
-          <S.Time>{item.timeDescription}</S.Time>
+          <S.Time isCurrentTime={isCurrentTime}>{item.timeDescription}</S.Time>
           <S.Bookmark
             src={item.bookmarked ? bookmark_active : bookmark}
             alt="bookmark"
@@ -80,7 +122,7 @@ export default function TimeItem({ item }: TimeItemProps) {
         </S.Header>
         <S.Footer>
           <S.Content>
-            <S.Title>{item.title}</S.Title>
+            <S.Title isCurrentTime={isCurrentTime}>{item.title}</S.Title>
             <S.Place>{item.place}</S.Place>
           </S.Content>
           {[3, 8, 9].includes(item.timeTableId) && (

@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Container = styled.div<{ isCurrentTime?: boolean }>`
   display: flex;
   flex-direction: column;
   padding: 20px 30px 14px 20px;
   gap: 4px;
   border-bottom: 1px solid #d2d9df;
+  background-color: ${({ isCurrentTime }) =>
+    isCurrentTime ? '#0100A3' : 'transparent'};
 `;
 
 export const Header = styled.div`
@@ -14,8 +16,8 @@ export const Header = styled.div`
   align-items: center;
 `;
 
-export const Time = styled.div`
-  color: #464b50;
+export const Time = styled.div<{ isCurrentTime?: boolean }>`
+  color: ${({ isCurrentTime }) => (isCurrentTime ? '#ffffff' : '#464b50')};
   font-family: Pretendard;
   font-size: 1.3rem;
   font-style: normal;
@@ -23,7 +25,8 @@ export const Time = styled.div`
   line-height: 150%; /* 19.5px */
   letter-spacing: -0.325px;
   padding: 2px 4px;
-  border: 1px solid #d2d9df;
+  border: 1px solid
+    ${({ isCurrentTime }) => (isCurrentTime ? '#ffffff' : '#d2d9df')};
 `;
 
 export const Content = styled.div`
@@ -32,8 +35,8 @@ export const Content = styled.div`
   gap: 2px;
 `;
 
-export const Title = styled.div`
-  color: #000;
+export const Title = styled.div<{ isCurrentTime?: boolean }>`
+  color: ${({ isCurrentTime }) => (isCurrentTime ? '#ffffff' : '#000')};
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
@@ -136,6 +139,7 @@ export const LuckyText = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 export const LuckyTitle = styled.div`
   color: #464b50;
   font-family: Pretendard;
@@ -145,6 +149,7 @@ export const LuckyTitle = styled.div`
   line-height: 150%; /* 21px */
   letter-spacing: -0.35px;
 `;
+
 export const LuckySubTitle = styled.div`
   color: #7f8992;
   font-family: Pretendard;
