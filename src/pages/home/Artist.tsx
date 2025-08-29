@@ -6,86 +6,56 @@ import kiki from '../../assets/artists/kiki2.png';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { ROUTES } from '../../constants/routes';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const artists = [
-  {
-    id: 1,
-    name: '크러쉬',
-    subtitle: '9/9',
-    image: crush,
-  },
-  {
-    id: 2,
-    name: '카더가든',
-    subtitle: '9/9',
-    image: carder,
-  },
-  {
-    id: 3,
-    name: '실리카겔',
-    subtitle: '9/10',
-    image: sili,
-  },
-  {
-    id: 4,
-    name: '키키',
-    subtitle: '9/10',
-    image: kiki,
-  },
+  { id: 1, name: '크러쉬', subtitle: '9/9', image: crush },
+  { id: 2, name: '카더가든', subtitle: '9/9', image: carder },
+  { id: 3, name: '실리카겔', subtitle: '9/10', image: sili },
+  { id: 4, name: '키키', subtitle: '9/10', image: kiki },
 ];
 
 export default function Artist() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [bgImage, setBgImage] = useState(artists[0].image);
+  const [nextBg, setNextBg] = useState<string | null>(null);
+  const [displayedIndex, setDisplayedIndex] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const MotionBackground = motion(S.BackgroundLayer);
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 자동 슬라이딩 시작
   const startAutoPlay = () => {
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     autoPlayRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev === artists.length - 1 ? 0 : prev + 1));
     }, 5000);
   };
-
-  // 자동 슬라이딩 정지
   const stopAutoPlay = () => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
       autoPlayRef.current = null;
     }
   };
-
-  // 자동 슬라이딩 관리
   useEffect(() => {
-    if (!isDragging) {
-      startAutoPlay();
-    }
+    if (!isDragging) startAutoPlay();
     return () => stopAutoPlay();
   }, [isDragging]);
 
-  const handleMore = () => {
-    navigate(ROUTES.ARTISTS);
-  };
+  const handleMore = () => navigate(ROUTES.ARTISTS);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? artists.length - 1 : prev - 1));
     stopAutoPlay();
-    setTimeout(() => {
-      if (!isDragging) startAutoPlay();
-    }, 1000);
+    setTimeout(() => !isDragging && startAutoPlay(), 1000);
   };
-
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === artists.length - 1 ? 0 : prev + 1));
     stopAutoPlay();
-    setTimeout(() => {
-      if (!isDragging) startAutoPlay();
-    }, 1000);
+    setTimeout(() => !isDragging && startAutoPlay(), 1000);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -93,65 +63,95 @@ export default function Artist() {
     setStartX(e.clientX);
     stopAutoPlay();
   };
-
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
-    const offset = e.clientX - startX;
-    setDragOffset(offset);
+    setDragOffset(e.clientX - startX);
   };
-
   const handleMouseUp = () => {
     if (!isDragging) return;
-
-    const threshold = 100;
-    if (Math.abs(dragOffset) > threshold) {
-      if (dragOffset > 0) {
-        handlePrev();
-      } else {
-        handleNext();
-      }
-    }
-
+    if (Math.abs(dragOffset) > 100)
+      dragOffset > 0 ? handlePrev() : handleNext();
     setIsDragging(false);
     setDragOffset(0);
   };
-
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
     stopAutoPlay();
   };
-
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
-    const offset = e.touches[0].clientX - startX;
-    setDragOffset(offset);
+    setDragOffset(e.touches[0].clientX - startX);
   };
-
   const handleTouchEnd = () => {
     if (!isDragging) return;
-
-    const threshold = 50;
-    if (Math.abs(dragOffset) > threshold) {
-      if (dragOffset > 0) {
-        handlePrev();
-      } else {
-        handleNext();
-      }
-    }
-
+    if (Math.abs(dragOffset) > 50) dragOffset > 0 ? handlePrev() : handleNext();
     setIsDragging(false);
     setDragOffset(0);
   };
 
-  const currentArtist = artists[currentIndex];
   const prevArtist =
     artists[currentIndex === 0 ? artists.length - 1 : currentIndex - 1];
   const nextArtist =
     artists[currentIndex === artists.length - 1 ? 0 : currentIndex + 1];
 
+  useEffect(() => {
+    if (currentIndex === displayedIndex) return;
+    const imgSrc = artists[currentIndex].image;
+    if (imgSrc === bgImage) {
+      setNextBg(null);
+      setIsChanging(true);
+      const tQuick = setTimeout(() => {
+        setDisplayedIndex(currentIndex);
+        setIsChanging(false);
+      }, 50);
+      return () => clearTimeout(tQuick);
+    }
+
+    let canceled = false;
+    const img = new Image();
+    img.src = imgSrc;
+    let t: ReturnType<typeof setTimeout> | null = null;
+    img.onload = () => {
+      if (canceled) return;
+      setNextBg(imgSrc);
+      setIsChanging(true);
+      t = setTimeout(() => {
+        setDisplayedIndex(currentIndex);
+        setBgImage(imgSrc);
+        setNextBg(null);
+        setIsChanging(false);
+      }, 450);
+    };
+    img.onerror = () => {
+      setDisplayedIndex(currentIndex);
+      setBgImage(imgSrc);
+      setNextBg(null);
+      setIsChanging(false);
+    };
+    return () => {
+      canceled = true;
+      if (t) clearTimeout(t);
+    };
+  }, [currentIndex, displayedIndex, bgImage]);
+
   return (
-    <S.Container src={currentArtist.image}>
+    <S.Container>
+      <S.BackgroundLayer src={bgImage} visible={true} />
+      <AnimatePresence>
+        {nextBg && (
+          <MotionBackground
+            key={nextBg}
+            src={nextBg}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.45, ease: 'easeInOut' }}
+            visible={true}
+          />
+        )}
+      </AnimatePresence>
+
       <S.TextContainer>
         <S.HeaderText>대동제 특별출연</S.HeaderText>
         <S.MainTextContainer>
@@ -164,6 +164,7 @@ export default function Artist() {
         </S.MainTextContainer>
       </S.TextContainer>
 
+      {/* 슬라이드 영역 */}
       <S.SlideContainer
         isDragging={isDragging}
         onMouseDown={handleMouseDown}
@@ -173,33 +174,77 @@ export default function Artist() {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        style={{
-          transform: isDragging ? `translateX(${dragOffset}px)` : 'none',
-          transition: isDragging ? 'none' : 'transform 0.3s ease',
-        }}
       >
-        <S.ArtistCardWrapper isDragging={isDragging}>
-          <S.PrevArtistCard isDragging={isDragging}>
+        <motion.div
+          key={`prev-${prevArtist.id}`}
+          initial={false}
+          animate={{ scale: 0.8, opacity: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+        >
+          <S.PrevArtistCard>
             <S.ArtistImage src={prevArtist.image} alt={prevArtist.name} />
             <S.ArtistCardOverlay2 />
           </S.PrevArtistCard>
-
+        </motion.div>
+        <>
           <S.CurrentArtistCard>
-            <S.ArtistImage src={currentArtist.image} alt={currentArtist.name} />
+            <S.ArtistImageWrapper>
+              <motion.img
+                src={artists[displayedIndex].image}
+                alt={artists[displayedIndex].name}
+                key={`display-${displayedIndex}`}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: isChanging ? 0 : 1 }}
+                transition={{ duration: 0.45, ease: 'easeInOut' }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  zIndex: 1,
+                }}
+              />
+              <motion.img
+                src={artists[currentIndex].image}
+                alt={artists[currentIndex].name}
+                key={`current-${currentIndex}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isChanging ? 1 : 0 }}
+                transition={{ duration: 0.45, ease: 'easeInOut' }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  zIndex: 2,
+                }}
+              />
+            </S.ArtistImageWrapper>
             <S.ArtistCardOverlay />
             <S.ArtistTextContainer>
-              <S.ArtistSubtitle>{currentArtist.subtitle}</S.ArtistSubtitle>
-              <S.ArtistName>{currentArtist.name}</S.ArtistName>
+              <S.ArtistSubtitle>
+                {artists[displayedIndex].subtitle}
+              </S.ArtistSubtitle>
+              <S.ArtistName>{artists[displayedIndex].name}</S.ArtistName>
             </S.ArtistTextContainer>
           </S.CurrentArtistCard>
-
-          <S.NextArtistCard isDragging={isDragging}>
+        </>
+        <motion.div
+          key={`next-${nextArtist.id}`}
+          initial={false}
+          animate={{ scale: 0.8, opacity: 0.6 }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+        >
+          <S.NextArtistCard>
             <S.ArtistImage src={nextArtist.image} alt={nextArtist.name} />
             <S.ArtistCardOverlay2 />
           </S.NextArtistCard>
-        </S.ArtistCardWrapper>
+        </motion.div>
       </S.SlideContainer>
-
       <S.IndicatorContainer>
         {artists.map((_, index) => (
           <S.Indicator
