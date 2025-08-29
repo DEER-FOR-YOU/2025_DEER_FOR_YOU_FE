@@ -1,14 +1,7 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div<{ src: string }>`
-  /* width: 100%; */
-  /* height: 100%; */
-  /* aspect-ratio: 1/1; */
+export const Container = styled.div`
   position: relative;
-  background-image: url(${({ src }) => src});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding: 32px 0 20px 0;
   overflow: hidden;
 
@@ -28,6 +21,21 @@ export const Container = styled.div<{ src: string }>`
     position: relative;
     z-index: 2;
   }
+`;
+
+export const BackgroundLayer = styled.div<{ src: string; visible?: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
+  transition: opacity 0.45s ease-in-out;
 `;
 
 export const TextContainer = styled.div`
@@ -105,8 +113,7 @@ export const PrevArtistCard = styled.div<{ isDragging?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0.8) translateX(-15px);
-  /* opacity: 0.8; */
+  transform: scale(0.8);
   pointer-events: none;
   transition: all 0.3s ease;
   position: relative;
@@ -127,8 +134,7 @@ export const NextArtistCard = styled.div<{ isDragging?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0.8) translateX(15px);
-  /* opacity: 0.8; */
+  transform: scale(0.8);
   pointer-events: none;
   transition: all 0.3s ease;
   position: relative;
@@ -141,6 +147,13 @@ export const ArtistImage = styled.img`
   object-fit: cover;
   border: none;
   pointer-events: none;
+`;
+
+export const ArtistImageWrapper = styled.div`
+  width: 212px;
+  height: 264px;
+  position: relative;
+  display: inline-block;
 `;
 
 export const ArtistCardOverlay = styled.div`
@@ -184,10 +197,6 @@ export const ArtistTextContainer = styled.div`
 `;
 
 export const ArtistName = styled.div`
-  /* position: absolute;
-  bottom: 20px;
-  left: 18px; */
-  /* transform: translateX(-50%); */
   color: #fff;
   font-family: 'Pretendard';
   font-size: 2rem;
@@ -199,10 +208,6 @@ export const ArtistName = styled.div`
 `;
 
 export const ArtistSubtitle = styled.div`
-  /* position: absolute;
-  bottom: 45px;
-  left: 50%; */
-  /* transform: translateX(-50%); */
   color: #fff;
   font-family: 'Pretendard';
   font-size: 2rem;

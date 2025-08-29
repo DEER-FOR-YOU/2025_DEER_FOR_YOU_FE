@@ -41,12 +41,13 @@ export const BasicRowSubText = styled.div`
   font-weight: 600;
 `;
 
-export const BasicRowSmallText = styled.li`
+export const BasicRowSmallText = styled.div`
   width: calc(100% - 4rem);
   ${({ theme }) => theme.fonts.pretender_12}
   color: ${({ theme }) => theme.colors.basic.dark_gray};
   font-weight: 500;
   word-break: keep-all;
+  margin: 1px 0;
 `;
 
 export const BasicHorizonLine = styled.div`

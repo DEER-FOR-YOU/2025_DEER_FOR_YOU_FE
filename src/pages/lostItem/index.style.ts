@@ -45,7 +45,7 @@ export const SubTitle = styled.div`
 export const HorizontalLine = styled.div`
   width: 100%;
   margin-top: 1rem;
-  border-top: 1px solid ${({ theme }) => theme.colors.basic.mid_dark_gray};
+  border-top: 1px solid ${({ theme }) => theme.colors.basic.mid_gray};
 `;
 
 export const ItemList = styled.div`

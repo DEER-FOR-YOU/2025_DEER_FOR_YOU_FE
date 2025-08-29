@@ -9,7 +9,7 @@ export const ItemWrapper = styled.div`
   touch-action: pan-y;
   -webkit-user-select: none;
   user-select: none;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.basic.mid_dark_gray};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.basic.mid_gray};
 `;
 
 export const ActionButtons = styled.div<{ isVisible: boolean }>`
