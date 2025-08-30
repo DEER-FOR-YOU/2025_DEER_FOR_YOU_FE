@@ -48,7 +48,7 @@ const data = [
   },
   {
     title: '9/10일_식구.smu',
-    name: '식구.',
+    name: '식구',
     img: sikgu,
     content:
       "식구는 AOMG 소속 멀티 플레이어 아티스트로, '팀 토모다치' KR 리믹스 등의 실험적 협업으로 주목받고있다.",
