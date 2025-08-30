@@ -2,7 +2,7 @@ import * as S from './artist.style';
 import crush from '../../assets/artists/crush.png';
 import carder from '../../assets/artists/carder.png';
 import sili from '../../assets/artists/sili.png';
-import kiki from '../../assets/artists/kiki2.png';
+import kiki from '../../assets/artists/kiki.png';
 import sikgu from '../../assets/artists/sikgu.png';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
