@@ -12,7 +12,7 @@ const artists = [
   { id: 1, name: '크러쉬', subtitle: '9/9', image: crush },
   { id: 2, name: '카더가든', subtitle: '9/9', image: carder },
   { id: 3, name: '실리카겔', subtitle: '9/10', image: sili },
-  { id: 4, name: '키키', subtitle: '9/10', image: kiki },
+  { id: 4, name: 'KiiiKiii ', subtitle: '9/10', image: kiki },
 ];
 
 export default function Artist() {

@@ -37,11 +37,11 @@ const data = [
     place: '노천극장',
   },
   {
-    title: '9/10일_키키_smu',
-    name: '키키',
+    title: '9/10일_KiiiKiii_smu',
+    name: 'KiiiKiii',
     img: kiki,
     content:
-      '키키는 스타십의 5인조 5세대 걸그룹으로, 데뷔곡 "I DO ME"로 자유롭고 당찬 "Gen Z" 매력을 선보이며 빠르게 주목받았다',
+      'KiiiKiii는 스타십의 5인조 5세대 걸그룹으로, 데뷔곡 "I DO ME"로 자유롭고 당찬 "Gen Z" 매력을 선보이며 빠르게 주목받았다',
     when: '09/10 수요일',
     place: '노천극장',
   },
