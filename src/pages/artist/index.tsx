@@ -6,6 +6,7 @@ import crush from '../../assets/artists/crush.png';
 import carder from '../../assets/artists/carder.png';
 import sili from '../../assets/artists/sili.png';
 import kiki from '../../assets/artists/kiki2.png';
+import sikgu from '../../assets/artists/sikgu.png';
 
 const data = [
   {
@@ -45,6 +46,15 @@ const data = [
     when: '09/10 수요일',
     place: '노천극장',
   },
+  {
+    title: '9/10일_식구.smu',
+    name: '식구.',
+    img: sikgu,
+    content:
+      "식구는 AOMG 소속 멀티 플레이어 아티스트로, '팀 토모다치' KR 리믹스 등의 실험적 협업으로 주목받고있다.",
+    when: '09/10 수요일',
+    place: '노천극장',
+  },
 ];
 
 export default function ArtistPage() {
@@ -56,7 +66,8 @@ export default function ArtistPage() {
       <Card data={data[1]} marginBottom={60} />
       <S.DateBorder>10일</S.DateBorder>
       <Card data={data[2]} marginBottom={36} />
-      <Card data={data[3]} marginBottom={0} />
+      <Card data={data[3]} marginBottom={36} />
+      <Card data={data[4]} marginBottom={0} />
     </S.Container>
   );
 }
