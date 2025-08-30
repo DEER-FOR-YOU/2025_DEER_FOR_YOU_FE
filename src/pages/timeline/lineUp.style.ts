@@ -28,6 +28,7 @@ export const ImgContainer = styled.div`
   display: flex;
   gap: 14px;
   margin-bottom: 36px;
+  line-height: 0;
 `;
 
 export const ImgBox = styled.div`
@@ -37,6 +38,7 @@ export const ImgBox = styled.div`
 export const Img = styled.img`
   width: 100%;
   display: block;
+  aspect-ratio: 1/1;
 `;
 
 export const ImgTextBox = styled.div`
@@ -78,4 +80,42 @@ export const WhenText = styled.div`
   font-weight: 500;
   line-height: 150%; /* 18px */
   letter-spacing: -0.3px;
+`;
+
+export const ImgContainer9 = styled.div`
+  display: flex;
+  gap: 14px;
+  margin-bottom: 36px;
+  line-height: 0;
+`;
+
+export const ImgBox1 = styled.div`
+  position: relative;
+  flex-shrink: 0;
+  width: calc(50% - 7px);
+  min-width: calc(50% - 7px);
+  aspect-ratio: 1/1;
+  line-height: 0;
+`;
+
+export const ImgContainer10 = styled.div`
+  display: flex;
+  gap: 6px;
+  margin-bottom: 36px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const ImgBox10 = styled.div`
+  position: relative;
+  /* flex-grow: 1; */
+  width: 50%;
 `;

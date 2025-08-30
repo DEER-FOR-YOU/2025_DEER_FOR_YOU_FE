@@ -5,7 +5,8 @@ import * as S from './index.style';
 import crush from '../../assets/artists/crush.png';
 import carder from '../../assets/artists/carder.png';
 import sili from '../../assets/artists/sili.png';
-import kiki from '../../assets/artists/kiki2.png';
+import kiki from '../../assets/artists/kiki.png';
+import sikgu from '../../assets/artists/sikgu.png';
 
 const data = [
   {
@@ -37,11 +38,20 @@ const data = [
     place: '노천극장',
   },
   {
-    title: '9/10일_키키_smu',
-    name: '키키',
+    title: '9/10일_KiiiKiii_smu',
+    name: 'KiiiKiii',
     img: kiki,
     content:
-      '키키는 스타십의 5인조 5세대 걸그룹으로, 데뷔곡 "I DO ME"로 자유롭고 당찬 "Gen Z" 매력을 선보이며 빠르게 주목받았다',
+      'KiiiKiii는 스타십의 5인조 5세대 걸그룹으로, 데뷔곡 "I DO ME"로 자유롭고 당찬 "Gen Z" 매력을 선보이며 빠르게 주목받았다',
+    when: '09/10 수요일',
+    place: '노천극장',
+  },
+  {
+    title: '9/10일_식구.smu',
+    name: '식구.',
+    img: sikgu,
+    content:
+      "식구는 AOMG 소속 멀티 플레이어 아티스트로, '팀 토모다치' KR 리믹스 등의 실험적 협업으로 주목받고있다.",
     when: '09/10 수요일',
     place: '노천극장',
   },
@@ -56,7 +66,8 @@ export default function ArtistPage() {
       <Card data={data[1]} marginBottom={60} />
       <S.DateBorder>10일</S.DateBorder>
       <Card data={data[2]} marginBottom={36} />
-      <Card data={data[3]} marginBottom={0} />
+      <Card data={data[3]} marginBottom={36} />
+      <Card data={data[4]} marginBottom={0} />
     </S.Container>
   );
 }
