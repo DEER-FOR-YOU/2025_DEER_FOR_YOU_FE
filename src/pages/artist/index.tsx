@@ -10,7 +10,7 @@ import sikgu from '../../assets/artists/sikgu.png';
 
 const data = [
   {
-    title: '9/9일_크러쉬_smu',
+    title: '9/9일_크러쉬.smu',
     name: '크러쉬',
     img: crush,
     content:
@@ -20,7 +20,7 @@ const data = [
     place: '노천극장',
   },
   {
-    title: '9/9일_카더가든_smu',
+    title: '9/9일_카더가든.smu',
     name: '카더가든',
     img: carder,
     content:
@@ -29,7 +29,7 @@ const data = [
     place: '노천극장',
   },
   {
-    title: '9/10일_실리카겔_smu',
+    title: '9/10일_실리카겔.smu',
     name: '실리카겔',
     img: sili,
     content:
@@ -38,7 +38,7 @@ const data = [
     place: '노천극장',
   },
   {
-    title: '9/10일_KiiiKiii_smu',
+    title: '9/10일_KiiiKiii.smu',
     name: 'KiiiKiii',
     img: kiki,
     content:
