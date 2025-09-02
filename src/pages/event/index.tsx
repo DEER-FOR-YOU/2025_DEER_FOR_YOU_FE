@@ -66,7 +66,7 @@ const EVENTS: Record<
     imageName: '피지컬 100',
     description: (
       <>
-        <S.MainImageText>굽혀펴기, 데드리프트, 턱걸이!</S.MainImageText>
+        <S.MainImageText>데드리프트, 턱걸이, 오래매달리기!</S.MainImageText>
         <S.MainImageText>세 가지 종목에서 기록을 측정해</S.MainImageText>
         <S.MainImageText>나의 한계에 도전해보세요!</S.MainImageText>
       </>

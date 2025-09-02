@@ -10,10 +10,7 @@ const DressCode = () => {
         <S.BasicRowBlackText>소정의 상품 제공</S.BasicRowBlackText>
       </S.BasicRow>
       <S.BasicHorizonLine />
-      <S.BasicRow>
-        <S.BasicRowSubText>혜택 2</S.BasicRowSubText>
-        <S.BasicRowBlackText>소속감 증대</S.BasicRowBlackText>
-      </S.BasicRow>
+
       <S.CustomMargin topSize={3.6} />
       <S.Title>드레스코드: 블루</S.Title>
       <S.CustomMargin bottomSize={2.4} />
