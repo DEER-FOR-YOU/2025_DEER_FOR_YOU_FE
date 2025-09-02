@@ -160,7 +160,7 @@ export default function Artist() {
           <S.MainLeftText>
             상명대를 빛내줄
             <br />
-            4팀의 아티스트는?
+            5팀의 아티스트는?
           </S.MainLeftText>
           <S.MainRightText onClick={handleMore}>더보기</S.MainRightText>
         </S.MainTextContainer>
