@@ -8,32 +8,32 @@ import sikgu from '../../assets/artists/sikgu.png';
 
 const artists9 = [
   {
-    name: '크러쉬',
-    when: '20:30 ~ 22:00',
-    img: crush,
+    name: '카더가든',
+    when: '21:00 ~ 21:30',
+    img: carder,
   },
   {
-    name: '카더가든',
-    when: '22:00 ~ 23:00',
-    img: carder,
+    name: '크러쉬',
+    when: '21:30 ~ 22:00',
+    img: crush,
   },
 ];
 
 const artists10 = [
   {
+    name: '식구',
+    when: '20:10 ~ 20:30',
+    img: sikgu,
+  },
+  {
     name: '실리카겔',
-    when: '20:30 ~ 22:00',
+    when: '20:30 ~ 21:30',
     img: sili,
   },
   {
     name: 'KiiiKiii ',
-    when: '22:00 ~ 23:00',
+    when: '21:30 ~ 22:00',
     img: kiki,
-  },
-  {
-    name: '식구',
-    when: '20:10 ~ 20:30',
-    img: sikgu,
   },
 ];
 

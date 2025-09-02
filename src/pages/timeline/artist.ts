@@ -1,14 +1,14 @@
 export const nineDayArtist = [
   {
     id: 1,
-    name: '크러쉬',
-    time: '20:30 ~ 22:00',
+    name: '카더가든',
+    time: '21:00 ~ 21:30',
     day: '2025-09-09',
   },
   {
     id: 2,
-    name: '카더가든',
-    time: '22:00 ~ 23:00',
+    name: '크러쉬',
+    time: '21:30 ~ 22:00',
     day: '2025-09-09',
   },
 ];
@@ -23,13 +23,13 @@ export const tenDayArtist = [
   {
     id: 2,
     name: '실리카겔',
-    time: '20:30 ~ 22:00',
+    time: '20:30 ~ 21:30',
     day: '2025-09-10',
   },
   {
     id: 3,
-    name: '키키',
-    time: '22:00 ~ 23:00',
+    name: 'KiiiKiii',
+    time: '21:30 ~ 22:00',
     day: '2025-09-10',
   },
 ];
