@@ -10,10 +10,6 @@ const Watermelon = () => {
         <S.BasicRowBlackText>성공 시 상품 제공</S.BasicRowBlackText>
       </S.BasicRow>
       <S.BasicHorizonLine />
-      <S.BasicRow>
-        <S.BasicRowSubText>혜택 2</S.BasicRowSubText>
-        <S.BasicRowBlackText>나의 민첩성 확인</S.BasicRowBlackText>
-      </S.BasicRow>
       <S.CustomMargin topSize={3.6} />
       <S.Title>진행 방법</S.Title>
       <S.CustomMargin bottomSize={2.4} />
