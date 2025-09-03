@@ -222,4 +222,12 @@ export const ContentConatiner = styled.div`
   a:visited {
     color: #845ef7; /* 방문한 링크는 보라색 */
   }
+
+  /* 이미지 스타일링 */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+  }
 `;
