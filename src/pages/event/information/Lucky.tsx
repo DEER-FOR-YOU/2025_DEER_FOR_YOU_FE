@@ -36,23 +36,23 @@ const Lucky = () => {
 
       <S.BasicRow>
         <S.EventItemSection>
+          <S.EventItemImage src={firstItem} alt="first Item" />
+          <S.EventItemName>
+            소니 노이즈캔슬링
+            <br />
+            무선 헤드폰
+          </S.EventItemName>
+        </S.EventItemSection>
+        <S.EventItemSection>
           <S.EventItemImage
-            src={firstItem}
-            alt="first Item"
+            src={secondItem}
+            alt="second Item"
             style={{ objectFit: 'cover' }}
           />
           <S.EventItemName>
             와이드뷰 HD
             <br />
             화이트 스마트 TV
-          </S.EventItemName>
-        </S.EventItemSection>
-        <S.EventItemSection>
-          <S.EventItemImage src={secondItem} alt="second Item" />
-          <S.EventItemName>
-            소니 노이즈캔슬링
-            <br />
-            무선 헤드폰
           </S.EventItemName>
         </S.EventItemSection>
         <S.EventItemSection>
