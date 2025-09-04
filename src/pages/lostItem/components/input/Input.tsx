@@ -159,11 +159,23 @@ const Input = ({
     return (
       <div style={{ position: 'relative', width: '100%' }}>
         <S.DateRow
-          onClick={() =>
-            dateInputRef.current &&
-            dateInputRef.current.showPicker &&
-            dateInputRef.current.showPicker()
-          }
+          onClick={() => {
+            const el = dateInputRef.current as
+              | (HTMLInputElement & { showPicker?: () => void })
+              | null;
+            if (!el) return;
+            if (typeof el.showPicker === 'function') {
+              el.showPicker();
+            } else {
+              // iOS / 일부 브라우저 폴백
+              try {
+                el.focus();
+                el.click();
+              } catch (err) {
+                // no-op
+              }
+            }
+          }}
         >
           {value ? (
             <S.DateText>{formatDateDisplay(value)}</S.DateText>
