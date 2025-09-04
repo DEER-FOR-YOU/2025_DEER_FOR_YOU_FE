@@ -36,7 +36,11 @@ const Lucky = () => {
 
       <S.BasicRow>
         <S.EventItemSection>
-          <S.EventItemImage src={firstItem} alt="first Item" />
+          <S.EventItemImage
+            src={firstItem}
+            alt="first Item"
+            style={{ objectFit: 'cover' }}
+          />
           <S.EventItemName>
             와이드뷰 HD
             <br />
