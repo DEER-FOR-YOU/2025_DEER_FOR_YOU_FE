@@ -96,7 +96,7 @@ export const DropdownItem = styled.div<{ selected?: boolean }>`
   padding: 1.7rem 1rem;
   ${(props) => fontPretender14(props.theme)}
   color: ${(props) => color.dark(props.theme)};
-  background: ${({ selected }) => (selected ? '##f1f3f5' : '#FFF')};
+  background: ${({ selected }) => (selected ? '#f1f3f5' : '#FFF')};
   font-weight: ${({ selected }) => (selected ? 700 : 400)};
 
   &:hover {
@@ -132,8 +132,15 @@ export const DateIcon = styled.img`
 
 export const HiddenInput = styled.input`
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   opacity: 0;
-  pointer-events: none;
-  width: 0;
-  height: 0;
+  pointer-events: auto; /* iOS에서 실제 입력에 터치가 가도록 허용 */
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
 `;
